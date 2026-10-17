@@ -1,0 +1,244 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--paper);
+  border-bottom: 1px solid #eaeaea;
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap; /* last resort: with very large text the actions drop to a second row instead of overflowing */
+  align-items: center;
+  gap: 0.25rem 1.5rem;
+  min-height: var(--header-h);
+  padding-block: 0.25rem;
+}
+
+/* ---- brand lockup: LONDRY | SPOTX (pixel sizes: the logo must not grow with the text size) ---- */
+.brand {
+  display: flex;
+  flex: none;
+  align-items: center;
+  padding-left: 1px;
+}
+
+.brand__londry {
+  width: 127px;
+  height: auto;
+  color: var(--red);
+}
+
+.brand__divider {
+  width: 1px;
+  height: 28px;
+  margin-inline: 19px;
+  background: #ddd;
+}
+
+.brand__spotx {
+  width: 79.5px;
+  height: auto;
+  color: var(--ink);
+}
+
+/* ---- inline navigation (desktop) ---- */
+.nav {
+  margin-inline: auto;
+}
+
+.nav ul {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.nav a {
+  display: block;
+  padding: 0.5rem 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  transition: color 0.2s;
+}
+
+@media (hover: hover) {
+  .nav a:hover {
+    color: var(--red-700);
+  }
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem; /* the comp: 12.8px between the language switch and the button */
+}
+
+/* ---- language switch ---- */
+.lang ul {
+  display: flex;
+  padding: 4px;
+  border-radius: 0.75rem;
+  background: var(--surface);
+}
+
+.lang__item {
+  display: grid;
+  min-width: 2.6875rem;
+  height: 2.375rem;
+  place-items: center;
+  padding-inline: 0.5rem;
+  border-radius: 0.625rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--muted-2);
+  transition: color 0.2s;
+}
+
+.site-header__cta {
+  min-height: 2.9375rem;
+}
+
+.lang__item[aria-current] {
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.14);
+}
+
+@media (hover: hover) {
+  .lang__item:hover {
+    color: var(--ink);
+  }
+}
+
+/* ---- mobile menu (a native <details>, works without JavaScript) ---- */
+.menu {
+  display: none;
+}
+
+.menu__button {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border-radius: var(--radius);
+  background: var(--surface);
+  list-style: none;
+  cursor: pointer;
+}
+
+.menu__button::-webkit-details-marker {
+  display: none;
+}
+
+.menu__icon {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+
+.menu__icon--close,
+.menu[open] .menu__icon--open {
+  display: none;
+}
+
+.menu[open] .menu__icon--close {
+  display: block;
+}
+
+.menu__panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  padding: 0.25rem max(var(--gutter), env(safe-area-inset-right, 0px)) 1.25rem
+    max(var(--gutter), env(safe-area-inset-left, 0px));
+  border-bottom: 1px solid #eaeaea;
+  background: var(--paper);
+  box-shadow: 0 18px 32px -18px rgb(0 0 0 / 0.25);
+}
+
+.menu__panel li a {
+  display: flex;
+  min-height: 3rem;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.menu__panel .btn {
+  margin-top: 1.25rem;
+}
+
+/*
+ * The full header needs about 1010 px in Russian (longest labels). Below 64em it collapses to logo + language + menu.
+ * Breakpoints are in em, so they also move when someone raises the text size in their browser.
+ */
+@media (max-width: 63.99em) {
+  :root {
+    --header-h: 3.75rem;
+  }
+
+  .site-header__inner {
+    gap: 0.25rem 0.75rem;
+  }
+
+  .nav,
+  .site-header__cta {
+    display: none;
+  }
+
+  .site-header__actions {
+    gap: 0.5rem;
+    margin-left: auto; /* nav is hidden here, so the actions sit at the right edge, also when they wrap */
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .brand__londry {
+    width: 111px;
+  }
+
+  .brand__divider {
+    height: 24px;
+    margin-inline: 12px;
+  }
+
+  .brand__spotx {
+    width: 70px;
+  }
+
+  .lang ul {
+    padding: 3px;
+    border-radius: 0.625rem;
+  }
+
+  .lang__item {
+    min-width: 2.75rem;
+    height: 2.75rem;
+    padding-inline: 0.25rem;
+    border-radius: 0.5rem;
+  }
+}
+
+/* very narrow phones: keep the LONDRY mark, the SPOTX name moves to the page content */
+@media (max-width: 26.25rem) {
+  .brand__divider,
+  .brand__spotx {
+    display: none;
+  }
+}
+
+/* 320-360 px phones: trim the compact header so logo, language switch and menu still sit on one row */
+@media (max-width: 22.5rem) {
+  .brand__londry {
+    width: 100px;
+  }
+
+  .lang__item {
+    min-width: 2.25rem;
+    padding-inline: 0;
+  }
+}

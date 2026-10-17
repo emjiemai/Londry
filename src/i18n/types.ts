@@ -1,0 +1,69 @@
+import type { Locale } from '../routes'
+
+export interface Branch {
+  name: string
+  address: string
+  /** Accessible label for the map image / link. */
+  mapAlt: string
+}
+
+/**
+ * Every piece of text on the site. All three languages must satisfy this type, so a missing or extra
+ * string is a compile error, never a half-translated page.
+ *
+ * `**double asterisks**` mark bold text (see components/Rich.tsx).
+ */
+export interface Dict {
+  /** Name of the language in that language (used by the language switch). */
+  languageName: string
+  meta: { title: string; description: string }
+  a11y: { skip: string; menu: string; language: string; home: string; mainNav: string }
+  nav: { services: string; partners: string; locations: string; contact: string }
+  /** `ctaShort` is the label in the header bar (little room); `cta` is used where there is room (mobile menu). */
+  header: { cta: string; ctaShort: string }
+  stores: { appStoreLead: string; googlePlayLead: string; soon: string }
+  hero: {
+    eyebrow: string
+    titleA: string
+    titleB: string
+    lead: string
+    checks: readonly [string, string, string]
+    screenshotAlt: string
+  }
+  strip: { callLabel: string; branchLabel: string; branchValue: string; followLabel: string }
+  services: {
+    eyebrow: string
+    title: string
+    londry: {
+      eyebrow: string
+      title: string
+      text: string
+      chips: readonly [string, string, string]
+      photoAlt: string
+    }
+    spotx: {
+      eyebrow: string
+      title: string
+      text: string
+      points: readonly [string, string, string]
+      photoAlt: string
+    }
+  }
+  partners: { eyebrow: string; title: string }
+  locations: { eyebrow: string; title: string; directions: string; branches: readonly [Branch, Branch] }
+  cta: { title: string; text: string }
+  footer: {
+    about: string
+    contact: string
+    addresses: string
+    instagram: string
+    terms: string
+    privacy: string
+    rights: string
+  }
+  legal: { back: string; updated: string; contactLine: string; draftNotice: string }
+  notFound: { title: string; text: string; home: string }
+  offline: { title: string; text: string; retry: string }
+}
+
+export type Dictionaries = Record<Locale, Dict>

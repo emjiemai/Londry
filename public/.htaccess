@@ -1,0 +1,41 @@
+# Apache configuration for shared hosting (cPanel and similar). Other hosts ignore this file; see docs/DEPLOY.md.
+# Needs the usual modules: mod_deflate, mod_expires, mod_headers (all normally enabled).
+
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+  AddType font/woff2 .woff2
+  AddType image/avif .avif
+</IfModule>
+
+# Compress text on the fly
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json application/manifest+json image/svg+xml application/xml text/plain
+</IfModule>
+
+# Caching: hashed files for a year, HTML always re-checked
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 day"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  <FilesMatch "^sw\.js$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <If "%{REQUEST_URI} =~ m#^/assets/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+</IfModule>

@@ -1,0 +1,114 @@
+.site-footer {
+  padding-block: 3.75rem 1.75rem;
+  background: var(--ink);
+  color: #ccc;
+  --focus: #fff;
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 404fr) minmax(0, 324fr) minmax(0, 376fr);
+  gap: 3rem;
+}
+
+.site-footer__logo {
+  display: block;
+  width: 136.75px;
+  height: auto;
+  margin-top: 0.3125rem;
+  color: #fff;
+}
+
+.site-footer__about p {
+  max-width: 17.5rem;
+  text-wrap: pretty;
+  margin-top: 0.890625rem;
+}
+
+.site-footer__label {
+  margin-top: 0.15625rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.site-footer__phone {
+  display: block;
+  margin-top: 1.0625rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.site-footer__link {
+  display: inline-block;
+  margin-top: 0.6875rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.site-footer__addresses {
+  display: grid;
+  gap: 0.4375rem;
+  margin-top: 0.96875rem;
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 1.375rem;
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+  font-size: 0.875rem;
+}
+
+.site-footer__bottom p {
+  color: #999;
+}
+
+.site-footer__bottom nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.site-footer__bottom nav a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+@media (hover: hover) {
+  .site-footer a:hover {
+    color: #fff;
+  }
+}
+
+@media (max-width: 56.2375em) {
+  .site-footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem 2rem;
+  }
+
+  .site-footer__about {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 35rem) {
+  .site-footer__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .site-footer__bottom {
+    margin-top: 2.5rem;
+  }
+}

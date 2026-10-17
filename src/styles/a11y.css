@@ -1,0 +1,54 @@
+/*
+ * Accessibility adjustments that must win over component styles, so this file is imported LAST (see index.css).
+ */
+
+/* Touch screens: text links get a taller tap area (the visual spacing on desktop stays as designed). */
+@media (pointer: coarse) {
+  .site-footer__bottom nav a,
+  .site-footer__link,
+  .site-footer__phone,
+  .legal__contact a {
+    display: inline-block;
+    padding-block: 0.6875rem;
+  }
+
+  /* already an inline flex row (chevron + text): only grow its tap area, keep its layout */
+  .legal__back {
+    padding-block: 0.6875rem;
+  }
+
+  .site-footer__phone {
+    display: block;
+  }
+}
+
+/*
+ * Windows High Contrast / forced colours: the system replaces our backgrounds, so shapes that only exist as a filled
+ * background (buttons, cards, the phone) get a real border, and the SPOTX name follows the system text colour.
+ */
+@media (forced-colors: active) {
+  .btn,
+  .store,
+  .contact-card,
+  .chips li,
+  .partner,
+  .lang ul,
+  .menu__button,
+  .service,
+  .branch,
+  .cta,
+  .points__number,
+  .phone,
+  .phone__screen {
+    border: 1px solid CanvasText;
+  }
+
+  .lang__item[aria-current] {
+    outline: 2px solid Highlight;
+  }
+
+  .brand__spotx,
+  .site-footer__logo {
+    color: CanvasText;
+  }
+}

@@ -1,0 +1,311 @@
+/* ================= Services ================= */
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: #fff;
+}
+
+.service__media {
+  position: relative;
+  aspect-ratio: 590 / 240;
+  background: var(--ph);
+}
+
+.service__media > * {
+  position: absolute;
+  inset: 0;
+}
+
+.service__body {
+  flex: 1;
+  padding: 1.875rem 2rem 2.0625rem;
+}
+
+.service__title {
+  margin-top: 1.4375rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.service__title--londry {
+  color: var(--red);
+}
+
+.service__text {
+  margin-top: 1.25rem;
+  color: var(--ink-3);
+  text-wrap: pretty;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.chips li {
+  display: inline-flex;
+  min-height: 2.375rem;
+  align-items: center;
+  padding: 0.125rem 0.9rem;
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* dark SPOTX card */
+.service--dark {
+  background: var(--ink);
+  color: #fff;
+}
+
+.service--dark .service__media,
+.service--dark .slot {
+  background: var(--ph-dark);
+}
+
+.service--dark .slot {
+  color: var(--ph-dark-ink);
+}
+
+.service--dark .eyebrow {
+  color: var(--red-300);
+}
+
+.service--dark .service__text {
+  color: #c6c6c6;
+}
+
+.points {
+  display: grid;
+  gap: 0.6875rem;
+  margin-top: 1.125rem;
+}
+
+.points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  text-wrap: pretty;
+}
+
+.points__number {
+  display: grid;
+  width: 1.75rem;
+  height: 1.75rem;
+  flex: none;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--red);
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #fff;
+}
+
+/* Safari 14 and older have no aspect-ratio: reserve the picture frames' height with a spacer instead. */
+@supports not (aspect-ratio: 1 / 1) {
+  .service__media::before,
+  .branch__map::before {
+    content: '';
+    display: block;
+    padding-top: 40.68%;
+  }
+}
+
+/* ================= Partners ================= */
+.partners {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.partner {
+  display: grid;
+  min-height: 6.3125rem;
+  place-items: center;
+  padding: 1.25rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--muted);
+}
+
+.partner img {
+  width: auto;
+  max-width: 100%;
+  max-height: 2.5rem;
+  object-fit: contain;
+}
+
+.partner a {
+  display: grid;
+  place-items: center;
+}
+
+/* ================= Locations ================= */
+.branches {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.branch {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: #fff;
+}
+
+.branch__map {
+  position: relative;
+  aspect-ratio: 590 / 240;
+  background: var(--ph);
+}
+
+.branch__map > * {
+  position: absolute;
+  inset: 0;
+}
+
+.branch__info {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.6rem 1.75rem;
+}
+
+@media (min-width: 37.5em) {
+  /* Titles line up between the two cards even when one address wraps; the buttons stay centred in the shared row height. */
+  .branch__text {
+    align-self: flex-start;
+  }
+}
+
+.branch__name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.branch__address {
+  margin-top: 0.34rem;
+  color: var(--muted-2);
+}
+
+.branch .btn {
+  flex: none;
+  min-height: 3.1875rem;
+  font-size: 1.0625rem;
+}
+
+/* ================= Download band ================= */
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 4rem;
+  border-radius: 2rem;
+  background: var(--red);
+  color: #fff;
+  --focus: #fff;
+}
+
+.cta__title {
+  font-size: clamp(min(1.75rem, 7.5vw), 1rem + 2.6vw, 2.875rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.cta__text {
+  margin-top: 0.5rem;
+  font-size: 1.1875rem;
+  font-weight: 500;
+  text-wrap: pretty;
+}
+
+.cta .stores {
+  flex: none;
+  flex-wrap: nowrap;
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 56.2375em) {
+  .services,
+  .branches {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .partners {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .cta .stores {
+    flex-wrap: wrap;
+    align-self: stretch;
+  }
+}
+
+@media (max-width: 37.5rem) {
+  .service__media,
+  .branch__map {
+    aspect-ratio: 2 / 1;
+  }
+
+  @supports not (aspect-ratio: 1 / 1) {
+    .service__media::before,
+    .branch__map::before {
+      padding-top: 50%;
+    }
+  }
+
+  .service__body {
+    padding: 1.5rem;
+  }
+
+  .branch__info {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem;
+  }
+
+  .cta {
+    padding: 1.75rem 1.5rem;
+  }
+}
+
+@media (max-width: 32.5rem) {
+  .partners {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

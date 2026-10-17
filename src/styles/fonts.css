@@ -1,0 +1,35 @@
+/*
+ * Montserrat, self-hosted (SIL OFL, see src/assets/fonts/OFL.txt). Built by scripts/make-fonts.py:
+ * weights 400-800 only, just the glyphs the site needs, split per script so Uzbek/English pages never download Cyrillic.
+ */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../assets/fonts/montserrat-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../assets/fonts/montserrat-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/*
+ * While Montserrat downloads, text is shown in Arial resized to Montserrat's footprint, so nothing jumps when the real
+ * font arrives (values from scripts: average glyph width and vertical metrics of both fonts).
+ */
+@font-face {
+  font-family: 'Montserrat Fallback';
+  src: local('Arial');
+  size-adjust: 114.15%;
+  ascent-override: 84.8%;
+  descent-override: 21.99%;
+  line-gap-override: 0%;
+}

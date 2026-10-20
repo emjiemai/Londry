@@ -13,7 +13,7 @@ until it arrives. Send files in any common format; I will resize and convert the
   notification icon and battery on the picture, nothing else was changed. A sharper original (at least 1170 × 2532 px) would be a bonus.
 - [ ] **Photo: laundry interior** (landscape, at least 1600 px wide, subject in the middle, no text on it). → slot `service-londry`
 - [ ] **Photo: SPOTX garment care** (same rules). → slot `service-spotx`
-- [ ] **Maps for the two branches.** Pick one:
+- [x] ~~**Maps for the two branches.**~~ Done from your Google screenshot: I found both positions and drew the two map pictures (see README, "The map pictures"). **Please check the two pins** (Talabalar is accurate to about 25 m): if one is off, send the Google Maps *Share* link of the exact place and I will move it. Details of the old request, kept for reference: Pick one:
   1. send the **coordinates** of both branches (right-click the pin in Google/Yandex Maps, copy the numbers), and I build
      the map picture and links; or
   2. send your own map pictures (landscape, at least 1600 px wide, pin in the middle).
@@ -31,12 +31,12 @@ until it arrives. Send files in any common format; I will resize and convert the
 
 ## 2. Strongly recommended (visitors will look for these)
 
-- [ ] **Opening hours** of each branch (24/7?). Not in the design, so I added nothing.
+- [x] ~~**Opening hours**~~: your Google listing says "Open 24 hours" for both, so the cards say so. Tell me if that is wrong.
 - [ ] **Prices**: what a wash and a dry cost, and how SPOTX is priced. Even "from X so'm" helps.
 - [ ] **How people pay** (in the app only? Payme, Click, Uzcard, cash?).
-- [ ] **Branch coordinates** (also used for search-engine and map listings; see map item above).
+- [x] ~~**Branch coordinates**~~: found (see map item above) and used for search-engine data too.
 - [ ] **Telegram / WhatsApp** links, if customers write to you there, and an e-mail address.
-- [ ] Is **+998 97 444 81 93** the number for both branches? If each has its own, send both.
+- [x] ~~Is **+998 97 444 81 93** the number for both branches?~~ Yes, your Google listing shows it for both.
 - [ ] **Official logo files**: Londry and SPOTX as vector (SVG, or AI / PDF). I redrew them from the PDF so they look
   right, but the originals are better. Also any brand guide (colours, fonts) if one exists.
 - [ ] **Share-preview image** (1200 × 630 px) for when the link is posted in Telegram / Instagram / WhatsApp. I made a simple
@@ -58,7 +58,8 @@ until it arrives. Send files in any common format; I will resize and convert the
 
 ## 4. Outside the website, but they decide whether people find you
 
-- [ ] **Google Business Profile**, **Yandex Business** (Yandex Maps) and **2GIS** listings for both branches, with the same
+- [ ] **Make your Google listings match the site.** They exist already (4.3 and 4.5 stars), but the Talabalar one is named "Laundry" and the Yunusabad one "LONDRY", and the Yunusabad address reads "Guards Colonel Khodjaev Street 1" while the app and this site say "Iftixor, 1a". Use one name (Londry), the same address text and the website londry.uz on both.
+- [ ] **Yandex Business** (Yandex Maps) and **2GIS** listings for both branches, and the Google ones, with the same
   name, address and phone number as the site. For a local laundry these usually bring more visitors than the site itself.
 - [ ] After launch: **Google Search Console** and **Yandex Webmaster** (I will give you the verification steps).
 - [ ] Set the **Instagram bio link** to `londry.uz` (or `londry.uz/ru/` for Russian posts).

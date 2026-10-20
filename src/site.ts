@@ -6,12 +6,18 @@
 
 export interface SiteBranch {
   id: 'talabalar' | 'yunusabad'
-  /** Opens the route in Google Maps. Replace with Yandex/2GIS links if you prefer. */
+  /** Opens the route in Google Maps, straight to the branch. Replace with Yandex/2GIS links if you prefer. */
   directionsUrl: string
   /** English street line, used for search-engine structured data. */
   street: string
-  /** Not known yet. When available, add { lat, lng } for better maps and search snippets. */
-  geo: { lat: number; lng: number } | null
+  /**
+   * The exact spot, read from the owner's Google listing and matched to OpenStreetMap (about 20 m accuracy for
+   * Talabalar, 10 m for Yunusabad). Used for directions, search snippets and the map pictures. Keep in step with
+   * scripts/maps/branches.json (a unit test checks it), then run `npm run maps` to redraw the pictures.
+   */
+  geo: { lat: number; lng: number }
+  /** Open around the clock (both branches, according to the owner's Google listing). Shows a line on the branch card. */
+  open24h: boolean
 }
 
 export interface SitePartner {
@@ -63,15 +69,17 @@ export const site: Site = {
   branches: [
     {
       id: 'talabalar',
-      directionsUrl: 'https://maps.google.com/?q=Talabalar+81/1+Tashkent',
+      directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=41.35161,69.21237',
       street: '81/1 Talabalar Street',
-      geo: null,
+      geo: { lat: 41.35161, lng: 69.21237 },
+      open24h: true,
     },
     {
       id: 'yunusabad',
-      directionsUrl: 'https://maps.google.com/?q=Iftixor+1a+Tashkent',
+      directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=41.34811,69.28522',
       street: '1a Iftixor Street, Yunusabad',
-      geo: null,
+      geo: { lat: 41.34811, lng: 69.28522 },
+      open24h: true,
     },
   ],
 

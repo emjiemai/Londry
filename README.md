@@ -23,8 +23,9 @@ Needs Node 20.19 or newer. Browser tests use the Google Chrome that is already i
 | I want to…                                      | Edit                                                                                   |
 | ----------------------------------------------- | -------------------------------------------------------------------------------------- |
 | Change any text, or fix a translation           | `src/i18n/en.ts`, `ru.ts`, `uz.ts` (TypeScript refuses to build if the three differ)   |
-| Phone, Instagram, **store links**, map links    | `src/site.ts` (the one file with business facts)                                       |
-| Add the app screenshot, laundry/SPOTX photos, maps | Drop a file named after the slot into `src/assets/images/`, rebuild. Names in `src/media.ts` |
+| Phone, Instagram, **store links**, branch positions and route links | `src/site.ts` (the one file with business facts) |
+| Add the laundry/SPOTX photos, or swap the app screenshot | Drop a file named after the slot into `src/assets/images/`, rebuild. Names in `src/media.ts` |
+| Move a map pin, change a map's zoom, or fix a street name on it | `scripts/maps/branches.json` and `src/site.ts`, then `npm run maps` (see below) |
 | Add partner logos                               | `src/assets/partners/partner-1.svg` … `partner-6.svg`, names in `src/site.ts`          |
 | Add Terms of Service / Privacy Policy text      | `src/content/legal/` (instructions at the top of `index.ts`)                           |
 | Colours, spacing, corner radii                  | `src/styles/tokens.css`                                                                |
@@ -33,13 +34,19 @@ Needs Node 20.19 or newer. Browser tests use the Google Chrome that is already i
 | Icons and favicon                               | `scripts/art/mark.svg`, then `npm run icons`                                           |
 | **Go live** (let Google/Yandex index the site)  | `.env.production` → `VITE_INDEXABLE=true`, then rebuild. See `docs/DEPLOY.md`          |
 
+## The map pictures
+
+The two branch maps are **pictures drawn from OpenStreetMap data** in the Londry style (quiet grey map, one red pin), not live Google or Yandex maps. That keeps the page fast on weak internet, sets no cookies and loads no third-party script. Tapping a map, or the red button, opens the route to the branch in Google Maps. The pin positions were read from your Google listing and matched to OpenStreetMap (Talabalar about 25 m, Yunusabad about 10 m); if one looks wrong, send the Google Maps *Share* link and I will move it.
+
+To redraw them (move a pin, change the zoom): edit `scripts/maps/branches.json` and the position in `src/site.ts`, then run `npm install --no-save maplibre-gl@5.24.0` once and `npm run maps` (needs internet and Google Chrome). The credit "© OpenStreetMap contributors" must stay on the page; it is shown under the maps and inside the pictures.
+
 Everything the site still needs from you is listed in **`docs/TO-PROVIDE.md`**. How to put it online: **`docs/DEPLOY.md`**.
 
 ## How it behaves in bad conditions
 
 | Condition | What the site does |
 | --- | --- |
-| **Slow or unstable mobile internet** | Every page is finished HTML: one 10 KB request shows the whole readable page. CSS is inlined (no blocking request). Fonts are subset (20 KB). The JavaScript (66 KB) loads only after the page is done, at low priority. Measured on simulated Slow 3G (400 kbps, 400 ms): headline visible in **1.1 s**, no layout shift. |
+| **Slow or unstable mobile internet** | Every page is finished HTML: one 11 KB request shows the whole readable page. CSS is inlined (no blocking request). Fonts are subset (20 KB). The JavaScript (67 KB) loads only after the page is done, at low priority. Measured on simulated Slow 3G (400 kbps, 400 ms): headline visible in **1.1 s**, no layout shift. |
 | **Data saver on / 2G** | Skips JavaScript and the service worker completely. The page is fully usable without them. |
 | **No connection** | A service worker keeps pages you have visited. Opening an unvisited page shows an offline page with the phone number and both addresses. |
 | **JavaScript off, blocked, or failing** | All content, links, the language switch and the mobile menu work with no script. |
@@ -52,7 +59,7 @@ Everything the site still needs from you is listed in **`docs/TO-PROVIDE.md`**. 
 | **Privacy and safety** | No cookies, no trackers, no third-party scripts, no external fonts. |
 | **Older browsers** | Built for browsers from about 2021 onward. Older ones still get readable pages. |
 
-Lighthouse (mobile profile) on the beta build: **Performance 100, Accessibility 100, Best Practices 100**. SEO shows 66
+Lighthouse (mobile profile) on the beta build: **Performance 100, Accessibility 100, Best Practices 100**. SEO shows 69
 only because the beta is deliberately hidden from search engines; it becomes 100 when you launch.
 
 ## Project layout
@@ -71,7 +78,8 @@ src/
 scripts/
   prerender.mjs      turns the build into finished pages, sitemap, service worker
   sw.template.js     the service worker
-  make-fonts.py, make-icons.mjs   one-off tools (their output is committed)
+  make-fonts.py, make-icons.mjs, make-maps.mjs   one-off tools (their output is committed)
+  maps/              style, drawing code and branch settings for the two map pictures
 public/              favicon, icons, manifest, share image, host config (_headers, .htaccess)
 e2e/                 browser tests (npm run e2e)
 docs/                TO-PROVIDE.md, DEPLOY.md
@@ -84,4 +92,5 @@ docs/                TO-PROVIDE.md, DEPLOY.md
 - **Store buttons use your real App Store and Google Play links** (`src/site.ts`). If a link is ever left empty, its button shows "Coming soon" instead of a dead link.
 - **Uzbek and Russian texts are my drafts.** Have a native speaker read them before launch.
 - The logo is **redrawn from the design** as vector. Replace it with the official file when you have it.
+- **The closing red band is now "Come by any time" with a route button for each branch** (the app buttons stay in the first screen), and each branch card says "Open 24 hours" (from your Google listing).
 - React renders every page at build time and again in the browser; the browser part loads last and only on normal connections.

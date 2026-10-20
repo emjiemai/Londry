@@ -11,6 +11,13 @@ const attr = (value: string) =>
 
 const absolute = (path: string) => `${site.url}${path}`
 
+const OPEN_24_HOURS = {
+  '@type': 'OpeningHoursSpecification',
+  dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+  opens: '00:00',
+  closes: '23:59',
+}
+
 /** schema.org data: the business, its two branches and how to reach them. Only facts that are known. */
 function structuredData(locale: Locale) {
   const t = dictionaries[locale]
@@ -37,9 +44,8 @@ function structuredData(locale: Locale) {
       addressCountry: 'UZ',
     },
     hasMap: branch.directionsUrl,
-    ...(branch.geo
-      ? { geo: { '@type': 'GeoCoordinates', latitude: branch.geo.lat, longitude: branch.geo.lng } }
-      : {}),
+    geo: { '@type': 'GeoCoordinates', latitude: branch.geo.lat, longitude: branch.geo.lng },
+    ...(branch.open24h ? { openingHoursSpecification: OPEN_24_HOURS } : {}),
   }))
   return { '@context': 'https://schema.org', '@graph': [organization, ...branches] }
 }

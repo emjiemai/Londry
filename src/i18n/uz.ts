@@ -62,6 +62,7 @@ export const uz: Dict = {
     eyebrow: 'Filiallar',
     title: 'Toshkentda ikkita filial',
     directions: 'Yoʻnalish olish',
+    open24h: '24 soat ochiq',
     branches: [
       { name: 'Talabalar', address: 'Talabalar koʻchasi, 81/1, Toshkent', mapAlt: 'Xarita: Talabalar, 81/1' },
       {
@@ -72,8 +73,8 @@ export const uz: Dict = {
     ],
   },
   cta: {
-    title: 'Kir yuvishni keyinga qoldirmang.',
-    text: 'Londry ilovasini yuklab oling va keyingi kir yuvishni telefoningizdan boshlang.',
+    title: 'Istalgan vaqtda keling.',
+    text: 'Ikkala filial ham 24 soat ochiq. Eng yaqinini tanlang va yoʻnalish oling.',
   },
   footer: {
     about: 'Toshkentdagi self-service kirxona va SPOTX akva tozalash.',

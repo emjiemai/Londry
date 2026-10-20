@@ -50,7 +50,7 @@ export interface Dict {
     }
   }
   partners: { eyebrow: string; title: string }
-  locations: { eyebrow: string; title: string; directions: string; branches: readonly [Branch, Branch] }
+  locations: { eyebrow: string; title: string; directions: string; open24h: string; branches: readonly [Branch, Branch] }
   cta: { title: string; text: string }
   footer: {
     about: string

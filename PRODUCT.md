@@ -38,7 +38,7 @@ The landing page exists to get visitors to download the app (primary action), fi
 
 - Static marketing site, no backend, no forms, no accounts. **(assumed)**
 - Must be fast and robust: low bandwidth, high latency, offline, low-end CPUs, small and large screens, old browsers, no-JS, data-saver.
-- Beta now; photos, app screenshots, partner logos, maps, store links, legal texts and the official logo files come later.
+- Beta now; photos, partner logos, legal texts and the official logo files come later. The app screenshot, the store links and the exact branch positions have arrived.
 - Undecided, do not invent: prices, opening hours, partner names, store URLs, branch coordinates, analytics provider.
 - Hosting target is unknown **(assumed)**: output must be plain static files that work on any host.
 

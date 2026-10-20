@@ -186,6 +186,11 @@
   inset: 0;
 }
 
+.branch__map-link,
+.branch__map-link .slot-picture {
+  display: block;
+}
+
 .branch__info {
   display: flex;
   flex: 1;
@@ -213,13 +218,42 @@
   color: var(--muted-2);
 }
 
+.branch__hours {
+  display: flex;
+  align-items: center;
+  gap: 0.4375rem;
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.branch__hours svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex: none;
+  color: var(--red);
+}
+
 .branch .btn {
   flex: none;
   min-height: 3.1875rem;
   font-size: 1.0625rem;
 }
 
-/* ================= Download band ================= */
+.map-credit {
+  margin-top: 1.25rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--muted-2);
+  text-align: right;
+}
+
+.map-credit a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+/* ================= Closing band (visit us) ================= */
 .cta {
   display: flex;
   align-items: center;
@@ -277,16 +311,18 @@
 }
 
 @media (max-width: 37.5rem) {
-  .service__media,
-  .branch__map {
+  .service__media {
     aspect-ratio: 2 / 1;
   }
 
   @supports not (aspect-ratio: 1 / 1) {
-    .service__media::before,
-    .branch__map::before {
+    .service__media::before {
       padding-top: 50%;
     }
+  }
+
+  .map-credit {
+    text-align: left;
   }
 
   .service__body {

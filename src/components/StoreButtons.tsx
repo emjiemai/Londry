@@ -6,7 +6,7 @@ import { IconAppStore, IconPlay } from './Icons'
  * App Store + Google Play buttons. A store whose link is still empty in src/site.ts shows "Coming soon"
  * and does not navigate, so nobody lands on a dead link during the beta.
  */
-export function StoreButtons() {
+export function StoreButtons({ id }: { id?: string }) {
   const { t } = useI18n()
 
   const stores = [
@@ -15,7 +15,7 @@ export function StoreButtons() {
   ]
 
   return (
-    <div className="stores">
+    <div className="stores" id={id}>
       {stores.map(({ key, name, lead, href, icon }) =>
         href ? (
           <a key={key} className="store" href={href} data-store={key}>

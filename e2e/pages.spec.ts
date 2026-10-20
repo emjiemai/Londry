@@ -114,14 +114,35 @@ test('unknown addresses answer 404 with the helpful page', async ({ request }) =
   expect(html).toContain('href="/ru/"')
 })
 
-test('store buttons open the real stores and the phone number dials', async ({ page }) => {
+test('store buttons open the real stores, the closing band opens the routes, the phone number dials', async ({ page }) => {
   await page.goto('/en/')
   await expect(page.locator('.store--soon')).toHaveCount(0)
   const appStore = page.locator('a.store[data-store="app-store"]')
   const googlePlay = page.locator('a.store[data-store="google-play"]')
-  await expect(appStore).toHaveCount(2) // one in the hero, one in the download band
-  await expect(googlePlay).toHaveCount(2)
-  await expect(appStore.first()).toHaveAttribute('href', /^https:\/\/apps\.apple\.com\/.+\/id6741739773$/)
-  await expect(googlePlay.first()).toHaveAttribute('href', /^https:\/\/play\.google\.com\/store\/apps\/details\?id=com\.innovationscript\.android\.londry/)
+  await expect(appStore).toHaveCount(1) // first screen only: the closing band is about the branches
+  await expect(googlePlay).toHaveCount(1)
+  await expect(appStore).toHaveAttribute('href', /^https:\/\/apps\.apple\.com\/.+\/id6741739773$/)
+  await expect(googlePlay).toHaveAttribute('href', /^https:\/\/play\.google\.com\/store\/apps\/details\?id=com\.innovationscript\.android\.londry/)
+
+  const routes = page.locator('#visit a.store[data-branch]')
+  await expect(routes).toHaveCount(2)
+  await expect(routes.nth(0)).toHaveAttribute('href', 'https://www.google.com/maps/dir/?api=1&destination=41.35161,69.21237')
+  await expect(routes.nth(1)).toHaveAttribute('href', 'https://www.google.com/maps/dir/?api=1&destination=41.34811,69.28522')
+
   await expect(page.getByRole('link', { name: /\+998 97 444 81 93/ }).first()).toHaveAttribute('href', 'tel:+998974448193')
+})
+
+test('each branch card shows a real map picture, that it is open 24 hours, and a route link', async ({ page }) => {
+  await page.goto('/en/')
+  await expect(page.locator('.branch')).toHaveCount(2)
+  await expect(page.locator('.branch__hours')).toHaveText(['Open 24 hours', 'Open 24 hours'])
+  await expect(page.locator('.branch__map .slot')).toHaveCount(0) // pictures, not the grey placeholders
+  const maps = page.locator('.branch__map img')
+  await expect(maps).toHaveCount(2)
+  for (let i = 0; i < 2; i++) {
+    await maps.nth(i).scrollIntoViewIfNeeded()
+    await expect.poll(() => maps.nth(i).evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true)
+  }
+  await expect(page.locator('.branch .btn')).toHaveCount(2)
+  await expect(page.locator('.map-credit a[href="https://www.openstreetmap.org/copyright"]')).toBeVisible()
 })

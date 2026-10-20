@@ -16,7 +16,8 @@
     "test": "vitest run",
     "e2e": "playwright test",
     "check": "npm run typecheck && npm run lint && npm test && npm run build && npm run e2e",
-    "icons": "node scripts/make-icons.mjs"
+    "icons": "node scripts/make-icons.mjs",
+    "maps": "node scripts/make-maps.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",

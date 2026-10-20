@@ -105,7 +105,7 @@ components:
     textColor: "{colors.slate}"
     rounded: "{rounded.lg}"
     height: "101px"
-  download-band:
+  closing-band:
     backgroundColor: "{colors.door-red}"
     textColor: "{colors.paper}"
     rounded: "{rounded.band}"
@@ -125,7 +125,7 @@ components:
 
 The logo's O is a washing-machine door: a red ring with a half-tinted window. The page is built around that one shape. It returns as the hero ring behind the phone, the colour of the logo, the red band that closes the page. Everything around it is quiet and flat: white and light-grey surfaces, ink-black "hardware" (store buttons, the phone, the SPOTX card, the footer), and plain, confident Montserrat. The mood is bright, direct and fast, like the promise on the page: clean clothes, without the wait.
 
-Red is spent in two ways only. Either big and brand-level (the ring, the accent half of the headline, the download band), or small and functional (buttons, number badges, a few tiny labels). Ink black is the second material. Nothing is decorated for its own sake; depth is almost entirely tonal, with one soft floating object, the phone.
+Red is spent in two ways only. Either big and brand-level (the ring, the accent half of the headline, the closing band), or small and functional (buttons, number badges, a few tiny labels). Ink black is the second material. Nothing is decorated for its own sake; depth is almost entirely tonal, with one soft floating object, the phone.
 
 Because the audience is reached mostly on phones and often on weak networks, the system is also built to be light: one font family, no images of text, vector logo and icons, CSS only for every surface and shape.
 
@@ -142,7 +142,7 @@ Because the audience is reached mostly on phones and often on weak networks, the
 A red-and-ink palette on white. Strategy: committed, one saturated red carries the brand moments, neutrals do everything else.
 
 ### Primary
-- **Door Red** (#e32a30): the ring, the headline accent, the download band, number badges, the logo mark. Nudged from the measured #e42a30 so white text on it reaches 4.5:1.
+- **Door Red** (#e32a30): the ring, the headline accent, the closing band, number badges, the logo mark. Nudged from the measured #e42a30 so white text on it reaches 4.5:1.
 - **Press Red** (#d4242c): every button that asks for a click (header "Get the app", "Get directions"). A shade deeper than Door Red for 5.1:1 under white text. Hover: #bd1f27.
 - **Ink Red** (#b9202a): small red text and thin icon strokes on light grounds (6.4:1 on white).
 - **Blush Red** (#f97f88): the only red used for text on the dark SPOTX card (7.6:1 on ink).
@@ -158,7 +158,7 @@ A red-and-ink palette on white. Strategy: committed, one saturated red carries t
 - **Proof Grey** (#e6e6e6, label #595959) and **Proof Ink** (#2a2a2a, label #a8a8a8): the placeholder surfaces for photos, maps and the dark-card photo until real files arrive.
 
 ### Named Rules
-**The Door Rule.** Red appears big (ring, band, headline accent) or small and functional (buttons, badges). It is never used for paragraphs or for large flat panels other than the download band.
+**The Door Rule.** Red appears big (ring, band, headline accent) or small and functional (buttons, badges). It is never used for paragraphs or for large flat panels other than the closing band.
 **The Contrast Floor Rule.** Red text on light uses Ink Red; white text on red uses Door Red or Press Red; red text on the dark card uses Blush Red. Never put Door Red text on white below 24 px.
 
 ## Typography
@@ -170,7 +170,7 @@ A red-and-ink palette on white. Strategy: committed, one saturated red carries t
 ### Hierarchy
 - **Display** (800, `clamp(2.25rem, 1.25rem + 3.6vw, 4rem)`, 1.077, -0.02em): the page headline only; second line in Door Red.
 - **Headline** (800, `clamp(1.75rem, 1.1rem + 2vw, 2.375rem)`, 1.15, -0.02em): section titles. Balanced wrapping.
-- **Title** (800, 1.75rem, 1.2, +0.02em, uppercase): service names (LONDRY, SPOTX). The download band title is the same voice at 46 px.
+- **Title** (800, 1.75rem, 1.2, +0.02em, uppercase): service names (LONDRY, SPOTX). The closing band title is the same voice at 46 px.
 - **Lead** (400, 1.0625-1.1875rem, 1.6): the sentence under the headline, max 31rem.
 - **Body** (400, 1.0625rem, 1.6): card text, addresses; keep measure under 65-75 characters.
 - **Label** (600-700, 0.8125-1.0625rem, 1.2): navigation, buttons, chips, list items, contact values.
@@ -207,14 +207,14 @@ Flat by default. Cards separate from their ground by tone alone (white card on H
 
 ## Shapes
 
-Corners scale with the container: 8 px small controls, 10 px buttons and icon tiles, 16 px contact cards and partner tiles, 24 px service and branch cards, 32 px the download band, pills for chips, circles for number badges (28 px) and the ring. The phone is 48 px outside and 38 px inside, expressed in percentages so it scales. The ring is 5.7% of its diameter thick; its right half is tinted. Photos and maps fill their card edge to edge under the card's rounded top corners, in a 590 : 240 frame on wide screens and 2 : 1 on phones.
+Corners scale with the container: 8 px small controls, 10 px buttons and icon tiles, 16 px contact cards and partner tiles, 24 px service and branch cards, 32 px the closing band, pills for chips, circles for number badges (28 px) and the ring. The phone is 48 px outside and 38 px inside, expressed in percentages so it scales. The ring is 5.7% of its diameter thick; its right half is tinted. Photos and maps fill their card edge to edge under the card's rounded top corners, in a 590 : 240 frame on wide screens and 2 : 1 on phones.
 
 ## Components
 
 ### Buttons
 - **Shape:** gently rounded (10 px), 47 px tall in the header and 51 px for "Get directions", centred bold text (15-17 px / 700).
 - **Primary:** Press Red on white text. Hover darkens to #bd1f27; pressed scales to 98%.
-- **Store buttons:** Ink background, 75 px tall, icon plus two lines (12 px lead, 19 px store name). While a store link is missing they show "Coming soon" and do not navigate.
+- **Store buttons:** Ink background, 75 px tall, icon plus two lines (12 px lead, 19 px store name). Used in the first screen for App Store and Google Play. The same black button is the branch button in the closing band (pin icon, "Get directions" lead, branch name). A store link left empty shows "Coming soon" and does not navigate.
 
 ### Chips
 - **Style:** Haze pill, 38 px tall, 14 px / 600 Ink text, 8 px gap between chips. On white cards.
@@ -222,9 +222,12 @@ Corners scale with the container: 8 px small controls, 10 px buttons and icon ti
 ### Cards / Containers
 - **Contact card:** Haze, 16 px radius, 48 px white icon tile (12 px radius) with an Ink Red outline icon, label 13 px Slate over a 17 px / 700 value.
 - **Service card:** 24 px radius, picture frame on top, 30-33 px padding; the LONDRY card is white, the SPOTX card is Ink with a Proof Ink picture frame and red numbered points.
-- **Branch card:** 24 px radius, map frame, info row with name, address and a Press Red "Get directions" button.
+- **Branch card:** 24 px radius, map picture on top (590 : 240, tappable), info row with name, address, a small "Open 24 hours" line with a clock icon and a Press Red "Get directions" button. The map credit sits under the two cards.
 - **Partner tile:** white, 1 px Hairline border, 16 px radius, 101 px tall, logo at most 40 px high, centred.
-- **Download band:** Door Red, 32 px radius, 64 px padding, title left, store buttons right.
+- **Closing band:** Door Red, 32 px radius, 64 px padding, a short title and sentence on the left, the two branch buttons on the right.
+
+### Map pictures
+Drawn from OpenStreetMap data with `npm run maps`, never a live embedded map (no third-party script, no cookies, identical on every device). The map is deliberately quiet: Haze ground, white roads with a pale casing, pale grey buildings, almost no colour, so the single Door Red pin (white outline, the door mark inside) with its soft red halo is the only loud thing. The street name is set by hand in Montserrat 700, uppercase, wide tracking, along the road. The OpenStreetMap credit is baked into a small chip in the corner and repeated as text under the cards.
 
 ### Navigation
 - **Header:** logo lockup (LONDRY, hairline divider, SPOTX), inline links in Graphite 15 px / 600, the UZ / RU / EN switch (Haze track, white active pill, 700), then the Press Red call to action. Links turn Ink Red on hover.
@@ -244,7 +247,7 @@ Wordmark drawn as vector (Montserrat ExtraBold outlines), the O replaced by the 
 - **Do** set headlines in Montserrat 800 with -0.02em tracking and balanced wrapping.
 - **Do** keep interactive targets at least 44 px where space allows (never below 24 px) and keep a visible focus ring (3 px, Ink; white on red and ink grounds).
 - **Do** keep high-contrast (forced colours) working: shapes made only of a filled background get a 1 px border in `a11y.css`, and the SPOTX name follows the system text colour.
-- **Do** show an honest placeholder (grey frame with a note) where a photo, map or logo has not been supplied, and let the real file replace it with no layout change.
+- **Do** show an honest placeholder (grey frame with a note) where a photo or logo has not been supplied, and let the real file replace it with no layout change.
 - **Do** keep the page usable without JavaScript, and animate only transform and opacity (the single door-swing in the hero).
 
 ### Don't:

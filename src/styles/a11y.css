@@ -7,7 +7,8 @@
   .site-footer__bottom nav a,
   .site-footer__link,
   .site-footer__phone,
-  .legal__contact a {
+  .legal__contact a,
+  .map-credit a {
     display: inline-block;
     padding-block: 0.6875rem;
   }

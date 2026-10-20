@@ -384,7 +384,7 @@
   ],
   "narrative": {
     "northStar": "The Washing-Machine Door",
-    "overview": "**Creative North Star: \"The Washing-Machine Door\"**\n\nThe logo's O is a washing-machine door: a red ring with a half-tinted window. The page is built around that one shape. It returns as the hero ring behind the phone, the colour of the logo, the red band that closes the page. Everything around it is quiet and flat: white and light-grey surfaces, ink-black \"hardware\" (store buttons, the phone, the SPOTX card, the footer), and plain, confident Montserrat. The mood is bright, direct and fast, like the promise on the page: clean clothes, without the wait.\n\nRed is spent in two ways only. Either big and brand-level (the ring, the accent half of the headline, the download band), or small and functional (buttons, number badges, a few tiny labels). Ink black is the second material. Nothing is decorated for its own sake; depth is almost entirely tonal, with one soft floating object, the phone.\n\nBecause the audience is reached mostly on phones and often on weak networks, the system is also built to be light: one font family, no images of text, vector logo and icons, CSS only for every surface and shape.",
+    "overview": "**Creative North Star: \"The Washing-Machine Door\"**\n\nThe logo's O is a washing-machine door: a red ring with a half-tinted window. The page is built around that one shape. It returns as the hero ring behind the phone, the colour of the logo, the red band that closes the page. Everything around it is quiet and flat: white and light-grey surfaces, ink-black \"hardware\" (store buttons, the phone, the SPOTX card, the footer), and plain, confident Montserrat. The mood is bright, direct and fast, like the promise on the page: clean clothes, without the wait.\n\nRed is spent in two ways only. Either big and brand-level (the ring, the accent half of the headline, the closing band), or small and functional (buttons, number badges, a few tiny labels). Ink black is the second material. Nothing is decorated for its own sake; depth is almost entirely tonal, with one soft floating object, the phone.\n\nBecause the audience is reached mostly on phones and often on weak networks, the system is also built to be light: one font family, no images of text, vector logo and icons, CSS only for every surface and shape.",
     "keyCharacteristics": [
       "One saturated red (`#e32a30`) at large scale; a deeper red for buttons and small red text.",
       "Ink black (`#111`) as the second surface material; white and haze (`#f5f5f5`) alternate as bands.",
@@ -396,7 +396,7 @@
     "rules": [
       {
         "name": "The Door Rule",
-        "body": "Red appears big (ring, band, headline accent) or small and functional (buttons, badges). It is never used for paragraphs or for large flat panels other than the download band.",
+        "body": "Red appears big (ring, band, headline accent) or small and functional (buttons, badges). It is never used for paragraphs or for large flat panels other than the closing band.",
         "section": "colors"
       },
       {

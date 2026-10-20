@@ -59,14 +59,15 @@ export const en: Dict = {
     eyebrow: 'Locations',
     title: 'Two branches in Tashkent',
     directions: 'Get directions',
+    open24h: 'Open 24 hours',
     branches: [
       { name: 'Talabalar', address: '81/1 Talabalar Street, Tashkent', mapAlt: 'Map: Talabalar 81/1' },
       { name: 'Yunusabad', address: '1a Iftixor Street, Yunusabad, Tashkent', mapAlt: 'Map: Iftixor 1a' },
     ],
   },
   cta: {
-    title: 'Don’t put your laundry off.',
-    text: 'Download Londry and start your next wash from your phone.',
+    title: 'Come by any time.',
+    text: 'Both branches are open 24 hours. Pick the closest one and get directions.',
   },
   footer: {
     about: 'Self-service laundry and SPOTX aqua cleaning in Tashkent.',

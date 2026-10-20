@@ -26,7 +26,7 @@ export function Hero() {
             <span>{t.hero.titleA}</span> <span className="hero__accent">{t.hero.titleB}</span>
           </h1>
           <p className="hero__lead">{t.hero.lead}</p>
-          <StoreButtons />
+          <StoreButtons id="download" />
           <ul className="checks">
             {t.hero.checks.map((text) => (
               <li key={text}>

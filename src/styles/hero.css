@@ -45,7 +45,7 @@
   margin-top: 1.71875rem;
 }
 
-/* ---- store buttons (hero and download band) ---- */
+/* ---- store buttons (hero) and branch buttons (closing band): the same black buttons ---- */
 .stores {
   display: flex;
   flex-wrap: wrap;

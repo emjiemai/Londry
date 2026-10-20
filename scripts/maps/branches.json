@@ -1,0 +1,18 @@
+{
+  "_note": "Where each branch is, and how its map picture is framed. Keep lat/lon in step with src/site.ts (a unit test checks this). Street labels: 'at' is the label centre in a 400 x 163 frame, 'angle' follows the road. Find good values with: node scripts/make-maps.mjs --suggest",
+  "zoom": 15.3,
+  "branches": [
+    {
+      "id": "talabalar",
+      "lat": 41.35161,
+      "lon": 69.21237,
+      "street": { "text": "Talabalar", "at": [149, 35], "angle": 54 }
+    },
+    {
+      "id": "yunusabad",
+      "lat": 41.34811,
+      "lon": 69.28522,
+      "street": { "text": "Iftixor", "at": [115, 135], "angle": -12 }
+    }
+  ]
+}

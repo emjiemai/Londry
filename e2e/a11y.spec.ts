@@ -38,5 +38,5 @@ test('keyboard users can reach every control, and a skip link comes first', asyn
   }
   // The hero's phone number and the branch buttons are reachable from the keyboard.
   expect([...reached].some((entry) => entry.includes('tel:+998974448193'))).toBe(true)
-  expect([...reached].some((entry) => entry.includes('maps.google.com'))).toBe(true)
+  expect([...reached].some((entry) => entry.includes('google.com/maps/dir'))).toBe(true)
 })

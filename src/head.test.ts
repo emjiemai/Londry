@@ -32,7 +32,20 @@ describe('buildHead', () => {
     const json = home.match(/<script type="application\/ld\+json">(.+)<\/script>/)?.[1]
     expect(json).toBeDefined()
     const graph = JSON.parse(json!)['@graph'] as Array<{ '@type': string }>
-    expect(graph.filter((node) => node['@type'] === 'DryCleaningOrLaundry')).toHaveLength(2)
+    const places = graph.filter((node) => node['@type'] === 'DryCleaningOrLaundry') as unknown as Array<{
+      geo: { latitude: number; longitude: number }
+      openingHoursSpecification: { opens: string; closes: string; dayOfWeek: string[] }
+    }>
+    expect(places).toHaveLength(2)
+    for (const place of places) {
+      // exact position (Tashkent) and "open 24 hours, every day" for search engines and maps
+      expect(place.geo.latitude).toBeGreaterThan(41.3)
+      expect(place.geo.latitude).toBeLessThan(41.4)
+      expect(place.geo.longitude).toBeGreaterThan(69.1)
+      expect(place.geo.longitude).toBeLessThan(69.4)
+      expect(place.openingHoursSpecification).toMatchObject({ opens: '00:00', closes: '23:59' })
+      expect(place.openingHoursSpecification.dayOfWeek).toHaveLength(7)
+    }
     expect(buildHead('en', 'terms')).not.toContain('application/ld+json')
   })
 

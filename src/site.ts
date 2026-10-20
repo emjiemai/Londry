@@ -54,7 +54,10 @@ export const site: Site = {
    *   appStore:   https://apps.apple.com/uz/app/...
    *   googlePlay: https://play.google.com/store/apps/details?id=...
    */
-  stores: { appStore: '', googlePlay: '' },
+  stores: {
+    appStore: 'https://apps.apple.com/us/app/londry-uzbekistan/id6741739773',
+    googlePlay: 'https://play.google.com/store/apps/details?id=com.innovationscript.android.londry&pcampaignid=web_share',
+  },
 
   /** Same order as `locations.branches` in the dictionaries. */
   branches: [

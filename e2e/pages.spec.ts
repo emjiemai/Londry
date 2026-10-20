@@ -114,9 +114,14 @@ test('unknown addresses answer 404 with the helpful page', async ({ request }) =
   expect(html).toContain('href="/ru/"')
 })
 
-test('placeholders say what is missing, store buttons do not pretend to work yet', async ({ page }) => {
+test('store buttons open the real stores and the phone number dials', async ({ page }) => {
   await page.goto('/en/')
-  await expect(page.locator('.store--soon')).toHaveCount(4) // two in the hero, two in the download band
-  await expect(page.locator('.store--soon').first()).toHaveAttribute('aria-disabled', 'true')
+  await expect(page.locator('.store--soon')).toHaveCount(0)
+  const appStore = page.locator('a.store[data-store="app-store"]')
+  const googlePlay = page.locator('a.store[data-store="google-play"]')
+  await expect(appStore).toHaveCount(2) // one in the hero, one in the download band
+  await expect(googlePlay).toHaveCount(2)
+  await expect(appStore.first()).toHaveAttribute('href', /^https:\/\/apps\.apple\.com\/.+\/id6741739773$/)
+  await expect(googlePlay.first()).toHaveAttribute('href', /^https:\/\/play\.google\.com\/store\/apps\/details\?id=com\.innovationscript\.android\.londry/)
   await expect(page.getByRole('link', { name: /\+998 97 444 81 93/ }).first()).toHaveAttribute('href', 'tel:+998974448193')
 })

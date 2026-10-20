@@ -8,11 +8,9 @@ until it arrives. Send files in any common format; I will resize and convert the
 
 ## 1. Blocks launch
 
-- [ ] **App Store link** and **Google Play link**. The exact addresses (`https://apps.apple.com/...`, `https://play.google.com/...`).
-  Until then both buttons say "Coming soon". → `src/site.ts`
-  **Is the app already published?** If it is, "Coming soon" is wrong and must not go live. Send the links before launch.
-- [ ] **App screenshot** for the phone in the first screen. A real screenshot of the app's home screen, portrait,
-  at least 1170 × 2532 px (any phone screenshot is fine). No phone frame needed, I draw it. → slot `hero-app`
+- [x] ~~**App Store link** and **Google Play link**~~: received and added (`src/site.ts`). The app is already published.
+- [x] ~~**App screenshot** for the phone in the first screen~~: received and added (slot `hero-app`). I hid the phone's clock,
+  notification icon and battery on the picture, nothing else was changed. A sharper original (at least 1170 × 2532 px) would be a bonus.
 - [ ] **Photo: laundry interior** (landscape, at least 1600 px wide, subject in the middle, no text on it). → slot `service-londry`
 - [ ] **Photo: SPOTX garment care** (same rules). → slot `service-spotx`
 - [ ] **Maps for the two branches.** Pick one:

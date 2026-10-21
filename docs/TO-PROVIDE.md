@@ -11,8 +11,8 @@ until it arrives. Send files in any common format; I will resize and convert the
 - [x] ~~**App Store link** and **Google Play link**~~: received and added (`src/site.ts`). The app is already published.
 - [x] ~~**App screenshot** for the phone in the first screen~~: received and added (slot `hero-app`). I hid the phone's clock,
   notification icon and battery on the picture, nothing else was changed. A sharper original (at least 1170 × 2532 px) would be a bonus.
-- [ ] **Photo: laundry interior** (landscape, at least 1600 px wide, subject in the middle, no text on it). Until it arrives the card has no picture. → slot `service-londry`
-- [ ] **Photo: SPOTX garment care** (same rules; the card has no picture until it arrives). → slot `service-spotx`
+- [x] ~~**Photos for the two service cards**~~: the six pictures from the carousel on your current site are in, three at the top of each card, side by side (no carousel).
+  Please confirm that they are yours to use. Sharper or newer photos are welcome (at least 1200 px wide); the sixth, the equipment drawing, is small (877 px) and a larger original would look better. → `src/assets/gallery/`, `src/site.ts`
 - [x] ~~**Maps for the two branches.**~~ Done from your Google screenshot: I found both positions and drew the two map pictures (see README, "The map pictures"). **Please check the two pins** (Talabalar is accurate to about 25 m): if one is off, send the Google Maps *Share* link of the exact place and I will move it. Details of the old request, kept for reference: Pick one:
   1. send the **coordinates** of both branches (right-click the pin in Google/Yandex Maps, copy the numbers), and I build
      the map picture and links; or
@@ -33,8 +33,7 @@ until it arrives. Send files in any common format; I will resize and convert the
 - [x] ~~**Videos**~~: the seven YouTube videos from your current londry.uz are in (four how-to videos and three customer reviews, same order). The covers come from YouTube;
   a YouTube player loads only when someone taps play. The titles under them are my translations of your YouTube titles: tell me if you want other words.
   When you add more videos on YouTube, send me the link. → `src/site.ts`, `videos`
-- [ ] **Your current website has things I can reuse. Tell me yes or no:** (a) its photos of the laundry and of SPOTX for the empty
-  photo frames, (b) its Terms of Service and Privacy Policy texts for the two legal pages (a lawyer should check them anyway).
+- [ ] **Terms of Service and Privacy Policy of your current website.** May I use their texts for the two legal pages? (A lawyer should check them anyway.)
 - [ ] **Uzbek text check.** The two service cards now repeat your current website word for word. In the Uzbek text a few places look
   like typing mistakes (for example "xollarda" for "hollarda", "Xattoki" for "Hatto", and the end of the third SPOTX point:
   "xizmat koʻrsatishni koʻrishingiz mumkin"). I did not change the words; please have a native speaker read them.

@@ -214,6 +214,30 @@ test('Partners shows the four project pictures, with a caption in the visitor\'s
   }
 })
 
+test("each service card opens with the owner's photos, three pictures side by side, described in the visitor's language", async ({ page }) => {
+  const cases = [
+    { url: '/en/', first: 'A hand loads laundry into a washing machine drum', drawing: /Professional equipment/ },
+    { url: '/ru/', first: 'Рука закладывает бельё в барабан стиральной машины', drawing: /Профессиональное оборудование/ },
+    { url: '/', first: 'Kir yuvish mashinasi barabaniga kir solayotgan qoʻl', drawing: /professional uskunalar/ },
+  ]
+  for (const { url, first, drawing } of cases) {
+    await page.goto(url)
+    const cards = page.locator('#services .service')
+    await expect(cards.nth(0).locator('.service__photo'), url).toHaveCount(3)
+    await expect(cards.nth(1).locator('.service__photo'), url).toHaveCount(3)
+    await expect(cards.nth(0).locator('.service__photo img').first(), url).toHaveAttribute('alt', first)
+    await expect(cards.nth(1).locator('.service__photo img').nth(2), url).toHaveAttribute('alt', drawing)
+    const pictures = page.locator('#services .service__photo img')
+    for (let i = 0; i < 6; i++) {
+      const picture = pictures.nth(i)
+      await picture.scrollIntoViewIfNeeded()
+      await expect.poll(() => picture.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0), { message: `${url} photo ${i}` }).toBe(true)
+    }
+  }
+  // not a carousel: nothing to click, swipe or wait for
+  await expect(page.locator('#services button, #services [aria-roledescription], #services [class*="swiper"], #services [class*="slick"]')).toHaveCount(0)
+})
+
 test('the Videos section shows the seven YouTube videos of londry.uz, and a YouTube player loads only after a tap', async ({ page }) => {
   await page.route(/(youtube|ytimg|googlevideo)/, (route) => route.abort()) // nothing real is fetched while testing
   const players: string[] = []

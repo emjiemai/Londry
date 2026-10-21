@@ -51,7 +51,8 @@ export interface Dict {
       title: string
       paragraphs: readonly [string, string, string]
       chips: readonly [string, string, string]
-      photoAlt: string
+      /** What each photo at the top of the card shows, in the order of `site.servicePhotos` (for screen readers and search engines). */
+      photoAlts: readonly string[]
     }
     spotx: {
       eyebrow: string
@@ -60,7 +61,7 @@ export interface Dict {
       /** The line that introduces the numbered points (in English: With SPOTX aqua cleaning, you get). */
       pointsLead: string
       points: readonly [string, string, string]
-      photoAlt: string
+      photoAlts: readonly string[]
     }
   }
   /** `captions` are shown under the tiles, in the same order as `site.partners`. The row has no heading (the owner asked for none). */

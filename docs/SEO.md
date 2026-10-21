@@ -23,7 +23,7 @@ What the pages stress: **open 24 hours**, **students and the dormitories** (the 
 | Description (the grey text under it) | The business, 24 hours, the app, SPOTX aqua cleaning | `meta.description` |
 | Main heading | The small label above the headline is now part of the heading, so it reads "Self-service laundry · Tashkent" plus the design's headline. It looks exactly as before | `hero.eyebrow`, `hero.titleA/B` |
 | Questions and answers | Four questions people ask: open 24 hours, how it works with the app, where the branches are (students, dormitories), what SPOTX aqua cleaning is | `faq` |
-| Picture descriptions | Screenshot, maps and photos are described with the words people use | `screenshotAlt`, `mapAlt`, `photoAlt` |
+| Picture descriptions | Screenshot, maps and photos are described with the words people use | `screenshotAlt`, `mapAlt`, `photoAlts` |
 | Service cards | The LONDRY and SPOTX texts are the ones your current website already has, so the words people find you by stay | `services` |
 | Footer line | "Self-service laundry and SPOTX aqua cleaning in Tashkent" | `footer.about` |
 | Structured data (invisible, for Google) | Both branches with exact position, address, phone and "open 24 hours, every day" | `src/head.ts` |

@@ -9,7 +9,7 @@ People type these into Google and Yandex, so the pages use exactly these words, 
 
 | Language | Phrases |
 | --- | --- |
-| Uzbek (`/`) | Toshkentda kir yuvish · self-service kirxona Toshkent · 24 soat ochiq kirxona · akva tozalash Toshkent |
+| Uzbek (`/`) | Toshkentda kir yuvish · self-service kir yuvish xonasi Toshkent · 24 soat ochiq kir yuvish xonasi · akva tozalash Toshkent |
 | Russian (`/ru/`) | прачечная самообслуживания Ташкент · круглосуточная прачечная Ташкент · аквачистка Ташкент · постирать вещи в Ташкенте |
 | English (`/en/`) | self-service laundry Tashkent · laundromat Tashkent · 24 hour laundry Tashkent · aqua cleaning Tashkent |
 

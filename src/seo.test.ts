@@ -8,7 +8,7 @@ import { LOCALES, type Locale } from './routes'
  * a question or an answer. See docs/SEO.md for where each phrase is used.
  */
 const KEYWORDS: Record<Locale, string[]> = {
-  uz: ['toshkentda kir yuvish', 'self-service kirxona toshkent', '24 soat ochiq kirxona', 'akva tozalash toshkent'],
+  uz: ['toshkentda kir yuvish', 'self-service kir yuvish xonasi toshkent', '24 soat ochiq kir yuvish xonasi', 'akva tozalash toshkent'],
   ru: ['прачечная самообслуживания ташкент', 'круглосуточная прачечная ташкент', 'аквачистка ташкент', 'постирать вещи ташкент'],
   en: ['self-service laundry tashkent', 'laundromat tashkent', '24 hour laundry tashkent', 'aqua cleaning tashkent'],
 }
@@ -62,12 +62,13 @@ describe('search keywords', () => {
   }
 
   it('the headline (label + title) names the kind of business and the city in every language', () => {
-    const wanted: Record<Locale, string[]> = { uz: ['kirxona', 'toshkent'], ru: ['прачечная', 'ташкент'], en: ['laundry', 'tashkent'] }
+    const wanted: Record<Locale, string[]> = { uz: ['kir yuvish xonasi', 'toshkent'], ru: ['прачечная', 'ташкент'], en: ['laundry', 'tashkent'] }
     for (const locale of LOCALES) {
       const t = dictionaries[locale]
-      const heading = words(`${t.hero.eyebrow} ${t.hero.titleA} ${t.hero.titleB}`)
+      // a phrase may be several words ("kir yuvish xonasi"); it must start at a word, but may be inflected at its end
+      const heading = ` ${words(`${t.hero.eyebrow} ${t.hero.titleA} ${t.hero.titleB}`).join(' ')}`
       for (const token of wanted[locale]) {
-        expect(heading.some((word) => word.startsWith(token)), `${locale}: headline lacks "${token}"`).toBe(true)
+        expect(heading.includes(` ${token}`), `${locale}: headline lacks "${token}"`).toBe(true)
       }
     }
   })

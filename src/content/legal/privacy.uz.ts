@@ -11,7 +11,7 @@ export default {
           list: [
             'Ushbu maxfiylik siyosati «LONDRY» MChJ (keyingi oʻrinlarda «LONDRY») elektron toʻlov tizimida hamda LONDRY mijozlari (keyingi oʻrinlarda «Siz va Sizning») uchun shaxsiy ma’lumotlarni yigʻish, saqlash va qayta ishlashning asosiy tamoyil va tartiblarini tartibga soladi.',
             'Sizning shaxsiy ma’lumotlaringizni yigʻish, qayta ishlash va saqlash ushbu maxfiylik siyosati, 2019 yil 2 iyuldagi Oʻzbekiston Respublikasi «Shaxsiy ma’lumotlar toʻgʻrisida»gi Qonuni (ZRU-547-son) va shaxsiy ma’lumotlarni qayta ishlash hamda himoya qilish sohasidagi boshqa me’yoriy hujjatlar asosida amalga oshiriladi.',
-            'Siz LONDRY elektron toʻlov tizimida, www.londry.uz veb-saytida, LONDRY mobil ilovasida yoki LONDRY oʻz-oʻziga xizmat koʻrsatish kirxonalari terminallarida shaxsiy ma’lumotlaringizni taqdim etish orqali, ushbu maxfiylik siyosati va amaldagi qonunchilikda belgilangan maqsadlar, chora-tadbirlar va protseduralar asosida LONDRY tomonidan ularni qayta ishlashga rozilik bildirasiz.',
+            'Siz LONDRY elektron toʻlov tizimida, www.londry.uz veb-saytida, LONDRY mobil ilovasida yoki LONDRY oʻz-oʻziga xizmat koʻrsatish kir yuvish xonalari terminallarida shaxsiy ma’lumotlaringizni taqdim etish orqali, ushbu maxfiylik siyosati va amaldagi qonunchilikda belgilangan maqsadlar, chora-tadbirlar va protseduralar asosida LONDRY tomonidan ularni qayta ishlashga rozilik bildirasiz.',
             'LONDRY shaxsiy ma’lumotlarni qayta ishlashda quyidagi asosiy tamoyillarga amal qiladi:',
           ],
         },

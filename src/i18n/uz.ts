@@ -7,9 +7,9 @@ import type { Dict } from './types'
 export const uz: Dict = {
   languageName: 'Oʻzbekcha',
   meta: {
-    title: 'Toshkentda self-service kirxona, 24 soat ochiq | Londry',
+    title: 'Toshkentda self-service kir yuvish xonasi 24 soat ochiq | Londry',
     description:
-      'Londry — Toshkentdagi 24 soat ochiq self-service kirxona: ilova orqali katta hajmdagi kirni tez yuving va quriting. Nozik buyumlar uchun SPOTX akva tozalash.',
+      'Londry — Toshkentdagi 24 soat ochiq self-service kir yuvish xonasi: ilova orqali katta kirni tez yuving va quriting. Nozik buyumlar uchun SPOTX akva tozalash.',
   },
   a11y: {
     skip: 'Asosiy mazmunga oʻtish',
@@ -22,7 +22,7 @@ export const uz: Dict = {
   header: { cta: 'Ilovani yuklab olish', ctaShort: 'Yuklab olish' },
   stores: { appStoreLead: 'Yuklab olish', googlePlayLead: 'Yuklab olish', soon: 'Tez orada' },
   hero: {
-    eyebrow: 'Self-service kirxona · Toshkent',
+    eyebrow: 'Self-service kir yuvish xonasi · Toshkent',
     titleA: 'Toza kiyim,',
     titleB: 'kutmasdan.',
     lead: 'Katta hajmdagi kirlarni energiya tejamkor mashinalarimizda tez yuving va quriting — yoki nozik buyumlaringizni SPOTX akva tozalashga topshiring. Hammasi Londry ilovasida boshlanadi.',
@@ -44,7 +44,7 @@ export const uz: Dict = {
     eyebrow: 'Xizmatlarimiz',
     title: 'Kiyimingizga nima kerakligini tanlang',
     londry: {
-      eyebrow: 'Self-service kirxona',
+      eyebrow: 'Self-service kir yuvish xonasi',
       title: 'Londry',
       paragraphs: [
         'Qanday qilib kir yuvishni yanada osonlashtirishni bilmoqchimisiz? Biz sizga LONDRY da eng ilgʻor texnologiyalar asosida yuqori sifatli kir yuvish xizmatlarini taklif etib, hayotingizni yanada qulay qilishga intilamiz.',
@@ -52,7 +52,7 @@ export const uz: Dict = {
         'Kir yuvishni kechiktirmang, LONDRYga tashrif buyuring!',
       ],
       chips: ['Energiya tejamkor', 'Katta yuklar', 'Tez quritish'],
-      photoAlt: 'Londry self-service kirxonasining ichki koʻrinishi',
+      photoAlt: 'Londry self-service kir yuvish xonasining ichki koʻrinishi',
     },
     spotx: {
       eyebrow: 'Akva tozalash',
@@ -68,7 +68,7 @@ export const uz: Dict = {
     },
   },
   partners: {
-    captions: ['Self-service kirxona', 'Akva tozalash', 'Yuvish vositalari', 'Trening'],
+    captions: ['Self-service kir yuvish xonasi', 'Akva tozalash', 'Yuvish vositalari', 'Trening'],
   },
   videos: {
     label: 'Videolar',
@@ -81,11 +81,11 @@ export const uz: Dict = {
     directions: 'Yoʻnalish olish',
     open24h: '24 soat ochiq',
     branches: [
-      { name: 'Talabalar', address: 'Talabalar koʻchasi, 81/1, Toshkent', mapAlt: 'Xarita: Londry self-service kirxonasi, Talabalar koʻchasi, Toshkent' },
+      { name: 'Talabalar', address: 'Talabalar koʻchasi, 81/1, Toshkent', mapAlt: 'Xarita: Londry self-service kir yuvish xonasi, Talabalar koʻchasi, Toshkent' },
       {
         name: 'Yunusobod',
         address: 'Iftixor koʻchasi, 1a, Yunusobod tumani, Toshkent',
-        mapAlt: 'Xarita: Londry self-service kirxonasi, Iftixor koʻchasi, Yunusobod, Toshkent',
+        mapAlt: 'Xarita: Londry self-service kir yuvish xonasi, Iftixor koʻchasi, Yunusobod, Toshkent',
       },
     ],
   },
@@ -95,15 +95,15 @@ export const uz: Dict = {
     items: [
       {
         question: 'Londry 24 soat ochiqmi?',
-        answer: 'Ha. Londry — Toshkentdagi 24 soat ochiq kirxona: Talabalar va Yunusobod filiallari kecha-yu kunduz ochiq, shuning uchun kirni sizga qulay istalgan vaqtda yuvib, quritishingiz mumkin.',
+        answer: 'Ha. Londry — Toshkentdagi 24 soat ochiq kir yuvish xonasi: Talabalar va Yunusobod filiallari kecha-yu kunduz ochiq, shuning uchun kirni sizga qulay istalgan vaqtda yuvib, quritishingiz mumkin.',
       },
       {
-        question: 'Self-service kirxona qanday ishlaydi?',
+        question: 'Self-service kir yuvish xonasi qanday ishlaydi?',
         answer: 'Hammasi Londry ilovasida boshlanadi. Kir yuvish mashinasini va dasturni tanlang, xizmat uchun ilovada toʻlang. Quritish ham shunday: quritgich va dasturni tanlang. Kir yuvish mashinasini oldindan band qilish ham mumkin — band qilish 10 daqiqa davomida amal qiladi.',
       },
       {
-        question: 'Londry kirxonalari Toshkentda qayerda?',
-        answer: 'Talabalar filiali — Talabalar koʻchasi, 81/1, talabalar mahallasida, yotoqxonalar yaqinida. Yunusobod filiali — Iftixor koʻchasi, 1a. Ikkala self-service kirxona Toshkentda 24 soat ochiq.',
+        question: 'Londry kir yuvish xonalari Toshkentda qayerda?',
+        answer: 'Talabalar filiali — Talabalar koʻchasi, 81/1, talabalar mahallasida, yotoqxonalar yaqinida. Yunusobod filiali — Iftixor koʻchasi, 1a. Ikkala self-service kir yuvish xonasi Toshkentda 24 soat ochiq.',
       },
       {
         question: 'SPOTX akva tozalash nima?',
@@ -116,7 +116,7 @@ export const uz: Dict = {
     text: 'Ikkala filial ham 24 soat ochiq. Eng yaqinini tanlang va yoʻnalish oling.',
   },
   footer: {
-    about: 'Toshkentdagi self-service kirxona va SPOTX akva tozalash.',
+    about: 'Toshkentdagi self-service kir yuvish xonasi va SPOTX akva tozalash.',
     contact: 'Aloqa',
     addresses: 'Manzillar',
     instagram: 'Instagram',

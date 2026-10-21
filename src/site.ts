@@ -161,7 +161,7 @@ export const site: Site = {
       id: 'londry-instruction',
       url: 'https://www.youtube.com/watch?v=T6aH7jnUZFg',
       title: {
-        uz: 'LONDRY self-service kirxonasi uchun yoʻriqnoma',
+        uz: 'LONDRY self-service kir yuvish xonasi uchun yoʻriqnoma',
         ru: 'Инструкция по прачечной самообслуживания LONDRY',
         en: 'Instructions for the LONDRY self-service laundry',
       },

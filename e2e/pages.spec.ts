@@ -188,7 +188,7 @@ test('customer review cards show the real Google ratings and quotes, but not how
 
 test('the main heading names what the page is and where, and the FAQ answers what people search for', async ({ page }) => {
   const cases = [
-    { url: '/', kind: 'self-service kirxona', city: 'toshkent', first: 'Londry 24 soat ochiqmi?' },
+    { url: '/', kind: 'self-service kir yuvish xonasi', city: 'toshkent', first: 'Londry 24 soat ochiqmi?' },
     { url: '/ru/', kind: 'прачечная самообслуживания', city: 'ташкент', first: 'Londry работает круглосуточно?' },
     { url: '/en/', kind: 'self-service laundry', city: 'tashkent', first: 'Is Londry open 24 hours?' },
   ]
@@ -230,7 +230,7 @@ test('Partners shows the four project pictures, with a caption in the visitor\'s
   const captions: Record<string, string[]> = {
     '/en/': ['Self-service laundry', 'Aqua cleaning', 'Detergents', 'Training'],
     '/ru/': ['Прачечная самообслуживания', 'Аквачистка', 'Моющие средства', 'Обучение'],
-    '/': ['Self-service kirxona', 'Akva tozalash', 'Yuvish vositalari', 'Trening'],
+    '/': ['Self-service kir yuvish xonasi', 'Akva tozalash', 'Yuvish vositalari', 'Trening'],
   }
   for (const [url, expected] of Object.entries(captions)) {
     await page.goto(url)

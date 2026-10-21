@@ -50,6 +50,7 @@ The approved comp is binding: Montserrat; red (measured `#E42A30`, shipped as `#
 
 - `Londry Landing.pdf`: three-page desktop comp (1440 px frame at 2x).
 - Real facts: phone, two addresses, Instagram handle, map links embedded in the PDF. From the owner's Google listings (2026-10-17): ratings (Talabalar 4.5 from 32 reviews, Yunusabad 4.3 from 40), two public review quotes, "open 24 hours", the store links and the exact branch positions.
+- Search words chosen by the owner (2026-10-20): Uzbek (Toshkentda kir yuvish, self-service kirxona Toshkent, 24 soat ochiq kirxona, akva tozalash Toshkent), Russian (прачечная самообслуживания Ташкент, круглосуточная прачечная Ташкент, аквачистка Ташкент, постирать вещи в Ташкенте), English (self-service laundry Tashkent, laundromat Tashkent, 24 hour laundry Tashkent, aqua cleaning Tashkent). Emphasis: open 24 hours, students and dormitories, the Londry app. See docs/SEO.md.
 - Absent, never fabricate: photos, partner names/logos, other testimonials or reviews, prices, legal text.
 
 ## Product Principles

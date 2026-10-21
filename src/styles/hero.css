@@ -10,15 +10,23 @@
 }
 
 .hero__title {
-  margin-top: 1.515625rem;
   font-size: clamp(min(2.25rem, 9.5vw), 0.75rem + 4.2vw, 4rem);
   font-weight: 800;
   line-height: 1.077;
   letter-spacing: -0.02em;
 }
 
-.hero__title span {
+.hero__title .hero__line {
   display: block;
+}
+
+/* The small label sits inside the <h1> (for search engines) but looks exactly as it did as a paragraph above it. */
+.hero__kicker {
+  display: block;
+  margin-bottom: 1.515625rem;
+  line-height: 1.6;
+  text-wrap: wrap;
+  hyphens: manual;
 }
 
 /* 900-1100 px: the text column is narrow; keep each headline line on one row (iPad landscape included). */

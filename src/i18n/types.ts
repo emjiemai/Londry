@@ -1,5 +1,11 @@
 import type { Locale } from '../routes'
 
+/** One frequently asked question and its answer (plain text). */
+export interface FaqItem {
+  question: string
+  answer: string
+}
+
 export interface Branch {
   name: string
   address: string
@@ -57,6 +63,8 @@ export interface Dict {
   }
   partners: { eyebrow: string; title: string }
   locations: { eyebrow: string; title: string; directions: string; open24h: string; branches: readonly [Branch, Branch] }
+  /** The questions people type into search engines, answered with facts only: open 24 hours, the app, the branches, SPOTX. */
+  faq: { eyebrow: string; title: string; items: readonly [FaqItem, FaqItem, FaqItem, FaqItem] }
   cta: { title: string; text: string }
   footer: {
     about: string

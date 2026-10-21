@@ -4,9 +4,9 @@ import type { Dict } from './types'
 export const en: Dict = {
   languageName: 'English',
   meta: {
-    title: 'Londry — Self-service laundry in Tashkent | SPOTX aqua cleaning',
+    title: 'Self-service laundry in Tashkent, open 24 hours | Londry',
     description:
-      'Wash and dry big loads fast in energy-efficient machines, or leave delicate items to SPOTX aqua cleaning. Two branches in Tashkent. Everything starts in the Londry app.',
+      'Londry is a 24 hour self-service laundromat in Tashkent: wash and dry big loads fast with the app. SPOTX aqua cleaning for delicate clothes. Two branches.',
   },
   a11y: {
     skip: 'Skip to content',
@@ -24,7 +24,7 @@ export const en: Dict = {
     titleB: 'without the wait.',
     lead: 'Wash and dry big loads fast in our energy-efficient machines — or leave your delicate items to SPOTX aqua cleaning. Everything starts in the Londry app.',
     checks: ['2 branches in Tashkent', 'Large loads, fast drying', 'Uzbek · Russian · English'],
-    screenshotAlt: 'The Londry app home screen',
+    screenshotAlt: 'The Londry app home screen: wash, dry, or reserve a washing machine',
   },
   reviews: {
     label: 'Customer reviews on Google',
@@ -50,7 +50,7 @@ export const en: Dict = {
       title: 'Londry',
       text: 'A modern self-service laundry that makes washing easier and more convenient. Energy-efficient washers and dryers take large loads, treat your items gently and dry them fast.',
       chips: ['Energy-efficient', 'Large loads', 'Fast drying'],
-      photoAlt: 'Inside the Londry laundry',
+      photoAlt: 'Inside the Londry self-service laundry',
     },
     spotx: {
       eyebrow: 'Aqua cleaning',
@@ -61,7 +61,7 @@ export const en: Dict = {
         '**Professional chemicals** safe for the most delicate fabrics',
         '**Individual approach** with special conditions on request',
       ],
-      photoAlt: 'Garment care at SPOTX',
+      photoAlt: 'Aqua cleaning of delicate clothes at SPOTX',
     },
   },
   partners: { eyebrow: 'Partners', title: 'Working together with' },
@@ -71,8 +71,30 @@ export const en: Dict = {
     directions: 'Get directions',
     open24h: 'Open 24 hours',
     branches: [
-      { name: 'Talabalar', address: '81/1 Talabalar Street, Tashkent', mapAlt: 'Map: Talabalar 81/1' },
-      { name: 'Yunusabad', address: '1a Iftixor Street, Yunusabad, Tashkent', mapAlt: 'Map: Iftixor 1a' },
+      { name: 'Talabalar', address: '81/1 Talabalar Street, Tashkent', mapAlt: 'Map of the Londry self-service laundry on Talabalar Street, Tashkent' },
+      { name: 'Yunusabad', address: '1a Iftixor Street, Yunusabad, Tashkent', mapAlt: 'Map of the Londry self-service laundry on Iftixor Street, Yunusabad, Tashkent' },
+    ],
+  },
+  faq: {
+    eyebrow: 'Good to know',
+    title: 'Self-service laundry in Tashkent: your questions',
+    items: [
+      {
+        question: 'Is Londry open 24 hours?',
+        answer: 'Yes. Londry is a 24 hour laundry in Tashkent: both branches, Talabalar and Yunusabad, are open day and night, so you can wash and dry whenever it suits you.',
+      },
+      {
+        question: 'How does a self-service laundry work?',
+        answer: 'Everything starts in the Londry app. Choose a washing machine and a program, then pay for the service in the app. Drying works the same way: choose a dryer and a program. You can also reserve a washing machine; the reservation is valid for 10 minutes.',
+      },
+      {
+        question: 'Where are the Londry laundromats in Tashkent?',
+        answer: 'The Talabalar branch is at 81/1 Talabalar Street, in the student area close to the dormitories. The Yunusabad branch is at 1a Iftixor Street. Both are open 24 hours.',
+      },
+      {
+        question: 'What is SPOTX aqua cleaning?',
+        answer: 'SPOTX is Londry’s aqua cleaning in Tashkent for delicate fabrics and premium textiles, when dry cleaning is not suitable. A specialist first checks each item, then chooses the program and products that are safe for it.',
+      },
     ],
   },
   cta: {

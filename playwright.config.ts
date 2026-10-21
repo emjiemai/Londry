@@ -10,6 +10,7 @@ export default defineConfig({
   testDir: './e2e',
   timeout: 45_000,
   fullyParallel: true,
+  workers: 4, // a few Chrome windows at a time keep the scans steady on a busy machine
   reporter: [['list']],
   use: {
     baseURL: `http://localhost:${PORT}`,

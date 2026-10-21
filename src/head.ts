@@ -27,6 +27,8 @@ function structuredData(locale: Locale) {
     name: site.name,
     url: `${site.url}/`,
     logo: absolute('/icons/icon-512.png'),
+    description: t.meta.description,
+    areaServed: { '@type': 'City', name: 'Tashkent' },
     telephone: `+${site.phone.tel.replace(/^\+/, '')}`,
     sameAs: [site.instagram.url],
   }

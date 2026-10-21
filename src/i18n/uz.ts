@@ -7,9 +7,9 @@ import type { Dict } from './types'
 export const uz: Dict = {
   languageName: 'Oʻzbekcha',
   meta: {
-    title: 'Londry — Toshkentdagi self-service kirxona | SPOTX akva tozalash',
+    title: 'Toshkentda self-service kirxona, 24 soat ochiq | Londry',
     description:
-      'Kirni energiya tejamkor mashinalarda tez yuving va quriting yoki nozik buyumlarni SPOTX akva tozalashga topshiring. Toshkentda ikkita filial. Hammasi Londry ilovasida boshlanadi.',
+      'Londry — Toshkentdagi 24 soat ochiq self-service kirxona: ilova orqali katta hajmdagi kirni tez yuving va quriting. Nozik buyumlar uchun SPOTX akva tozalash.',
   },
   a11y: {
     skip: 'Asosiy mazmunga oʻtish',
@@ -27,7 +27,7 @@ export const uz: Dict = {
     titleB: 'kutmasdan.',
     lead: 'Katta hajmdagi kirlarni energiya tejamkor mashinalarimizda tez yuving va quriting — yoki nozik buyumlaringizni SPOTX akva tozalashga topshiring. Hammasi Londry ilovasida boshlanadi.',
     checks: ['Toshkentda 2 ta filial', 'Katta yuklar, tez quritish', 'Oʻzbek · Rus · Ingliz'],
-    screenshotAlt: 'Londry ilovasining bosh ekrani',
+    screenshotAlt: 'Londry ilovasining bosh ekrani: kir yuvish, quritish yoki mashinani band qilish',
   },
   reviews: {
     label: 'Mijozlarning Google’dagi sharhlari',
@@ -53,7 +53,7 @@ export const uz: Dict = {
       title: 'Londry',
       text: 'Kir yuvishni oson va qulay qiladigan zamonaviy self-service kirxona. Energiya tejamkor kir yuvish va quritish mashinalari katta yuklarni sigʻdiradi, buyumlaringizni ehtiyotkorlik bilan yuvadi va tez quritadi.',
       chips: ['Energiya tejamkor', 'Katta yuklar', 'Tez quritish'],
-      photoAlt: 'Londry kirxonasining ichki koʻrinishi',
+      photoAlt: 'Londry self-service kirxonasining ichki koʻrinishi',
     },
     spotx: {
       eyebrow: 'Akva tozalash',
@@ -64,7 +64,7 @@ export const uz: Dict = {
         '**Professional vositalar** — eng nozik matolar uchun ham xavfsiz',
         '**Individual yondashuv** va soʻrov boʻyicha maxsus shartlar',
       ],
-      photoAlt: 'SPOTX da kiyim parvarishi',
+      photoAlt: 'SPOTXda nozik kiyimlarni akva tozalash',
     },
   },
   partners: { eyebrow: 'Hamkorlar', title: 'Biz hamkorlik qilamiz' },
@@ -74,11 +74,33 @@ export const uz: Dict = {
     directions: 'Yoʻnalish olish',
     open24h: '24 soat ochiq',
     branches: [
-      { name: 'Talabalar', address: 'Talabalar koʻchasi, 81/1, Toshkent', mapAlt: 'Xarita: Talabalar, 81/1' },
+      { name: 'Talabalar', address: 'Talabalar koʻchasi, 81/1, Toshkent', mapAlt: 'Xarita: Londry self-service kirxonasi, Talabalar koʻchasi, Toshkent' },
       {
         name: 'Yunusobod',
         address: 'Iftixor koʻchasi, 1a, Yunusobod tumani, Toshkent',
-        mapAlt: 'Xarita: Iftixor, 1a',
+        mapAlt: 'Xarita: Londry self-service kirxonasi, Iftixor koʻchasi, Yunusobod, Toshkent',
+      },
+    ],
+  },
+  faq: {
+    eyebrow: 'Bilish foydali',
+    title: 'Toshkentda kir yuvish: koʻp beriladigan savollar',
+    items: [
+      {
+        question: 'Londry 24 soat ochiqmi?',
+        answer: 'Ha. Londry — Toshkentdagi 24 soat ochiq kirxona: Talabalar va Yunusobod filiallari kecha-yu kunduz ochiq, shuning uchun kirni sizga qulay istalgan vaqtda yuvib, quritishingiz mumkin.',
+      },
+      {
+        question: 'Self-service kirxona qanday ishlaydi?',
+        answer: 'Hammasi Londry ilovasida boshlanadi. Kir yuvish mashinasini va dasturni tanlang, xizmat uchun ilovada toʻlang. Quritish ham shunday: quritgich va dasturni tanlang. Kir yuvish mashinasini oldindan band qilish ham mumkin — band qilish 10 daqiqa davomida amal qiladi.',
+      },
+      {
+        question: 'Londry kirxonalari Toshkentda qayerda?',
+        answer: 'Talabalar filiali — Talabalar koʻchasi, 81/1, talabalar mahallasida, yotoqxonalar yaqinida. Yunusobod filiali — Iftixor koʻchasi, 1a. Ikkala self-service kirxona Toshkentda 24 soat ochiq.',
+      },
+      {
+        question: 'SPOTX akva tozalash nima?',
+        answer: 'SPOTX — Londryning Toshkentdagi akva tozalash xizmati: nozik matolar va premium tekstil uchun, kimyoviy tozalash mos kelmaganda. Mutaxassis avval har bir buyumni tekshiradi, soʻng unga xavfsiz rejim va vositalarni tanlaydi.',
       },
     ],
   },

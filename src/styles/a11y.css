@@ -41,7 +41,8 @@
   .points__number,
   .phone,
   .phone__screen,
-  .review {
+  .review,
+  .faq__item {
     border: 1px solid CanvasText;
   }
 

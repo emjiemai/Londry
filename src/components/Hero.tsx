@@ -14,17 +14,19 @@ export function Hero() {
     <section className="hero" aria-labelledby="hero-title">
       <div className="container hero__grid">
         <div className="hero__copy">
-          <p className="eyebrow">
-            {eyebrowKind}
-            {eyebrowCity && (
-              <>
-                <span className="eyebrow__sep"> · </span>
-                <span className="eyebrow__city">{eyebrowCity}</span>
-              </>
-            )}
-          </p>
+          {/* The small label belongs to the heading: the page's main title then names what it is and where ("Self-service laundry · Tashkent"). */}
           <h1 id="hero-title" className="hero__title">
-            <span>{t.hero.titleA}</span> <span className="hero__accent">{t.hero.titleB}</span>
+            <span className="eyebrow hero__kicker">
+              {eyebrowKind}
+              {eyebrowCity && (
+                <>
+                  <span className="eyebrow__sep"> · </span>
+                  <span className="eyebrow__city">{eyebrowCity}</span>
+                </>
+              )}
+            </span>
+            <span className="visually-hidden">. </span>
+            <span className="hero__line">{t.hero.titleA}</span> <span className="hero__line hero__accent">{t.hero.titleB}</span>
           </h1>
           <p className="hero__lead">{t.hero.lead}</p>
           <StoreButtons id="download" />

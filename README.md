@@ -27,6 +27,7 @@ Needs Node 20.19 or newer. Browser tests use the Google Chrome that is already i
 | Add the laundry/SPOTX photos, or swap the app screenshot | Drop a file named after the slot into `src/assets/images/`, rebuild. Names in `src/media.ts` |
 | Move a map pin, change a map's zoom, or fix a street name on it | `scripts/maps/branches.json` and `src/site.ts`, then `npm run maps` (see below) |
 | Add partner logos                               | `src/assets/partners/partner-1.svg` … `partner-6.svg`, names in `src/site.ts`          |
+| Change the page title, the description, or the questions and answers (FAQ) | `src/i18n/uz.ts`, `ru.ts`, `en.ts` (`meta`, `faq`). Search words and launch steps: `docs/SEO.md` |
 | Add Terms of Service / Privacy Policy text      | `src/content/legal/` (instructions at the top of `index.ts`)                           |
 | Colours, spacing, corner radii                  | `src/styles/tokens.css`                                                                |
 | Replace the logo with the official file         | `src/components/Logo.tsx`                                                              |
@@ -39,6 +40,8 @@ Needs Node 20.19 or newer. Browser tests use the Google Chrome that is already i
 The two branch maps are **pictures drawn from OpenStreetMap data** in the Londry style (quiet grey map, one red pin), not live Google or Yandex maps. That keeps the page fast on weak internet, sets no cookies and loads no third-party script. Tapping a map, or the red button, opens the route to the branch in Google Maps. The pin positions were read from your Google listing and matched to OpenStreetMap (Talabalar about 25 m, Yunusabad about 10 m); if one looks wrong, send the Google Maps *Share* link and I will move it.
 
 To redraw them (move a pin, change the zoom): edit `scripts/maps/branches.json` and the position in `src/site.ts`, then run `npm install --no-save maplibre-gl@5.24.0` once and `npm run maps` (needs internet and Google Chrome). The credit "© OpenStreetMap contributors" must stay on the page; it is shown under the maps and inside the pictures.
+
+**Search engines:** the pages are written around the keywords you chose and are ready to be found; they stay hidden until you launch. See **`docs/SEO.md`**.
 
 Everything the site still needs from you is listed in **`docs/TO-PROVIDE.md`**. How to put it online: **`docs/DEPLOY.md`**.
 

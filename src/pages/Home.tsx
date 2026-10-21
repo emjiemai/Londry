@@ -1,4 +1,5 @@
 import { ContactStrip } from '../components/ContactStrip'
+import { Faq } from '../components/Faq'
 import { Hero } from '../components/Hero'
 import { Locations } from '../components/Locations'
 import { Partners } from '../components/Partners'
@@ -13,6 +14,7 @@ export function HomePage() {
       <Services />
       <Partners />
       <Locations />
+      <Faq />
       <VisitCta />
     </>
   )

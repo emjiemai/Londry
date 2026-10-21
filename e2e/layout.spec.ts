@@ -24,9 +24,11 @@ test('the headline keeps its two lines at tablet-landscape widths', async ({ pag
     for (const width of [900, 1024, 1100, 1280, 1440]) {
       await page.setViewportSize({ width, height: 800 })
       await page.goto(url)
+      // the two big lines only (the small label above them is part of the <h1> too, but it is not the headline)
       const lines = await page.evaluate(() => {
         const h1 = document.querySelector('h1')!
-        return h1.getBoundingClientRect().height / parseFloat(getComputedStyle(h1).lineHeight)
+        const height = [...h1.querySelectorAll('.hero__line')].reduce((sum, line) => sum + line.getBoundingClientRect().height, 0)
+        return height / parseFloat(getComputedStyle(h1).lineHeight)
       })
       expect(lines, `${url} @${width}px headline lines`).toBeLessThan(2.1)
     }

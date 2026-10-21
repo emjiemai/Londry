@@ -150,6 +150,29 @@ test('customer review cards show the real Google ratings and quotes', async ({ p
   await expect(page.locator('.review--rating').nth(1)).toContainText('40 отзывов')
 })
 
+test('the main heading names what the page is and where, and the FAQ answers what people search for', async ({ page }) => {
+  const cases = [
+    { url: '/', kind: 'self-service kirxona', city: 'toshkent', first: 'Londry 24 soat ochiqmi?' },
+    { url: '/ru/', kind: 'прачечная самообслуживания', city: 'ташкент', first: 'Londry работает круглосуточно?' },
+    { url: '/en/', kind: 'self-service laundry', city: 'tashkent', first: 'Is Londry open 24 hours?' },
+  ]
+  for (const { url, kind, city, first } of cases) {
+    await page.goto(url)
+    const heading = (await page.locator('h1').innerText()).toLowerCase()
+    expect(heading, url).toContain(kind)
+    expect(heading, url).toContain(city)
+
+    const items = page.locator('#faq details')
+    await expect(items, url).toHaveCount(4)
+    const firstItem = items.first()
+    await expect(firstItem.locator('summary')).toContainText(first)
+    await expect(firstItem).not.toHaveAttribute('open', '')
+    await firstItem.locator('summary').click()
+    await expect(firstItem).toHaveAttribute('open', '')
+    await expect(firstItem.locator('.faq__answer')).toBeVisible()
+  }
+})
+
 test('each branch card shows a real map picture, that it is open 24 hours, and a route link', async ({ page }) => {
   await page.goto('/en/')
   await expect(page.locator('.branch')).toHaveCount(2)

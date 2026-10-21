@@ -36,6 +36,14 @@ export function IconPin(props: SVGProps<SVGSVGElement>) {
   )
 }
 
+export function IconChevronDown(props: SVGProps<SVGSVGElement>) {
+  return (
+    <Icon {...props}>
+      <path d="M6 9l6 6 6-6" />
+    </Icon>
+  )
+}
+
 export function IconClock(props: SVGProps<SVGSVGElement>) {
   return (
     <Icon {...props}>

@@ -24,7 +24,7 @@ until it arrives. Send files in any common format; I will resize and convert the
   **If you have none yet, tell me and I will hide the Partners section instead of showing empty boxes.** → `src/assets/partners/`, `src/site.ts`
 - [ ] **Terms of Service and Privacy Policy** texts in Uzbek, Russian and English, or the addresses of the ones you
   already have. The App Store and Google Play require a privacy-policy address anyway. → `src/content/legal/`
-- [ ] **Native-speaker review of the Uzbek and Russian text.** I drafted both from your English design, and they must be
+- [ ] **Native-speaker review of the Uzbek and Russian text**, including the new page titles, descriptions and the four questions and answers (FAQ). I drafted both from your English design, and they must be
   read by someone fluent before launch. I can send you the full text as one document.
 - [ ] **Where the site will live:** who hosts `londry.uz` today (or which host you choose) and who can change its DNS
   settings. I recommend Cloudflare Pages or Netlify (free, fast, automatic HTTPS), but any host works. See `docs/DEPLOY.md`.
@@ -47,6 +47,8 @@ until it arrives. Send files in any common format; I will resize and convert the
   one with the logo; yours should show the brand properly. Optionally one per language.
 
 ## 3. Decisions for you (tell me, or I keep the default)
+
+- [ ] **Check the FAQ facts.** Please confirm: both branches are open 24 hours; the app steps (choose a machine and program, pay in the app, drying the same way, a washing-machine reservation holds for 10 minutes, taken from your app screenshot); and that the Talabalar branch is "in the student area, close to the dormitories". Anything wrong or missing (prices, payment methods, detergent), tell me and I fix the answers. The search words and launch steps are in `docs/SEO.md`.
 
 - [ ] **Default language** at `londry.uz/`. Now **Uzbek**; Russian is `/ru/`, English `/en/`.
 - [ ] **Small red labels above headings.** Your design has small uppercase red labels above each heading (OUR SERVICES, PARTNERS, LOCATIONS...) and numbered circles in the SPOTX card. I kept them exactly as designed; some design guidelines advise dropping such labels. Keep (default) or drop?

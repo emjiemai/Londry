@@ -36,12 +36,6 @@ export interface Dict {
     checks: readonly [string, string, string]
     screenshotAlt: string
   }
-  /** The review cards around the phone. `count` follows the language's plural rules; `{n}` is the number of reviews. */
-  reviews: {
-    label: string
-    count: { one: string; few: string; many: string; other: string }
-    quoteSource: string
-  }
   strip: { callLabel: string; branchLabel: string; branchValue: string; followLabel: string }
   services: {
     eyebrow: string
@@ -49,7 +43,7 @@ export interface Dict {
     londry: {
       eyebrow: string
       title: string
-      text: string
+      paragraphs: readonly [string, string, string]
       chips: readonly [string, string, string]
       photoAlt: string
     }
@@ -57,11 +51,15 @@ export interface Dict {
       eyebrow: string
       title: string
       text: string
+      /** The line that introduces the numbered points (in English: With SPOTX aqua cleaning, you get). */
+      pointsLead: string
       points: readonly [string, string, string]
       photoAlt: string
     }
   }
-  partners: { eyebrow: string; title: string }
+  /** `captions` are shown under the tiles, in the same order as `site.partners`. */
+  partners: { eyebrow: string; title: string; captions: readonly string[] }
+  videos: { eyebrow: string; title: string; play: string }
   locations: { eyebrow: string; title: string; directions: string; open24h: string; branches: readonly [Branch, Branch] }
   /** The questions people type into search engines, answered with facts only: open 24 hours, the app, the branches, SPOTX. */
   faq: { eyebrow: string; title: string; items: readonly [FaqItem, FaqItem, FaqItem, FaqItem] }

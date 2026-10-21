@@ -29,16 +29,6 @@ export const uz: Dict = {
     checks: ['Toshkentda 2 ta filial', 'Katta yuklar, tez quritish', 'Oʻzbek · Rus · Ingliz'],
     screenshotAlt: 'Londry ilovasining bosh ekrani: kir yuvish, quritish yoki mashinani band qilish',
   },
-  reviews: {
-    label: 'Mijozlarning Google’dagi sharhlari',
-    count: {
-      one: 'Google’da {n} ta sharh',
-      few: 'Google’da {n} ta sharh',
-      many: 'Google’da {n} ta sharh',
-      other: 'Google’da {n} ta sharh',
-    },
-    quoteSource: 'Google sharhi',
-  },
   strip: {
     callLabel: 'Qoʻngʻiroq qiling',
     branchLabel: 'Filialni toping',
@@ -51,23 +41,37 @@ export const uz: Dict = {
     londry: {
       eyebrow: 'Self-service kirxona',
       title: 'Londry',
-      text: 'Kir yuvishni oson va qulay qiladigan zamonaviy self-service kirxona. Energiya tejamkor kir yuvish va quritish mashinalari katta yuklarni sigʻdiradi, buyumlaringizni ehtiyotkorlik bilan yuvadi va tez quritadi.',
+      paragraphs: [
+        'Qanday qilib kir yuvishni yanada osonlashtirishni bilmoqchimisiz? Biz sizga LONDRY da eng ilgʻor texnologiyalar asosida yuqori sifatli kir yuvish xizmatlarini taklif etib, hayotingizni yanada qulay qilishga intilamiz.',
+        '**Londry sizga qanday afzaliklarni beradi?** Bizda katta hajmdagi kirlarni yuvishga yordam beradigan zamonaviy, energiya tejovchi kir yuvish mashinalari va quritgich mashinalarni keng tanlovi mavjud. Uskunalarimiz kirlaringizni yumshoq boʻlishi, shuningdek, tez va samarali quritishni taʼminlaydi.',
+        'Kir yuvishni kechiktirmang, LONDRYga tashrif buyuring!',
+      ],
       chips: ['Energiya tejamkor', 'Katta yuklar', 'Tez quritish'],
       photoAlt: 'Londry self-service kirxonasining ichki koʻrinishi',
     },
     spotx: {
       eyebrow: 'Akva tozalash',
       title: 'SPOTX',
-      text: 'Quruq tozalash mos kelmaydigan nozik matolar va yuqori sifatli toʻqimalar uchun.',
+      text: 'Kiyimlar, nozik mato va qimmat toʻqimachilik mahsulotlaridan kir va doʻlarni iloji boricha ehtiyotkorlik bilan ketkazamiz. Nozik matolar uchun quruq tozalashni qoʻllash mumkin boʻlmagan xollarda akvachistka ideal yechim boʻla oladi.',
+      pointsLead: 'SPOTX akvachistkasida siz:',
       points: [
-        '**Mutaxassis tahlili** — rejim va vositalarni tanlashdan oldin har bir kiyim koʻrib chiqiladi',
-        '**Professional vositalar** — eng nozik matolar uchun ham xavfsiz',
-        '**Individual yondashuv** va soʻrov boʻyicha maxsus shartlar',
+        'Yuvish rejimi va yuvish vositalarini tanlashdan oldin kiyimlarni toʻliq **ekspert tahlilidan** oʻtkazish;',
+        'Xattoki eng nozik kiyimlarga ham zarar yetkazmaslik uchun faqat **professional yuvish vositalarining** ishlatilishi;',
+        'Har bir mijozga **individual yondashish**, xizmat koʻrsatishni koʻrishingiz mumkin. Biz barcha istaklarni inobatga olamiz va alohida eʼtibor qaratamiz.',
       ],
       photoAlt: 'SPOTXda nozik kiyimlarni akva tozalash',
     },
   },
-  partners: { eyebrow: 'Hamkorlar', title: 'Biz hamkorlik qilamiz' },
+  partners: {
+    eyebrow: 'Hamkorlar',
+    title: 'Biz hamkorlik qilamiz',
+    captions: ['Self-service kirxona', 'Akva tozalash', 'Yuvish vositalari', 'Trening'],
+  },
+  videos: {
+    eyebrow: 'Videolar',
+    title: 'Qanday ishlashini koʻring',
+    play: 'Videoni ijro etish',
+  },
   locations: {
     eyebrow: 'Filiallar',
     title: 'Toshkentda ikkita filial',

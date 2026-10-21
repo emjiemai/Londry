@@ -19,9 +19,8 @@ until it arrives. Send files in any common format; I will resize and convert the
   2. send your own map pictures (landscape, at least 1600 px wide, pin in the middle).
   Also tell me which map app "Get directions" should open: Google Maps (current), Yandex Maps or 2GIS.
   *Note: map images from Google/Yandex have attribution rules, so coordinates are the safer route.* → slots `map-talabalar`, `map-yunusabad`
-- [ ] **Partner logos** (up to 6): SVG if possible, otherwise PNG with a transparent background, at least 160 px tall.
-  For each: company name, website link (optional), and confirmation that they agree to be shown.
-  **If you have none yet, tell me and I will hide the Partners section instead of showing empty boxes.** → `src/assets/partners/`, `src/site.ts`
+- [x] ~~**Partner pictures**~~: the four pictures from your current site (LONDRY, SPOTX, detergents, training) are in the Partners
+  section, as you asked. Real partners: send their logos any time (SVG, or PNG with a transparent background) and I add them as extra tiles. → `src/assets/partners/`, `src/site.ts`
 - [ ] **Terms of Service and Privacy Policy** texts in Uzbek, Russian and English, or the addresses of the ones you
   already have. The App Store and Google Play require a privacy-policy address anyway. → `src/content/legal/`
 - [ ] **Native-speaker review of the Uzbek and Russian text**, including the new page titles, descriptions and the four questions and answers (FAQ). I drafted both from your English design, and they must be
@@ -31,10 +30,14 @@ until it arrives. Send files in any common format; I will resize and convert the
 
 ## 2. Strongly recommended (visitors will look for these)
 
-- [ ] **Reviews around the phone.** The four cards use your real Google numbers (Talabalar 4.5 from 32 reviews, Yunusabad 4.3 from
-  40) and two real quotes, as of 2026-10-17. Tell me when the numbers change, or send other real reviews you want shown (and say
-  whether the reviewer agrees to be named; no names are shown now). I never invent reviews. → `src/site.ts`
-
+- [ ] **Videos.** The Videos section is ready and shows three empty frames. Send YouTube links (best: free, and nothing loads until
+  a visitor taps play) or short video files (a few MB each), a title for each in Uzbek, Russian and English, and a cover picture if
+  you have one. A video with speech should have subtitles (a .vtt file per language). → `src/site.ts`, `videos`
+- [ ] **Your current website has things I can reuse. Tell me yes or no:** (a) its photos of the laundry and of SPOTX for the empty
+  photo frames, (b) its Terms of Service and Privacy Policy texts for the two legal pages (a lawyer should check them anyway).
+- [ ] **Uzbek text check.** The two service cards now repeat your current website word for word. In the Uzbek text a few places look
+  like typing mistakes (for example "xollarda" for "hollarda", "Xattoki" for "Hatto", and the end of the third SPOTX point:
+  "xizmat koʻrsatishni koʻrishingiz mumkin"). I did not change the words; please have a native speaker read them.
 - [x] ~~**Opening hours**~~: your Google listing says "Open 24 hours" for both, so the cards say so. Tell me if that is wrong.
 - [ ] **Prices**: what a wash and a dry cost, and how SPOTX is priced. Even "from X so'm" helps.
 - [ ] **How people pay** (in the app only? Payme, Click, Uzcard, cash?).
@@ -50,6 +53,8 @@ until it arrives. Send files in any common format; I will resize and convert the
 
 - [ ] **Check the FAQ facts.** Please confirm: both branches are open 24 hours; the app steps (choose a machine and program, pay in the app, drying the same way, a washing-machine reservation holds for 10 minutes, taken from your app screenshot); and that the Talabalar branch is "in the student area, close to the dormitories". Anything wrong or missing (prices, payment methods, detergent), tell me and I fix the answers. The search words and launch steps are in `docs/SEO.md`.
 
+- [ ] **Partners heading.** The section now shows your own four projects, so "Working together with" does not fit exactly. Keep it, or
+  rename the label and heading to "Our projects" (as on your current site)? It is one line per language (`partners` in `src/i18n/*.ts`).
 - [ ] **Default language** at `londry.uz/`. Now **Uzbek**; Russian is `/ru/`, English `/en/`.
 - [ ] **Small red labels above headings.** Your design has small uppercase red labels above each heading (OUR SERVICES, PARTNERS, LOCATIONS...) and numbered circles in the SPOTX card. I kept them exactly as designed; some design guidelines advise dropping such labels. Keep (default) or drop?
 - [ ] **Launch date.** On that day I switch the site from hidden to visible to Google/Yandex (one setting, `VITE_INDEXABLE`).

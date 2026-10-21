@@ -132,24 +132,6 @@ test('store buttons open the real stores, the closing band opens the routes, the
   await expect(page.getByRole('link', { name: /\+998 97 444 81 93/ }).first()).toHaveAttribute('href', 'tel:+998974448193')
 })
 
-test('customer review cards show the real Google ratings and quotes', async ({ page }) => {
-  await page.goto('/en/')
-  await expect(page.locator('.reviews .review')).toHaveCount(4)
-  const ratings = page.locator('.review--rating')
-  await expect(ratings.nth(0)).toContainText('4.5')
-  await expect(ratings.nth(0)).toContainText('32 Google reviews')
-  await expect(ratings.nth(1)).toContainText('4.3')
-  await expect(ratings.nth(1)).toContainText('40 Google reviews')
-  await expect(page.locator('.review--quote').nth(0)).toContainText('easy instructions in English and Uzbek')
-  await expect(page.locator('.review--quote').nth(1)).toContainText('very kind technician manager')
-
-  // Russian uses its own plural forms and decimal comma
-  await page.goto('/ru/')
-  await expect(page.locator('.review--rating').nth(0)).toContainText('4,5')
-  await expect(page.locator('.review--rating').nth(0)).toContainText('32 отзыва')
-  await expect(page.locator('.review--rating').nth(1)).toContainText('40 отзывов')
-})
-
 test('the main heading names what the page is and where, and the FAQ answers what people search for', async ({ page }) => {
   const cases = [
     { url: '/', kind: 'self-service kirxona', city: 'toshkent', first: 'Londry 24 soat ochiqmi?' },
@@ -171,6 +153,53 @@ test('the main heading names what the page is and where, and the FAQ answers wha
     await expect(firstItem).toHaveAttribute('open', '')
     await expect(firstItem.locator('.faq__answer')).toBeVisible()
   }
+})
+
+test('Our services says what the current londry.uz says, in all three languages', async ({ page }) => {
+  const cases = [
+    { url: '/en/', londry: 'Would you like to make laundry even easier?', lead: 'With SPOTX aqua cleaning, you get:', bullet: 'Thorough expert analysis of garments' },
+    { url: '/ru/', londry: 'Хотите узнать, как сделать стирку еще проще?', lead: 'При аквачистке SPOTX вы получаете:', bullet: 'Тщательный экспертный анализ' },
+    { url: '/', londry: 'Qanday qilib kir yuvishni yanada osonlashtirishni bilmoqchimisiz?', lead: 'SPOTX akvachistkasida siz:', bullet: 'Yuvish rejimi va yuvish vositalarini' },
+  ]
+  for (const { url, londry, lead, bullet } of cases) {
+    await page.goto(url)
+    const services = page.locator('#services')
+    await expect(services.locator('.service').first(), url).toContainText(londry)
+    await expect(services.locator('.service__text'), url).toHaveCount(2) // the LONDRY paragraphs and the SPOTX introduction
+    await expect(services.locator('.service__lead-in'), url).toHaveText(lead)
+    await expect(services.locator('.points li'), url).toHaveCount(3)
+    await expect(services.locator('.points li').first(), url).toContainText(bullet)
+  }
+})
+
+test('Partners shows the four project pictures, with a caption in the visitor\'s language', async ({ page }) => {
+  const captions: Record<string, string[]> = {
+    '/en/': ['Self-service laundry', 'Aqua cleaning', 'Detergents', 'Training'],
+    '/ru/': ['Прачечная самообслуживания', 'Аквачистка', 'Моющие средства', 'Обучение'],
+    '/': ['Self-service kirxona', 'Akva tozalash', 'Yuvish vositalari', 'Trening'],
+  }
+  for (const [url, expected] of Object.entries(captions)) {
+    await page.goto(url)
+    const tiles = page.locator('#partners .partner')
+    await expect(tiles, url).toHaveCount(4)
+    await expect(page.locator('#partners .partner__caption'), url).toHaveText(expected)
+    for (let i = 0; i < 4; i++) {
+      const picture = tiles.nth(i).locator('img')
+      await picture.scrollIntoViewIfNeeded()
+      await expect.poll(() => picture.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0), { message: `${url} picture ${i}` }).toBe(true)
+    }
+  }
+})
+
+test('the Videos section is there, with empty frames until videos are supplied, and loads no video', async ({ page }) => {
+  const requested: string[] = []
+  page.on('request', (request) => /\.(mp4|webm|mov|ogv)(\?|$)|youtube|ytimg|googlevideo/i.test(request.url()) && requested.push(request.url()))
+  await page.goto('/en/')
+  await expect(page.locator('#videos h2')).toHaveText('See how it works')
+  await expect(page.locator('#videos .video')).toHaveCount(3)
+  await expect(page.locator('#videos .videos')).toHaveAttribute('aria-hidden', 'true') // placeholders are hidden from screen readers
+  await page.locator('#videos').scrollIntoViewIfNeeded()
+  expect(requested, 'nothing from YouTube or any video file may load by itself').toEqual([])
 })
 
 test('each branch card shows a real map picture, that it is open 24 hours, and a route link', async ({ page }) => {

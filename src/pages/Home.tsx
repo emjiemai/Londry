@@ -4,6 +4,7 @@ import { Hero } from '../components/Hero'
 import { Locations } from '../components/Locations'
 import { Partners } from '../components/Partners'
 import { Services } from '../components/Services'
+import { Videos } from '../components/Videos'
 import { VisitCta } from '../components/VisitCta'
 
 export function HomePage() {
@@ -13,6 +14,7 @@ export function HomePage() {
       <ContactStrip />
       <Services />
       <Partners />
+      <Videos />
       <Locations />
       <Faq />
       <VisitCta />

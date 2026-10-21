@@ -11,7 +11,7 @@
  *   map-talabalar    map picture for the Talabalar branch, landscape, at least 1600 x 650 px
  *   map-yunusabad    map picture for the Yunusabad branch, landscape, at least 1600 x 650 px
  *
- * Partner logos go into src/assets/partners/ as partner-1.svg ... partner-6.svg (see site.ts).
+ * Partner pictures go into src/assets/partners/ as partner-1.jpg ... (jpg, png, webp, avif or svg), see site.ts.
  */
 export type SlotId = 'hero-app' | 'service-londry' | 'service-spotx' | 'map-talabalar' | 'map-yunusabad'
 
@@ -29,7 +29,14 @@ const pictureModules = import.meta.glob<Picture>('./assets/images/*.{jpg,jpeg,pn
   query: { w: '360;640;960;1280;1600', format: 'avif;webp;jpg', as: 'picture' },
 })
 
-const logoModules = import.meta.glob<string>('./assets/partners/*.{svg,png,webp,avif,jpg,jpeg}', {
+// Partner pictures: photos and raster logos get the same treatment as the photos (AVIF / WebP / JPEG, several sizes);
+// an SVG logo is used as it is.
+const partnerPictureModules = import.meta.glob<Picture>('./assets/partners/*.{png,webp,avif,jpg,jpeg}', {
+  eager: true,
+  import: 'default',
+  query: { w: '320;480;640;960', format: 'avif;webp;jpg', as: 'picture' },
+})
+const partnerVectorModules = import.meta.glob<string>('./assets/partners/*.svg', {
   eager: true,
   import: 'default',
   query: '?url',
@@ -42,7 +49,8 @@ function byBasename<T>(modules: Record<string, T>): Record<string, T> {
 }
 
 const pictures = byBasename(pictureModules)
-const logos = byBasename(logoModules)
+const partnerPictures = byBasename(partnerPictureModules)
+const partnerVectors = byBasename(partnerVectorModules)
 
 export function getPicture(id: SlotId): Picture | undefined {
   return pictures[id]
@@ -51,6 +59,10 @@ export function getPicture(id: SlotId): Picture | undefined {
 /** Rendered width of the app screenshot: 270px beside the headline on wide screens, 62vw when it sits below it. */
 export const HERO_APP_SIZES = '(min-width: 900px) 270px, 62vw'
 
-export function getLogo(id: string): string | undefined {
-  return logos[id]
+export type PartnerMedia = { kind: 'picture'; picture: Picture } | { kind: 'vector'; url: string }
+
+export function getPartnerMedia(id: string): PartnerMedia | undefined {
+  if (partnerPictures[id]) return { kind: 'picture', picture: partnerPictures[id] }
+  if (partnerVectors[id]) return { kind: 'vector', url: partnerVectors[id] }
+  return undefined
 }

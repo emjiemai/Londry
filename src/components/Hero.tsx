@@ -1,6 +1,5 @@
 import { useI18n } from '../i18n/context'
 import { HERO_APP_SIZES } from '../media'
-import { HeroReviews } from './HeroReviews'
 import { IconCheck } from './Icons'
 import { Slot } from './Slot'
 import { StoreButtons } from './StoreButtons'
@@ -43,6 +42,13 @@ export function Hero() {
         <div className="hero__visual">
           {/* The washing-machine door from the logo, enlarged: a ring with the right half tinted. */}
           <svg className="hero__ring" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+            {/* The glass of the door: red that fades in from the middle towards the right rim. */}
+            <defs>
+              <linearGradient id="hero-door-glass" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stopColor="#e32a30" stopOpacity="0.02" />
+                <stop offset="1" stopColor="#e32a30" stopOpacity="0.34" />
+              </linearGradient>
+            </defs>
             <path className="hero__ring-tint" d="M50 5.7A44.3 44.3 0 0 1 50 94.3z" />
             <circle cx="50" cy="50" r="47.15" fill="none" stroke="currentColor" strokeWidth="5.7" />
           </svg>
@@ -57,7 +63,6 @@ export function Hero() {
               />
             </div>
           </div>
-          <HeroReviews />
         </div>
       </div>
     </section>

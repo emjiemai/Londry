@@ -24,6 +24,7 @@ What the pages stress: **open 24 hours**, **students and the dormitories** (the 
 | Main heading | The small label above the headline is now part of the heading, so it reads "Self-service laundry · Tashkent" plus the design's headline. It looks exactly as before | `hero.eyebrow`, `hero.titleA/B` |
 | Questions and answers | Four questions people ask: open 24 hours, how it works with the app, where the branches are (students, dormitories), what SPOTX aqua cleaning is | `faq` |
 | Picture descriptions | Screenshot, maps and photos are described with the words people use | `screenshotAlt`, `mapAlt`, `photoAlt` |
+| Service cards | The LONDRY and SPOTX texts are the ones your current website already has, so the words people find you by stay | `services` |
 | Footer line | "Self-service laundry and SPOTX aqua cleaning in Tashkent" | `footer.about` |
 | Structured data (invisible, for Google) | Both branches with exact position, address, phone and "open 24 hours, every day" | `src/head.ts` |
 
@@ -38,7 +39,7 @@ Change the words in `src/seo.test.ts` first if you choose different keywords.
 - A sitemap and robots file that switch on at launch.
 - Fast on weak phones and slow internet (Lighthouse 100 for speed, accessibility and best practice), which Google rewards.
 - No cookies, no trackers, nothing that slows or blocks the page.
-- True content only: the 24 hours, the ratings and the reviews come from your own Google listings; nothing is invented.
+- True content only: the 24 hours come from your own Google listings and the service texts from your current website; nothing is invented.
 
 ## Launch (when you decide)
 
@@ -55,12 +56,12 @@ Search results for a local business come mostly from the map listings, so these 
 1. **Google Business Profile**: use the same name (Londry), the same address text and the website londry.uz for both branches.
    Today the Talabalar listing is named "Laundry", and the Yunusabad address reads "Guards Colonel Khodjaev Street 1".
 2. **Yandex Business** (Yandex Maps) and **2GIS**: the same name, address, phone and opening hours.
-3. **Reviews**: ask happy customers to review on Google and Yandex. New reviews also keep the ratings on the page honest.
+3. **Reviews**: ask happy customers to review on Google and Yandex. Good ratings help you in map searches.
 4. Real **photos** of both branches on those listings and on the site (send them, see `docs/TO-PROVIDE.md`).
 
 ## Left out on purpose
 
-- **No star ratings in search results**: Google does not allow a business to mark up reviews of itself, and it can punish the site.
+- **No review-star markup**: Google does not allow a business to mark up reviews of itself, and it can punish the site.
 - **No hidden or repeated keywords**: that is penalised. The wording is written for people first.
 - **No FAQ markup for search**: Google stopped showing it for ordinary businesses in 2023, so it would add nothing.
 - **No invented facts**: if something is not known (prices, payment methods), the FAQ does not mention it. Tell me and I add it.

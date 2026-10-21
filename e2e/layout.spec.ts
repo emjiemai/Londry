@@ -35,65 +35,6 @@ test('the headline keeps its two lines at tablet-landscape widths', async ({ pag
   }
 })
 
-test('the review cards around the phone never cover the text or buttons and never leave the screen', async ({ page }) => {
-  test.slow() // 48 window sizes
-  await page.emulateMedia({ reducedMotion: 'reduce' }) // measure the resting positions, not mid-animation
-  const CLEARANCE = 8 // the gentle drift moves a card up to 7 px
-  for (const url of URLS) {
-    await page.goto(url) // the layout is pure CSS: one page load, then only the window size changes
-    await page.evaluate(() => document.fonts.ready) // text size (and so card height) is final only once the font is in
-    for (const width of [320, 360, 390, 480, 600, 768, 899, 900, 960, 1024, 1100, 1180, 1280, 1366, 1440, 1920]) {
-      await page.setViewportSize({ width, height: 900 })
-      await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))))
-      const result = await page.evaluate((clearance) => {
-        const box = (r: DOMRect, what: string) => ({ what, l: r.left, t: r.top, r: r.right, b: r.bottom })
-        const boxes: Array<ReturnType<typeof box>> = []
-        for (const selector of ['.hero__title', '.hero__lead', '.checks li', '.hero .eyebrow']) {
-          for (const el of document.querySelectorAll(selector)) {
-            const range = document.createRange()
-            range.selectNodeContents(el)
-            for (const rect of range.getClientRects()) boxes.push(box(rect, selector))
-          }
-        }
-        for (const el of document.querySelectorAll('.hero .store')) boxes.push(box(el.getBoundingClientRect(), '.store'))
-        const cards = [...document.querySelectorAll<HTMLElement>('.review')]
-        const hits: string[] = []
-        for (const card of cards) {
-          const c = card.getBoundingClientRect()
-          for (const b of boxes) {
-            if (c.left < b.r + clearance && c.right > b.l - clearance && c.top < b.b + clearance && c.bottom > b.t - clearance) {
-              hits.push(`${card.className.split(' ').pop()} touches ${b.what}`)
-            }
-          }
-        }
-        const overlaps: string[] = []
-        for (let i = 0; i < cards.length; i++) {
-          for (let j = i + 1; j < cards.length; j++) {
-            const a = cards[i].getBoundingClientRect()
-            const b = cards[j].getBoundingClientRect()
-            const w = Math.min(a.right, b.right) - Math.max(a.left, b.left)
-            const h = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top)
-            if (w > 0 && h > 0 && (w * h) / Math.min(a.width * a.height, b.width * b.height) > 0.12) overlaps.push(`card ${i} hides card ${j}`)
-          }
-        }
-        const viewport = document.documentElement.clientWidth
-        return {
-          overlaps,
-          hits,
-          cards: cards.length,
-          cut: cards.filter((card) => card.getBoundingClientRect().left < 0 || card.getBoundingClientRect().right > viewport).length,
-          overflow: document.documentElement.scrollWidth - viewport,
-        }
-      }, CLEARANCE)
-      expect.soft(result.cards, `${url} @${width}px`).toBe(4)
-      expect.soft(result.hits, `${url} @${width}px`).toEqual([])
-      expect.soft(result.overlaps, `${url} @${width}px review cards hide each other`).toEqual([])
-      expect.soft(result.cut, `${url} @${width}px review cards cut off by the screen edge`).toBe(0)
-      expect(result.overflow, `${url} @${width}px sideways scroll`).toBeLessThanOrEqual(0)
-    }
-  }
-})
-
 test('both "Get directions" buttons line up, even when one address is longer', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 })
   for (const url of URLS) {

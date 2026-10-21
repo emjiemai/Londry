@@ -26,16 +26,6 @@ export const en: Dict = {
     checks: ['2 branches in Tashkent', 'Large loads, fast drying', 'Uzbek · Russian · English'],
     screenshotAlt: 'The Londry app home screen: wash, dry, or reserve a washing machine',
   },
-  reviews: {
-    label: 'Customer reviews on Google',
-    count: {
-      one: '{n} Google review',
-      few: '{n} Google reviews',
-      many: '{n} Google reviews',
-      other: '{n} Google reviews',
-    },
-    quoteSource: 'Google review',
-  },
   strip: {
     callLabel: 'Call us',
     branchLabel: 'Find a branch',
@@ -48,23 +38,37 @@ export const en: Dict = {
     londry: {
       eyebrow: 'Self-service laundry',
       title: 'Londry',
-      text: 'A modern self-service laundry that makes washing easier and more convenient. Energy-efficient washers and dryers take large loads, treat your items gently and dry them fast.',
+      paragraphs: [
+        'Would you like to make laundry even easier? We are pleased to introduce our modern self-service laundry, LONDRY. We aim to make your life more comfortable and convenient by offering high-quality laundry services based on the most advanced technologies.',
+        '**What makes our self-service laundry convenient?** Here, you will find a wide selection of modern and energy-efficient washing and drying machines that will help you handle large volumes of laundry. Our equipment ensures gentle treatment of your items, as well as fast and efficient drying.',
+        'Don’t postpone your laundry in a long box, visit the LONDRY self-service laundry today!',
+      ],
       chips: ['Energy-efficient', 'Large loads', 'Fast drying'],
       photoAlt: 'Inside the Londry self-service laundry',
     },
     spotx: {
       eyebrow: 'Aqua cleaning',
       title: 'SPOTX',
-      text: 'For delicate fabrics and high-end textiles when dry cleaning isn’t an option.',
+      text: 'We will remove contaminants from clothing, delicate fabrics, and high-end textiles with the utmost care. This is the perfect solution when dry cleaning is not suitable for delicate fabrics.',
+      pointsLead: 'With SPOTX aqua cleaning, you get:',
       points: [
-        '**Expert analysis** of every garment before choosing the mode and detergents',
-        '**Professional chemicals** safe for the most delicate fabrics',
-        '**Individual approach** with special conditions on request',
+        'Thorough **expert analysis** of garments before selecting the cleaning mode and detergents.',
+        'Use of only **professional chemicals** that pose no threat even to the most delicate fabrics.',
+        '**Full-service, individual approach** to each customer – we will consider all preferences and provide special conditions.',
       ],
       photoAlt: 'Aqua cleaning of delicate clothes at SPOTX',
     },
   },
-  partners: { eyebrow: 'Partners', title: 'Working together with' },
+  partners: {
+    eyebrow: 'Partners',
+    title: 'Working together with',
+    captions: ['Self-service laundry', 'Aqua cleaning', 'Detergents', 'Training'],
+  },
+  videos: {
+    eyebrow: 'Videos',
+    title: 'See how it works',
+    play: 'Play video',
+  },
   locations: {
     eyebrow: 'Locations',
     title: 'Two branches in Tashkent',

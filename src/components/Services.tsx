@@ -30,7 +30,13 @@ export function Services() {
             <div className="service__body">
               <p className="eyebrow eyebrow--sm">{londry.eyebrow}</p>
               <h3 className="service__title service__title--londry">{londry.title}</h3>
-              <p className="service__text">{londry.text}</p>
+              <div className="service__text">
+                {londry.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>
+                    <Rich text={paragraph} />
+                  </p>
+                ))}
+              </div>
               <ul className="chips">
                 {londry.chips.map((chip) => (
                   <li key={chip}>{chip}</li>
@@ -54,6 +60,7 @@ export function Services() {
               </p>
               <h3 className="service__title">{spotx.title}</h3>
               <p className="service__text">{spotx.text}</p>
+              <p className="service__lead-in">{spotx.pointsLead}</p>
               <ol className="points">
                 {spotx.points.map((point, index) => (
                   <li key={index}>

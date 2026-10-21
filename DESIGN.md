@@ -195,7 +195,7 @@ Vertical rhythm inside a section follows the comp's measured values: header to c
 
 ## Elevation & Depth
 
-Flat by default. Cards separate from their ground by tone alone (white card on Haze band, Haze chip on white card, ink card on Haze band). The floating objects are the hero phone and the four review cards around it.
+Flat by default. Cards separate from their ground by tone alone (white card on Haze band, Haze chip on white card, ink card on Haze band). The single floating object is the hero phone.
 
 ### Shadow Vocabulary
 - **Phone** (`box-shadow: 0 34px 60px -14px rgb(0 0 0 / 0.26), 0 16px 28px -16px rgb(0 0 0 / 0.22)`): a wide soft pool below the device. Removed in data-saver mode.
@@ -207,7 +207,7 @@ Flat by default. Cards separate from their ground by tone alone (white card on H
 
 ## Shapes
 
-Corners scale with the container: 8 px small controls, 10 px buttons and icon tiles, 16 px contact cards and partner tiles, 24 px service and branch cards, 32 px the closing band, pills for chips, circles for number badges (28 px) and the ring. The phone is 48 px outside and 38 px inside, expressed in percentages so it scales. The ring is 5.7% of its diameter thick; its right half is tinted. Photos and maps fill their card edge to edge under the card's rounded top corners, in a 590 : 240 frame on wide screens and 2 : 1 on phones.
+Corners scale with the container: 8 px small controls, 10 px buttons and icon tiles, 16 px contact cards and partner tiles, 24 px service and branch cards, 32 px the closing band, pills for chips, circles for number badges (28 px) and the ring. The phone is 48 px outside and 38 px inside, expressed in percentages so it scales. The ring is 5.7% of its diameter thick; its right half is tinted red like glass (see Hero glow). Photos and maps fill their card edge to edge under the card's rounded top corners, in a 590 : 240 frame on wide screens and 2 : 1 on phones.
 
 ## Components
 
@@ -223,17 +223,20 @@ Corners scale with the container: 8 px small controls, 10 px buttons and icon ti
 - **Contact card:** Haze, 16 px radius, 48 px white icon tile (12 px radius) with an Ink Red outline icon, label 13 px Slate over a 17 px / 700 value.
 - **Service card:** 24 px radius, picture frame on top, 30-33 px padding; the LONDRY card is white, the SPOTX card is Ink with a Proof Ink picture frame and red numbered points.
 - **Branch card:** 24 px radius, map picture on top (590 : 240, tappable), info row with name, address, a small "Open 24 hours" line with a clock icon and a Press Red "Get directions" button. The map credit sits under the two cards.
-- **Partner tile:** white, 1 px Hairline border, 16 px radius, 101 px tall, logo at most 40 px high, centred.
+- **Partner tile:** white, 1 px Hairline border, 16 px radius; the picture sits on a 3:2 white canvas with a 15 px / 700 caption under it; four tiles in a row on wide screens, two per row on phones. The first four tiles are the owner's own projects (LONDRY, SPOTX, detergents, training), taken from the current website.
 - **Closing band:** Door Red, 32 px radius, 64 px padding, a short title and sentence on the left, the two branch buttons on the right.
 
 ### Map pictures
 Drawn from OpenStreetMap data with `npm run maps`, never a live embedded map (no third-party script, no cookies, identical on every device). The map is deliberately quiet: Haze ground, white roads with a pale casing, pale grey buildings, almost no colour, so the single Door Red pin (white outline, the door mark inside) with its soft red halo is the only loud thing. The street name is set by hand in Montserrat 700, uppercase, wide tracking, along the road. The OpenStreetMap credit is baked into a small chip in the corner and repeated as text under the cards.
 
+### Hero glow
+Two soft reds, both from the owner's wish for "some reddish gradient" (2026-10-21). The glass of the washing-machine door (the right half of the ring) fades from almost clear in the middle to Door Red at the rim, and a halo bigger than the ring fades from 20 % Door Red to nothing behind the phone. The ring edge, the headline and the phone stay flat. The glow never reaches the text, is cut at the screen edge so it cannot cause a sideways scroll, and is plain CSS (no picture).
+
+### Videos
+A calm section after Partners: a centred label and title, then 16:9 frames with 24 px corners (one video: one wide frame; two or three: side by side; four: two by two; phones: stacked). Until videos are supplied the frames are dark placeholders with a play button and a "[VIDEO n]" note. A YouTube video shows its cover and a round white play button; only after a tap does the player load (nothing from YouTube is requested before). A video file uses the browser's own player and downloads nothing until play is pressed. The title sits under each video; captions per language are optional.
+
 ### Questions (FAQ)
 A calm section after the branches: on wide screens the label and title sit on the left, four Haze rows (16 px radius, 20 px by 24 px padding) on the right; in one column they stack under the title. Each row is a native `details`: the question in 17 px / 700, a red chevron that turns over when it opens, the answer in Graphite below. No JavaScript, no motion with reduced-motion. The questions are the ones people type into search engines (open 24 hours, how the app works, where the branches are, what SPOTX is) and the answers hold only facts the owner has confirmed.
-
-### Review cards
-Four white cards float around the hero phone: two rating cards (branch name, five stars cut to the rating, the score, "N Google reviews") and two quote cards (a red opening quote mark, the review word for word in the language it was written in, "Google review · branch"). 16 px radius, 1 px hairline, a soft two-layer shadow with offset, a slight tilt (1.4-2.2 degrees). Talabalar sits on the left of the phone, Yunusabad on the right; the ratings touch the phone's top corners and the quotes lie over its empty lower screen, never over the app list. In one column the quotes hang over the phone's lower edge. Red stars on a pale grey set, text at least 4.5:1. Everything shown is real: the numbers and words come from the owner's public Google listings (`site.ts`), nothing is invented, no reviewer names are shown.
 
 ### Navigation
 - **Header:** logo lockup (LONDRY, hairline divider, SPOTX), inline links in Graphite 15 px / 600, the UZ / RU / EN switch (Haze track, white active pill, 700), then the Press Red call to action. Links turn Ink Red on hover.
@@ -254,10 +257,10 @@ Wordmark drawn as vector (Montserrat ExtraBold outlines), the O replaced by the 
 - **Do** keep interactive targets at least 44 px where space allows (never below 24 px) and keep a visible focus ring (3 px, Ink; white on red and ink grounds).
 - **Do** keep high-contrast (forced colours) working: shapes made only of a filled background get a 1 px border in `a11y.css`, and the SPOTX name follows the system text colour.
 - **Do** show an honest placeholder (grey frame with a note) where a photo or logo has not been supplied, and let the real file replace it with no layout change.
-- **Do** keep the page usable without JavaScript, and animate only transform and opacity: the door swing in the hero, then the four review cards settling in as the door closes and drifting gently for four slow cycles before they rest. None of it runs with reduced motion or in data-saving (lite) mode.
+- **Do** keep the page usable without JavaScript, and animate only transform and opacity (the single door-swing in the hero).
 
 ### Don't:
-- **Don't** add gradients, gradient text, glass or blur; none exist in the approved design.
+- **Don't** add gradient text, glass, blur or gradient buttons. The only gradients are the owner's idea (2026-10-21): the red glass of the door inside the ring, and one soft red glow behind the hero phone.
 - **Don't** put a coloured stripe on one side of a card, or shadows on resting cards.
 - **Don't** use a second typeface, or Door Red for paragraphs.
 - **Don't** invent facts to fill space (prices, hours, partner names, testimonials); leave them off the page and on the to-provide list.

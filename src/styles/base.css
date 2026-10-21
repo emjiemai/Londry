@@ -204,6 +204,11 @@ strong {
   background: var(--surface);
 }
 
+/* a section that continues the white one above it: no second helping of top padding */
+.section--joined {
+  padding-top: 0;
+}
+
 .section__head {
   margin-bottom: var(--head-after, clamp(2rem, 1.2rem + 2.4vw, 2.875rem));
 }

@@ -9,6 +9,7 @@
  *   /assets/** (hashed)     cache first. File names change whenever content changes, so a saved copy is always right
  *   icons, manifest, ...    stale-while-revalidate
  *   other websites          never touched
+ *   videos (/videos/**)     never touched (they stream in pieces and can be large)
  *
  * Nothing here tracks anyone, and nothing is saved that the page did not already download.
  */
@@ -46,6 +47,8 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return
   const url = new URL(request.url)
   if (url.origin !== self.location.origin || url.pathname === '/sw.js') return
+  // Videos are streamed in pieces (Range requests) and can be large: the browser handles them, never the cache.
+  if (request.headers.has('range') || url.pathname.startsWith('/videos/')) return
 
   if (request.mode === 'navigate') {
     event.respondWith(pageStrategy(event))

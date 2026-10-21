@@ -4,6 +4,8 @@
  * (docs/TO-PROVIDE.md). Nothing here is invented.
  */
 
+import type { Locale } from './routes'
+
 export interface SiteBranch {
   id: 'talabalar' | 'yunusabad'
   /** Opens the route in Google Maps, straight to the branch. Replace with Yandex/2GIS links if you prefer. */
@@ -28,17 +30,20 @@ export interface SitePartner {
   url: string
 }
 
-/** What Google shows for one branch's public listing: the star rating and how many reviews stand behind it. */
-export interface SiteRating {
-  branch: SiteBranch['id']
-  rating: number
-  count: number
-}
-
-/** One real customer review, word for word as written on Google (the reviewer's name is not shown). */
-export interface SiteQuote {
-  branch: SiteBranch['id']
-  text: string
+/** A video of the "Videos" section. */
+export interface SiteVideo {
+  id: string
+  /**
+   * A YouTube link (youtube.com/watch?v=..., youtu.be/..., youtube.com/shorts/...), which plays in place after a tap, or a
+   * video file you host (put it in public/videos/ and write '/videos/name.mp4'; keep files small, a few MB).
+   */
+  url: string
+  /** Optional cover picture, for example '/videos/name.jpg' (a file in public/videos/). Without one the frame is plain dark. */
+  poster?: string
+  /** The title under the video, in each language. */
+  title: Record<Locale, string>
+  /** Optional captions for a video file you host: a WebVTT file per language, e.g. { uz: '/videos/name.uz.vtt' }. */
+  captions?: Partial<Record<Locale, string>>
 }
 
 export interface Site {
@@ -50,7 +55,7 @@ export interface Site {
   stores: { appStore: string; googlePlay: string }
   branches: [SiteBranch, SiteBranch]
   partners: SitePartner[]
-  reviews: { ratings: readonly [SiteRating, SiteRating]; quotes: readonly [SiteQuote, SiteQuote] }
+  videos: SiteVideo[]
 }
 
 const rawUrl = import.meta.env.VITE_SITE_URL?.trim()
@@ -98,33 +103,27 @@ export const site: Site = {
   ],
 
   /**
-   * Customer reviews floating around the phone in the first screen. Real numbers and real words, copied from the owner's
-   * public Google listings on 2026-10-17: Talabalar 4.5 stars from 32 reviews, Yunusabad 4.3 stars from 40 reviews.
-   * Nothing here is invented. When Google's numbers change, change them here; to show other quotes, swap the text.
-   */
-  reviews: {
-    ratings: [
-      { branch: 'talabalar', rating: 4.5, count: 32 },
-      { branch: 'yunusabad', rating: 4.3, count: 40 },
-    ],
-    quotes: [
-      { branch: 'talabalar', text: 'Clean self-service facility with easy instructions in English and Uzbek.' },
-      { branch: 'yunusabad', text: 'Good laundry with very kind technician manager who helped us a lot.' },
-    ],
-  },
-
-  /**
-   * Partner logos. Drop the logo files into src/assets/partners/ named partner-1.svg ... partner-6.svg
-   * (png / webp also work), then fill in the name (alt text) and an optional link here.
+   * The tiles of the "Partners" section, in order. The first four are the owner's own projects as shown on the current
+   * website: the LONDRY and SPOTX logos, the detergents photo and the training icon (pictures prepared from londry.uz).
+   * `name` is the picture's alt text (leave it empty when the caption already says it). Captions are in the dictionaries
+   * (`partners.captions`, same order).
+   * To add a real partner: drop partner-5.jpg (png, webp, avif or svg also work) into src/assets/partners/, add a line
+   * here and, if you like, a caption in the three dictionaries.
    */
   partners: [
-    { id: 'partner-1', name: '', url: '' },
-    { id: 'partner-2', name: '', url: '' },
+    { id: 'partner-1', name: 'Londry', url: '' },
+    { id: 'partner-2', name: 'SPOTX', url: '' },
     { id: 'partner-3', name: '', url: '' },
     { id: 'partner-4', name: '', url: '' },
-    { id: 'partner-5', name: '', url: '' },
-    { id: 'partner-6', name: '', url: '' },
   ],
+
+  /**
+   * Videos for the "Videos" section. None yet: the section shows three empty frames. To add one:
+   *   { id: 'how-it-works', url: 'https://www.youtube.com/watch?v=XXXXXXXXXXX',
+   *     title: { uz: '...', ru: '...', en: 'How to wash at Londry' } },
+   * Long videos are best on YouTube (free, and nothing loads until a visitor taps play).
+   */
+  videos: [],
 }
 
 /** Same in every language: it is a brand line ("no stains"), not a translation. */

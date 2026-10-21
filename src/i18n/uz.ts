@@ -18,7 +18,7 @@ export const uz: Dict = {
     home: 'Londry — bosh sahifa',
     mainNav: 'Asosiy navigatsiya',
   },
-  nav: { services: 'Xizmatlar', partners: 'Hamkorlar', locations: 'Filiallar', contact: 'Aloqa' },
+  nav: { services: 'Xizmatlar', locations: 'Filiallar', contact: 'Aloqa' },
   header: { cta: 'Ilovani yuklab olish', ctaShort: 'Yuklab olish' },
   stores: { appStoreLead: 'Yuklab olish', googlePlayLead: 'Yuklab olish', soon: 'Tez orada' },
   hero: {
@@ -52,11 +52,7 @@ export const uz: Dict = {
         'Kir yuvishni kechiktirmang, LONDRYga tashrif buyuring!',
       ],
       chips: ['Energiya tejamkor', 'Katta yuklar', 'Tez quritish'],
-      photoAlts: [
-        'Kir yuvish mashinasi barabaniga kir solayotgan qoʻl',
-        'Kir yuvish mashinasining tanga uyasiga jeton tashlayotgan qoʻl',
-        'Kir yuvish mashinasining boshqaruv panelida dastur tugmasini bosayotgan qoʻl',
-      ],
+      photoAlt: 'Londry self-service kirxonasining ichki koʻrinishi',
     },
     spotx: {
       eyebrow: 'Akva tozalash',
@@ -68,11 +64,7 @@ export const uz: Dict = {
         'Xattoki eng nozik kiyimlarga ham zarar yetkazmaslik uchun faqat **professional yuvish vositalarining** ishlatilishi;',
         'Har bir mijozga **individual yondashish**, xizmat koʻrsatishni koʻrishingiz mumkin. Biz barcha istaklarni inobatga olamiz va alohida eʼtibor qaratamiz.',
       ],
-      photoAlts: [
-        'Dogʻli kiyimlar yonida dogʻ ketkazuvchi vositalar shishalari',
-        'Kiyimdagi dogʻga dogʻ ketkazuvchi vosita surtilmoqda',
-        'Kiyimlarni tozalash va dazmollash uchun professional uskunalar: yuvish va quritish mashinasi, press va dazmol stollari',
-      ],
+      photoAlt: 'SPOTXda nozik kiyimlarni akva tozalash',
     },
   },
   partners: {

@@ -2,16 +2,17 @@
  * Photos, screenshots and logos supplied by the owner.
  *
  * HOW TO ADD ONE: drop a file named after the slot into src/assets/images/ (jpg, png, webp or avif) and rebuild.
- * It is resized to several widths and converted to AVIF + WebP + JPEG automatically, and the page shows it. Nothing else to change.
+ * It is resized to several widths and converted to AVIF + WebP + JPEG automatically, and the page shows it. Until the file
+ * exists nothing is shown in its place (no grey box). Nothing else to change.
  *
- *   hero-app         app home-screen screenshot, portrait, e.g. 1170 x 2532 px (shown inside the phone)
+ *   service-londry   photo of the laundry interior, landscape, at least 1600 x 650 px
+ *   service-spotx    photo of garment care, landscape, at least 1600 x 650 px
  *   map-talabalar    map picture for the Talabalar branch, landscape, at least 1600 x 650 px
  *   map-yunusabad    map picture for the Yunusabad branch, landscape, at least 1600 x 650 px
  *
- * The photos at the top of the two service cards go into src/assets/gallery/ (see site.ts, servicePhotos), partner pictures
- * into src/assets/partners/ as partner-1.jpg ... (jpg, png, webp, avif or svg), see site.ts.
+ * Partner pictures go into src/assets/partners/ as partner-1.jpg ... (jpg, png, webp, avif or svg), see site.ts.
  */
-export type SlotId = 'hero-app' | 'map-talabalar' | 'map-yunusabad'
+export type SlotId = 'service-londry' | 'service-spotx' | 'map-talabalar' | 'map-yunusabad'
 
 /** Shape produced by vite-imagetools with `as=picture`. */
 export interface Picture {
@@ -40,13 +41,6 @@ const partnerVectorModules = import.meta.glob<string>('./assets/partners/*.svg',
   query: '?url',
 })
 
-// The photos at the top of the service cards (site.ts, servicePhotos): the same treatment, sized for a third of a card.
-const galleryModules = import.meta.glob<Picture>('./assets/gallery/*.{png,webp,avif,jpg,jpeg}', {
-  eager: true,
-  import: 'default',
-  query: { w: '320;480;640;960', format: 'avif;webp;jpg', as: 'picture' },
-})
-
 function byBasename<T>(modules: Record<string, T>): Record<string, T> {
   return Object.fromEntries(
     Object.entries(modules).map(([path, value]) => [path.split('/').pop()!.replace(/\.[^.]+$/, ''), value]),
@@ -56,18 +50,10 @@ function byBasename<T>(modules: Record<string, T>): Record<string, T> {
 const pictures = byBasename(pictureModules)
 const partnerPictures = byBasename(partnerPictureModules)
 const partnerVectors = byBasename(partnerVectorModules)
-const galleryPictures = byBasename(galleryModules)
 
 export function getPicture(id: SlotId): Picture | undefined {
   return pictures[id]
 }
-
-export function getGalleryPicture(id: string): Picture | undefined {
-  return galleryPictures[id]
-}
-
-/** Rendered width of the app screenshot: 270px beside the headline on wide screens, 62vw when it sits below it. */
-export const HERO_APP_SIZES = '(min-width: 900px) 270px, 62vw'
 
 export type PartnerMedia = { kind: 'picture'; picture: Picture } | { kind: 'vector'; url: string }
 

@@ -83,6 +83,37 @@ test('the language switch opens the same page in another language and remembers 
   await expect(page).toHaveURL(/localhost:\d+\/$/)
 })
 
+test('the menu has Services, Locations and Contact only, and the phone screen is drawn, not downloaded', async ({ page }) => {
+  const downloaded: string[] = []
+  page.on('request', (request) => /hero-app/.test(request.url()) && downloaded.push(request.url()))
+  for (const url of ['/', '/ru/', '/en/']) {
+    await page.goto(url)
+    await expect(page.locator('.nav a'), url).toHaveCount(3)
+    await expect(page.locator('a[href$="#partners"]'), `${url}: no link to the pictures row`).toHaveCount(0)
+    const screen = page.locator('.phone__screen svg.appscreen')
+    await expect(screen, url).toHaveAttribute('role', 'img')
+    await expect(screen.locator('text', { hasText: 'KIR YUVISH MASHINASINI' }), url).toHaveCount(1)
+    await expect(page.locator('.phone img'), `${url}: no picture inside the phone`).toHaveCount(0)
+  }
+  expect(downloaded, 'the app screen must not be a downloaded picture').toEqual([])
+})
+
+test("the Terms and Privacy pages show the owner's texts from londry.uz (Uzbek, marked as Uzbek in other languages)", async ({ page }) => {
+  const cases = [
+    { url: '/en/terms/', h1: /foydalanish shartlari/, text: /8 kg dan kam kirni/ },
+    { url: '/ru/privacy/', h1: /Maxfiylik siyosati/, text: /Octo Payment Service/ },
+    { url: '/privacy/', h1: /Maxfiylik siyosati/, text: /ZRU-547-son/ },
+  ]
+  for (const { url, h1, text } of cases) {
+    await page.goto(url)
+    await expect(page.getByRole('heading', { level: 1 }), url).toHaveText(h1)
+    await expect(page.locator('.legal'), url).toContainText(text)
+    await expect(page.locator('.legal__notice'), `${url}: no "coming soon" notice`).toHaveCount(0)
+  }
+  await page.goto('/en/terms/')
+  await expect(page.locator('.legal [lang="uz"] h1')).toHaveCount(1)
+})
+
 test('the mobile menu opens, lists the sections, and closes after choosing one', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/en/')
@@ -212,30 +243,6 @@ test('Partners shows the four project pictures, with a caption in the visitor\'s
       await expect.poll(() => picture.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0), { message: `${url} picture ${i}` }).toBe(true)
     }
   }
-})
-
-test("each service card opens with the owner's photos, three pictures side by side, described in the visitor's language", async ({ page }) => {
-  const cases = [
-    { url: '/en/', first: 'A hand loads laundry into a washing machine drum', drawing: /Professional equipment/ },
-    { url: '/ru/', first: 'Рука закладывает бельё в барабан стиральной машины', drawing: /Профессиональное оборудование/ },
-    { url: '/', first: 'Kir yuvish mashinasi barabaniga kir solayotgan qoʻl', drawing: /professional uskunalar/ },
-  ]
-  for (const { url, first, drawing } of cases) {
-    await page.goto(url)
-    const cards = page.locator('#services .service')
-    await expect(cards.nth(0).locator('.service__photo'), url).toHaveCount(3)
-    await expect(cards.nth(1).locator('.service__photo'), url).toHaveCount(3)
-    await expect(cards.nth(0).locator('.service__photo img').first(), url).toHaveAttribute('alt', first)
-    await expect(cards.nth(1).locator('.service__photo img').nth(2), url).toHaveAttribute('alt', drawing)
-    const pictures = page.locator('#services .service__photo img')
-    for (let i = 0; i < 6; i++) {
-      const picture = pictures.nth(i)
-      await picture.scrollIntoViewIfNeeded()
-      await expect.poll(() => picture.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0), { message: `${url} photo ${i}` }).toBe(true)
-    }
-  }
-  // not a carousel: nothing to click, swipe or wait for
-  await expect(page.locator('#services button, #services [aria-roledescription], #services [class*="swiper"], #services [class*="slick"]')).toHaveCount(0)
 })
 
 test('the Videos section shows the seven YouTube videos of londry.uz, and a YouTube player loads only after a tap', async ({ page }) => {

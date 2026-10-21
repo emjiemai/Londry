@@ -1,5 +1,4 @@
 import { dictionaries, OG_LOCALE } from './i18n'
-import { getPicture, HERO_APP_SIZES } from './media'
 import { alternates, DEFAULT_LOCALE, LOCALES, pathFor, type Locale, type PublicPage } from './routes'
 import { site } from './site'
 
@@ -92,15 +91,6 @@ export function buildHead(locale: Locale, page: PublicPage): string {
     `<meta property="og:image:alt" content="${attr(t.meta.title)}">`,
     '<meta name="twitter:card" content="summary_large_image">',
   ]
-
-  // On wide screens the app screenshot is in the first viewport, so start fetching it right away. The media condition
-  // keeps phones (where it is below the fold) from downloading it early, and `type` skips browsers without AVIF.
-  const heroAvif = page === 'home' ? getPicture('hero-app')?.sources.avif : undefined
-  if (heroAvif) {
-    tags.push(
-      `<link rel="preload" as="image" type="image/avif" imagesrcset="${attr(heroAvif)}" imagesizes="${HERO_APP_SIZES}" media="(min-width: 900px)" fetchpriority="high">`,
-    )
-  }
 
   if (page === 'home') {
     // "<" is escaped so the JSON can never close the script tag early.

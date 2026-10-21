@@ -18,33 +18,37 @@ export function LegalPage({ page, doc }: { page: 'terms' | 'privacy'; doc: Legal
           {t.legal.back}
         </a>
 
-        <h1 className="legal__title">{doc?.title ?? fallbackTitle}</h1>
+        <div lang={doc?.lang}>
+          <h1 className="legal__title">{doc?.title ?? fallbackTitle}</h1>
 
-        {doc ? (
-          <>
-            <p className="legal__updated">
-              {t.legal.updated}: {doc.updated}
-            </p>
-            {doc.sections.map((section) => (
-              <section key={section.heading} className="legal__section">
-                <h2>{section.heading}</h2>
-                {section.blocks.map((block, index) =>
-                  typeof block === 'string' ? (
-                    <p key={index}>{block}</p>
-                  ) : (
-                    <ul key={index}>
-                      {block.list.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  ),
-                )}
-              </section>
-            ))}
-          </>
-        ) : (
-          <p className="legal__notice">{t.legal.draftNotice}</p>
-        )}
+          {doc ? (
+            <>
+              {doc.updated && (
+                <p className="legal__updated">
+                  {t.legal.updated}: {doc.updated}
+                </p>
+              )}
+              {doc.sections.map((section, sectionIndex) => (
+                <section key={section.heading ?? sectionIndex} className="legal__section">
+                  {section.heading && <h2>{section.heading}</h2>}
+                  {section.blocks.map((block, index) =>
+                    typeof block === 'string' ? (
+                      <p key={index}>{block}</p>
+                    ) : (
+                      <ul key={index}>
+                        {block.list.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    ),
+                  )}
+                </section>
+              ))}
+            </>
+          ) : (
+            <p className="legal__notice">{t.legal.draftNotice}</p>
+          )}
+        </div>
 
         <p className="legal__contact">
           {t.legal.contactLine} <a href={`tel:${site.phone.tel}`}>{site.phone.display}</a>

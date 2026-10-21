@@ -52,8 +52,7 @@ The approved comp is binding: Montserrat; red (measured `#E42A30`, shipped as `#
 - Real facts: phone, two addresses, Instagram handle, map links embedded in the PDF. From the owner's Google listings (2026-10-17): star ratings (Talabalar 4.5, Yunusabad 4.3; how many people reviewed is not shown, the owner's wish of 2026-10-21), two public review quotes, "open 24 hours", the store links and the exact branch positions.
 - Search words chosen by the owner (2026-10-20): Uzbek (Toshkentda kir yuvish, self-service kirxona Toshkent, 24 soat ochiq kirxona, akva tozalash Toshkent), Russian (прачечная самообслуживания Ташкент, круглосуточная прачечная Ташкент, аквачистка Ташкент, постирать вещи в Ташкенте), English (self-service laundry Tashkent, laundromat Tashkent, 24 hour laundry Tashkent, aqua cleaning Tashkent). Emphasis: open 24 hours, students and dormitories, the Londry app. See docs/SEO.md.
 - The wording of the two service cards (LONDRY and SPOTX) is the current londry.uz text, copied word for word in all three languages on 2026-10-21 (only typography was normalised).
-- Photos: the six pictures of the carousel on londry.uz are used (the owner asked for them, 2026-10-21) at the top of the two service cards, not as a carousel; no other photos exist yet.
-- Absent, never fabricate: real partner logos, testimonials or reviews, prices, legal text (the current site has Terms and Privacy, ask first).
+- Absent, never fabricate: photos (the current site has some, ask first), real partner logos, testimonials or reviews, prices, legal text (the current site has Terms and Privacy, ask first).
 
 ## Product Principles
 

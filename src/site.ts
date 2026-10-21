@@ -42,17 +42,6 @@ export interface SiteQuote {
   text: string
 }
 
-/** A photo at the top of a service card (the owner's own photos from londry.uz). The picture file is src/assets/gallery/<id>.jpg. */
-export interface SiteServicePhoto {
-  id: string
-  /** Where a photo is cut when its frame is narrower than the picture, as CSS object-position (the focal point). Default: the middle. */
-  position?: string
-  /** `'contain'` shows the whole picture on white instead of cutting it (for a drawing or a product shot). */
-  fit?: 'contain'
-  /** Share of the frame's width compared with the other photos of the card (default 1). */
-  weight?: number
-}
-
 /** A video of the "Videos" section. */
 export interface SiteVideo {
   id: string
@@ -80,7 +69,6 @@ export interface Site {
   stores: { appStore: string; googlePlay: string }
   branches: [SiteBranch, SiteBranch]
   partners: SitePartner[]
-  servicePhotos: { londry: SiteServicePhoto[]; spotx: SiteServicePhoto[] }
   reviews: { ratings: readonly [SiteRating, SiteRating]; quotes: readonly [SiteQuote, SiteQuote] }
   videos: SiteVideo[]
 }
@@ -144,18 +132,6 @@ export const site: Site = {
       { branch: 'talabalar', text: 'Clean self-service facility with easy instructions in English and Uzbek.' },
       { branch: 'yunusabad', text: 'Good laundry with very kind technician manager who helped us a lot.' },
     ],
-  },
-
-  /**
-   * The photos at the top of the two service cards: the six pictures of the carousel on the current londry.uz, in its order
-   * (the steps of using a self-service machine for LONDRY; spot remover and the equipment for SPOTX). The files are in
-   * src/assets/gallery/. A card with no photo whose file exists has no picture frame at all. The words that describe each photo
-   * (for screen readers and search engines) are in the dictionaries, `services.<card>.photoAlts`, in the same order.
-   * `position` is the focal point the owner set in the old carousel; the equipment drawing is shown whole.
-   */
-  servicePhotos: {
-    londry: [{ id: 'londry-1' }, { id: 'londry-2', position: '48% 20%' }, { id: 'londry-3' }],
-    spotx: [{ id: 'spotx-1', position: '41% 24%' }, { id: 'spotx-2' }, { id: 'spotx-3', fit: 'contain', weight: 1.5 }],
   },
 
   /**

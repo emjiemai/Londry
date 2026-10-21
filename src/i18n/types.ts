@@ -24,7 +24,7 @@ export interface Dict {
   languageName: string
   meta: { title: string; description: string }
   a11y: { skip: string; menu: string; language: string; home: string; mainNav: string }
-  nav: { services: string; partners: string; locations: string; contact: string }
+  nav: { services: string; locations: string; contact: string }
   /** `ctaShort` is the label in the header bar (little room); `cta` is used where there is room (mobile menu). */
   header: { cta: string; ctaShort: string }
   stores: { appStoreLead: string; googlePlayLead: string; soon: string }
@@ -51,8 +51,7 @@ export interface Dict {
       title: string
       paragraphs: readonly [string, string, string]
       chips: readonly [string, string, string]
-      /** What each photo at the top of the card shows, in the order of `site.servicePhotos` (for screen readers and search engines). */
-      photoAlts: readonly string[]
+      photoAlt: string
     }
     spotx: {
       eyebrow: string
@@ -61,7 +60,7 @@ export interface Dict {
       /** The line that introduces the numbered points (in English: With SPOTX aqua cleaning, you get). */
       pointsLead: string
       points: readonly [string, string, string]
-      photoAlts: readonly string[]
+      photoAlt: string
     }
   }
   /** `captions` are shown under the tiles, in the same order as `site.partners`. The row has no heading (the owner asked for none). */

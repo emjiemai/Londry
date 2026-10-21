@@ -16,7 +16,6 @@ export function Header({ page }: { page: PublicPage }) {
 
   const links = [
     { href: `${home}#services`, label: t.nav.services },
-    { href: `${home}#partners`, label: t.nav.partners },
     { href: `${home}#locations`, label: t.nav.locations },
     { href: `${home}#contact`, label: t.nav.contact },
   ]

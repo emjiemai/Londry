@@ -15,7 +15,7 @@ export const en: Dict = {
     home: 'Londry — home',
     mainNav: 'Main',
   },
-  nav: { services: 'Services', partners: 'Partners', locations: 'Locations', contact: 'Contact' },
+  nav: { services: 'Services', locations: 'Locations', contact: 'Contact' },
   header: { cta: 'Get the app', ctaShort: 'Get the app' },
   stores: { appStoreLead: 'Download on the', googlePlayLead: 'Get it on', soon: 'Coming soon' },
   hero: {
@@ -49,11 +49,7 @@ export const en: Dict = {
         'Don’t postpone your laundry in a long box, visit the LONDRY self-service laundry today!',
       ],
       chips: ['Energy-efficient', 'Large loads', 'Fast drying'],
-      photoAlts: [
-        'A hand loads laundry into a washing machine drum',
-        'A hand puts a token into the coin slot of a washing machine',
-        'A hand presses a program button on a washing machine control panel',
-      ],
+      photoAlt: 'Inside the Londry self-service laundry',
     },
     spotx: {
       eyebrow: 'Aqua cleaning',
@@ -65,11 +61,7 @@ export const en: Dict = {
         'Use of only **professional chemicals** that pose no threat even to the most delicate fabrics.',
         '**Full-service, individual approach** to each customer – we will consider all preferences and provide special conditions.',
       ],
-      photoAlts: [
-        'Bottles of spot remover next to stained garments',
-        'Spot remover applied to a stain on a garment',
-        'Professional equipment for cleaning and finishing garments: a washer and dryer, presses and ironing tables',
-      ],
+      photoAlt: 'Aqua cleaning of delicate clothes at SPOTX',
     },
   },
   partners: {

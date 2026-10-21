@@ -1,8 +1,7 @@
 import { useI18n } from '../i18n/context'
-import { HERO_APP_SIZES } from '../media'
+import { AppScreen } from './AppScreen'
 import { HeroReviews } from './HeroReviews'
 import { IconCheck } from './Icons'
-import { Slot } from './Slot'
 import { StoreButtons } from './StoreButtons'
 
 export function Hero() {
@@ -55,13 +54,7 @@ export function Hero() {
           </svg>
           <div className="phone">
             <div className="phone__screen">
-              <Slot
-                id="hero-app"
-                label="[APP SCREENSHOT — home screen]"
-                alt={t.hero.screenshotAlt}
-                sizes={HERO_APP_SIZES}
-                showIcon
-              />
+              <AppScreen label={t.hero.screenshotAlt} />
             </div>
           </div>
           <HeroReviews />

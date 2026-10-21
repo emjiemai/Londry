@@ -30,6 +30,12 @@ export interface Dict {
     checks: readonly [string, string, string]
     screenshotAlt: string
   }
+  /** The review cards around the phone. `count` follows the language's plural rules; `{n}` is the number of reviews. */
+  reviews: {
+    label: string
+    count: { one: string; few: string; many: string; other: string }
+    quoteSource: string
+  }
   strip: { callLabel: string; branchLabel: string; branchValue: string; followLabel: string }
   services: {
     eyebrow: string

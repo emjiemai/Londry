@@ -26,6 +26,16 @@ export const en: Dict = {
     checks: ['2 branches in Tashkent', 'Large loads, fast drying', 'Uzbek · Russian · English'],
     screenshotAlt: 'The Londry app home screen',
   },
+  reviews: {
+    label: 'Customer reviews on Google',
+    count: {
+      one: '{n} Google review',
+      few: '{n} Google reviews',
+      many: '{n} Google reviews',
+      other: '{n} Google reviews',
+    },
+    quoteSource: 'Google review',
+  },
   strip: {
     callLabel: 'Call us',
     branchLabel: 'Find a branch',

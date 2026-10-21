@@ -31,6 +31,10 @@ until it arrives. Send files in any common format; I will resize and convert the
 
 ## 2. Strongly recommended (visitors will look for these)
 
+- [ ] **Reviews around the phone.** The four cards use your real Google numbers (Talabalar 4.5 from 32 reviews, Yunusabad 4.3 from
+  40) and two real quotes, as of 2026-10-17. Tell me when the numbers change, or send other real reviews you want shown (and say
+  whether the reviewer agrees to be named; no names are shown now). I never invent reviews. → `src/site.ts`
+
 - [x] ~~**Opening hours**~~: your Google listing says "Open 24 hours" for both, so the cards say so. Tell me if that is wrong.
 - [ ] **Prices**: what a wash and a dry cost, and how SPOTX is priced. Even "from X so'm" helps.
 - [ ] **How people pay** (in the app only? Payme, Click, Uzcard, cash?).

@@ -40,7 +40,8 @@
   .cta,
   .points__number,
   .phone,
-  .phone__screen {
+  .phone__screen,
+  .review {
     border: 1px solid CanvasText;
   }
 

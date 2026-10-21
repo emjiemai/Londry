@@ -23,7 +23,7 @@ Needs Node 20.19 or newer. Browser tests use the Google Chrome that is already i
 | I want to…                                      | Edit                                                                                   |
 | ----------------------------------------------- | -------------------------------------------------------------------------------------- |
 | Change any text, or fix a translation           | `src/i18n/en.ts`, `ru.ts`, `uz.ts` (TypeScript refuses to build if the three differ)   |
-| Phone, Instagram, **store links**, branch positions and route links | `src/site.ts` (the one file with business facts) |
+| Phone, Instagram, **store links**, branch positions and route links, review numbers and quotes | `src/site.ts` (the one file with business facts) |
 | Add the laundry/SPOTX photos, or swap the app screenshot | Drop a file named after the slot into `src/assets/images/`, rebuild. Names in `src/media.ts` |
 | Move a map pin, change a map's zoom, or fix a street name on it | `scripts/maps/branches.json` and `src/site.ts`, then `npm run maps` (see below) |
 | Add partner logos                               | `src/assets/partners/partner-1.svg` … `partner-6.svg`, names in `src/site.ts`          |

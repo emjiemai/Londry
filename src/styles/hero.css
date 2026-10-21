@@ -216,6 +216,278 @@ a.store:active {
   box-shadow: none;
 }
 
+/* ---- customer reviews floating around the phone: real Google ratings and quotes (see site.ts) ---- */
+/* The cards may reach past the phone's box; anything beyond the screen edge is cut, never a sideways scroll. */
+.hero {
+  overflow-x: clip;
+}
+
+.reviews {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  pointer-events: none;
+  font-size: clamp(0.8125rem, 0.5rem + 0.55vw, 0.875rem);
+}
+
+.review {
+  position: absolute;
+  z-index: 2;
+  border: 1px solid rgb(17 17 17 / 0.06);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  box-shadow:
+    0 22px 42px -16px rgb(17 17 17 / 0.3),
+    0 6px 14px -6px rgb(17 17 17 / 0.16);
+  line-height: 1.35;
+  transform: rotate(var(--tilt, 0deg));
+}
+
+.review p,
+.review figure {
+  margin: 0;
+}
+
+/* rating card: branch, stars + number, how many reviews */
+.review--rating {
+  padding: 0.8em 1.05em 0.85em;
+  white-space: nowrap;
+}
+
+.review__branch {
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
+.review__score {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 0.3em;
+}
+
+.review__score strong {
+  font-size: 1.2em;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.review__count {
+  margin-top: 0.3em;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: var(--muted-2);
+}
+
+/* five grey stars with the same five in red on top, cut to the rating */
+.stars {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+}
+
+.stars__row {
+  display: flex;
+  color: #d9d9de;
+}
+
+.stars__row svg {
+  width: 1.05em;
+  height: 1.05em;
+  flex: none;
+}
+
+.stars__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  overflow: hidden;
+}
+
+.stars__fill .stars__row {
+  color: var(--red);
+}
+
+/* quote card: the review word for word, where it came from */
+.review--quote {
+  width: 17.5em;
+  padding: 0.9em 1.15em 1.05em;
+}
+
+.review--quote blockquote {
+  margin: 0;
+  font-size: 0.96em;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.review--quote blockquote::before {
+  content: '\201C';
+  display: block;
+  height: 0.5em;
+  margin-bottom: 0.2em;
+  font-size: 2.6em;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--red);
+}
+
+.review__source {
+  margin-top: 0.75em;
+  font-size: 0.82em;
+  font-weight: 600;
+  color: var(--muted-2);
+}
+
+/* Talabalar on the left, Yunusabad on the right; the quotes sit over the phone's empty lower screen, never over the app list. */
+.review--slot-0 {
+  --tilt: -1.6deg;
+  --in: 0.55s;
+  --drift: 7.2s;
+  top: 2%;
+  left: -10%;
+}
+
+.review--slot-1 {
+  --tilt: 1.4deg;
+  --in: 0.7s;
+  --drift: 8s;
+  top: 35%;
+  right: -4%;
+  right: calc(-1 * min(10%, 14px + max(0px, (100vw - 1180px) * 0.4)));
+}
+
+.review--slot-2 {
+  --tilt: -2.2deg;
+  --in: 0.85s;
+  --drift: 7.6s;
+  top: 58%;
+  left: -17%;
+}
+
+.review--slot-3 {
+  --tilt: 1.8deg;
+  --in: 1s;
+  --drift: 8.4s;
+  top: 75%;
+  right: -4%;
+  right: calc(-1 * min(17%, 14px + max(0px, (100vw - 1180px) * 0.4)));
+}
+
+/* They settle in as the door closes, then drift gently for a few cycles and come to rest. Compositor-only. */
+@media (prefers-reduced-motion: no-preference) {
+  .review {
+    animation:
+      review-in 0.7s var(--ease-out) var(--in, 0.6s) both,
+      review-drift var(--drift, 7.5s) ease-in-out calc(var(--in, 0.6s) + 0.7s) 4 alternate forwards;
+  }
+}
+
+@keyframes review-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96) rotate(var(--tilt, 0deg));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(var(--tilt, 0deg));
+  }
+}
+
+@keyframes review-drift {
+  from {
+    transform: translateY(0) rotate(var(--tilt, 0deg));
+  }
+
+  to {
+    transform: translateY(-7px) rotate(var(--tilt, 0deg));
+  }
+}
+
+.lite .review {
+  animation: none;
+  box-shadow: none;
+}
+
+/* 1060-1279 px and 900-1059 px: the text column is close on the left, so the left-hand cards tuck in */
+@media (min-width: 66.25em) and (max-width: 79.9375em) {
+  .review--slot-0 {
+    left: -6%;
+  }
+
+  .review--slot-2 {
+    left: -11%;
+  }
+}
+
+@media (min-width: 56.25em) and (max-width: 66.2375em) {
+  .review--slot-0 {
+    left: -3%;
+  }
+
+  .review--slot-2 {
+    left: -5.5%;
+  }
+}
+
+/* one column (tablet, phone): the phone is centred, the ratings sit at its top corners and the quotes hang over its lower edge */
+@media (max-width: 56.2375em) {
+  .hero__visual {
+    margin-bottom: clamp(3.5rem, 16vw, 5.5rem);
+  }
+
+  .reviews {
+    font-size: clamp(0.75rem, 0.55rem + 1vw, 0.875rem);
+  }
+
+  .review--quote {
+    width: 15.5em;
+  }
+
+  .review--slot-0 {
+    top: 2%;
+    left: -3%;
+  }
+
+  .review--slot-1 {
+    top: 30%;
+    right: -3%;
+  }
+
+  .review--slot-2 {
+    top: 72%;
+    left: -3%;
+  }
+
+  .review--slot-3 {
+    top: 88%;
+    right: -3%;
+  }
+}
+
+@media (max-width: 23.75rem) {
+  .hero__visual {
+    margin-bottom: 7.5rem;
+  }
+
+  /* two quotes side by side on a 320-380 px screen: each about half the width, so neither hides the other's last line */
+  .review--quote {
+    width: calc(50% + 0.5em);
+  }
+
+  .review--slot-2 {
+    top: 68%;
+  }
+
+  .review--slot-3 {
+    top: 94%;
+  }
+}
+
 /* ---- contact strip ---- */
 .strip {
   margin-top: clamp(2.5rem, 1rem + 5vw, 5.4375rem);

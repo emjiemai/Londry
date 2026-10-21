@@ -28,6 +28,19 @@ export interface SitePartner {
   url: string
 }
 
+/** What Google shows for one branch's public listing: the star rating and how many reviews stand behind it. */
+export interface SiteRating {
+  branch: SiteBranch['id']
+  rating: number
+  count: number
+}
+
+/** One real customer review, word for word as written on Google (the reviewer's name is not shown). */
+export interface SiteQuote {
+  branch: SiteBranch['id']
+  text: string
+}
+
 export interface Site {
   name: string
   url: string
@@ -37,6 +50,7 @@ export interface Site {
   stores: { appStore: string; googlePlay: string }
   branches: [SiteBranch, SiteBranch]
   partners: SitePartner[]
+  reviews: { ratings: readonly [SiteRating, SiteRating]; quotes: readonly [SiteQuote, SiteQuote] }
 }
 
 const rawUrl = import.meta.env.VITE_SITE_URL?.trim()
@@ -82,6 +96,22 @@ export const site: Site = {
       open24h: true,
     },
   ],
+
+  /**
+   * Customer reviews floating around the phone in the first screen. Real numbers and real words, copied from the owner's
+   * public Google listings on 2026-10-17: Talabalar 4.5 stars from 32 reviews, Yunusabad 4.3 stars from 40 reviews.
+   * Nothing here is invented. When Google's numbers change, change them here; to show other quotes, swap the text.
+   */
+  reviews: {
+    ratings: [
+      { branch: 'talabalar', rating: 4.5, count: 32 },
+      { branch: 'yunusabad', rating: 4.3, count: 40 },
+    ],
+    quotes: [
+      { branch: 'talabalar', text: 'Clean self-service facility with easy instructions in English and Uzbek.' },
+      { branch: 'yunusabad', text: 'Good laundry with very kind technician manager who helped us a lot.' },
+    ],
+  },
 
   /**
    * Partner logos. Drop the logo files into src/assets/partners/ named partner-1.svg ... partner-6.svg

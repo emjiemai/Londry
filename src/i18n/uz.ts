@@ -29,6 +29,16 @@ export const uz: Dict = {
     checks: ['Toshkentda 2 ta filial', 'Katta yuklar, tez quritish', 'Oʻzbek · Rus · Ingliz'],
     screenshotAlt: 'Londry ilovasining bosh ekrani',
   },
+  reviews: {
+    label: 'Mijozlarning Google’dagi sharhlari',
+    count: {
+      one: 'Google’da {n} ta sharh',
+      few: 'Google’da {n} ta sharh',
+      many: 'Google’da {n} ta sharh',
+      other: 'Google’da {n} ta sharh',
+    },
+    quoteSource: 'Google sharhi',
+  },
   strip: {
     callLabel: 'Qoʻngʻiroq qiling',
     branchLabel: 'Filialni toping',

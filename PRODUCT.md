@@ -39,7 +39,7 @@ The landing page exists to get visitors to download the app (primary action), fi
 - Static marketing site, no backend, no forms, no accounts. **(assumed)**
 - Must be fast and robust: low bandwidth, high latency, offline, low-end CPUs, small and large screens, old browsers, no-JS, data-saver.
 - Beta now; photos, partner logos, legal texts and the official logo files come later. The app screenshot, the store links and the exact branch positions have arrived.
-- Undecided, do not invent: prices, opening hours, partner names, store URLs, branch coordinates, analytics provider.
+- Undecided, do not invent: prices, partner names, analytics provider. (Opening hours, store URLs and branch positions have arrived from the owner.)
 - Hosting target is unknown **(assumed)**: output must be plain static files that work on any host.
 
 ## Brand Commitments
@@ -49,8 +49,8 @@ The approved comp is binding: Montserrat; red (measured `#E42A30`, shipped as `#
 ## Evidence on Hand
 
 - `Londry Landing.pdf`: three-page desktop comp (1440 px frame at 2x).
-- Real facts: phone, two addresses, Instagram handle, map links (`maps.google.com/?q=...`) embedded in the PDF.
-- Absent, never fabricate: photos, app screenshots, partner names/logos, store URLs, testimonials, prices, hours, legal text.
+- Real facts: phone, two addresses, Instagram handle, map links embedded in the PDF. From the owner's Google listings (2026-10-17): ratings (Talabalar 4.5 from 32 reviews, Yunusabad 4.3 from 40), two public review quotes, "open 24 hours", the store links and the exact branch positions.
+- Absent, never fabricate: photos, partner names/logos, other testimonials or reviews, prices, legal text.
 
 ## Product Principles
 

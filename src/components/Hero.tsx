@@ -1,5 +1,6 @@
 import { useI18n } from '../i18n/context'
 import { HERO_APP_SIZES } from '../media'
+import { HeroReviews } from './HeroReviews'
 import { IconCheck } from './Icons'
 import { Slot } from './Slot'
 import { StoreButtons } from './StoreButtons'
@@ -54,6 +55,7 @@ export function Hero() {
               />
             </div>
           </div>
+          <HeroReviews />
         </div>
       </div>
     </section>

@@ -195,7 +195,7 @@ Vertical rhythm inside a section follows the comp's measured values: header to c
 
 ## Elevation & Depth
 
-Flat by default. Cards separate from their ground by tone alone (white card on Haze band, Haze chip on white card, ink card on Haze band). The single floating object is the hero phone.
+Flat by default. Cards separate from their ground by tone alone (white card on Haze band, Haze chip on white card, ink card on Haze band). The floating objects are the hero phone and the four review cards around it.
 
 ### Shadow Vocabulary
 - **Phone** (`box-shadow: 0 34px 60px -14px rgb(0 0 0 / 0.26), 0 16px 28px -16px rgb(0 0 0 / 0.22)`): a wide soft pool below the device. Removed in data-saver mode.
@@ -229,6 +229,9 @@ Corners scale with the container: 8 px small controls, 10 px buttons and icon ti
 ### Map pictures
 Drawn from OpenStreetMap data with `npm run maps`, never a live embedded map (no third-party script, no cookies, identical on every device). The map is deliberately quiet: Haze ground, white roads with a pale casing, pale grey buildings, almost no colour, so the single Door Red pin (white outline, the door mark inside) with its soft red halo is the only loud thing. The street name is set by hand in Montserrat 700, uppercase, wide tracking, along the road. The OpenStreetMap credit is baked into a small chip in the corner and repeated as text under the cards.
 
+### Review cards
+Four white cards float around the hero phone: two rating cards (branch name, five stars cut to the rating, the score, "N Google reviews") and two quote cards (a red opening quote mark, the review word for word in the language it was written in, "Google review · branch"). 16 px radius, 1 px hairline, a soft two-layer shadow with offset, a slight tilt (1.4-2.2 degrees). Talabalar sits on the left of the phone, Yunusabad on the right; the ratings touch the phone's top corners and the quotes lie over its empty lower screen, never over the app list. In one column the quotes hang over the phone's lower edge. Red stars on a pale grey set, text at least 4.5:1. Everything shown is real: the numbers and words come from the owner's public Google listings (`site.ts`), nothing is invented, no reviewer names are shown.
+
 ### Navigation
 - **Header:** logo lockup (LONDRY, hairline divider, SPOTX), inline links in Graphite 15 px / 600, the UZ / RU / EN switch (Haze track, white active pill, 700), then the Press Red call to action. Links turn Ink Red on hover.
 - **Mobile:** a 44 px Haze menu button opens a full-width panel with 48 px rows, a divider per row and a full-width button. Closes on Escape, outside tap and link choice.
@@ -248,7 +251,7 @@ Wordmark drawn as vector (Montserrat ExtraBold outlines), the O replaced by the 
 - **Do** keep interactive targets at least 44 px where space allows (never below 24 px) and keep a visible focus ring (3 px, Ink; white on red and ink grounds).
 - **Do** keep high-contrast (forced colours) working: shapes made only of a filled background get a 1 px border in `a11y.css`, and the SPOTX name follows the system text colour.
 - **Do** show an honest placeholder (grey frame with a note) where a photo or logo has not been supplied, and let the real file replace it with no layout change.
-- **Do** keep the page usable without JavaScript, and animate only transform and opacity (the single door-swing in the hero).
+- **Do** keep the page usable without JavaScript, and animate only transform and opacity: the door swing in the hero, then the four review cards settling in as the door closes and drifting gently for four slow cycles before they rest. None of it runs with reduced motion or in data-saving (lite) mode.
 
 ### Don't:
 - **Don't** add gradients, gradient text, glass or blur; none exist in the approved design.

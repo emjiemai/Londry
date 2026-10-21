@@ -30,6 +30,16 @@ export const ru: Dict = {
     checks: ['2 филиала в Ташкенте', 'Большие загрузки, быстрая сушка', 'Узбекский · Русский · Английский'],
     screenshotAlt: 'Главный экран приложения Londry',
   },
+  reviews: {
+    label: 'Отзывы клиентов в\u00a0Google',
+    count: {
+      one: '{n} отзыв в\u00a0Google',
+      few: '{n} отзыва в\u00a0Google',
+      many: '{n} отзывов в\u00a0Google',
+      other: '{n} отзыва в\u00a0Google',
+    },
+    quoteSource: 'Отзыв в\u00a0Google',
+  },
   strip: {
     callLabel: 'Позвоните нам',
     branchLabel: 'Найти филиал',

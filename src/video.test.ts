@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { videoMime, youtubeId } from './video'
+import { site } from './site'
+import { videoMime, youtubeCover, youtubeId } from './video'
 
 describe('youtubeId', () => {
   const id = 'dQw4w9WgXcQ'
@@ -20,6 +21,24 @@ describe('youtubeId', () => {
     expect(youtubeId('https://www.youtube.com/watch?v=short')).toBeNull()
     expect(youtubeId('https://evil.example/watch?v=dQw4w9WgXcQ')).toBeNull()
     expect(youtubeId('')).toBeNull()
+  })
+})
+
+describe('youtubeCover', () => {
+  it('points at the cover picture YouTube keeps for every video', () => {
+    expect(youtubeCover('dQw4w9WgXcQ')).toBe('https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg')
+  })
+})
+
+describe('site.videos', () => {
+  it('lists playable videos with a title in every language and no repeated id', () => {
+    const ids = new Set<string>()
+    for (const video of site.videos) {
+      expect(ids.has(video.id), `repeated id ${video.id}`).toBe(false)
+      ids.add(video.id)
+      expect(Boolean(youtubeId(video.url)) || video.url.startsWith('/videos/'), `${video.id} is neither a YouTube link nor a file in /videos/`).toBe(true)
+      for (const locale of ['uz', 'ru', 'en'] as const) expect(video.title[locale].trim(), `${video.id} title ${locale}`).not.toBe('')
+    }
   })
 })
 

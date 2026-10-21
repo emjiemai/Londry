@@ -1,4 +1,5 @@
 import { useI18n } from '../i18n/context'
+import { getPicture } from '../media'
 import { SPOTX_TAGLINE } from '../site'
 import { Rich } from './Rich'
 import { Slot } from './Slot'
@@ -19,14 +20,17 @@ export function Services() {
 
         <div className="services">
           <article className="service">
-            <div className="service__media">
-              <Slot
-                id="service-londry"
-                label="[PHOTO — laundry interior]"
-                alt={londry.photoAlt}
-                sizes="(min-width: 900px) 590px, 100vw"
-              />
-            </div>
+            {/* The picture frame appears only once the photo file exists: no grey stand-in box meanwhile. */}
+            {getPicture('service-londry') && (
+              <div className="service__media">
+                <Slot
+                  id="service-londry"
+                  label="[PHOTO — laundry interior]"
+                  alt={londry.photoAlt}
+                  sizes="(min-width: 900px) 590px, 100vw"
+                />
+              </div>
+            )}
             <div className="service__body">
               <p className="eyebrow eyebrow--sm">{londry.eyebrow}</p>
               <h3 className="service__title service__title--londry">{londry.title}</h3>
@@ -46,14 +50,16 @@ export function Services() {
           </article>
 
           <article className="service service--dark">
-            <div className="service__media">
-              <Slot
-                id="service-spotx"
-                label="[PHOTO — SPOTX garment care]"
-                alt={spotx.photoAlt}
-                sizes="(min-width: 900px) 590px, 100vw"
-              />
-            </div>
+            {getPicture('service-spotx') && (
+              <div className="service__media">
+                <Slot
+                  id="service-spotx"
+                  label="[PHOTO — SPOTX garment care]"
+                  alt={spotx.photoAlt}
+                  sizes="(min-width: 900px) 590px, 100vw"
+                />
+              </div>
+            )}
             <div className="service__body">
               <p className="eyebrow eyebrow--sm">
                 {spotx.eyebrow} · {SPOTX_TAGLINE}

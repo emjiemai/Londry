@@ -50,10 +50,12 @@ export interface SiteVideo {
    * video file you host (put it in public/videos/ and write '/videos/name.mp4'; keep files small, a few MB).
    */
   url: string
-  /** Optional cover picture, for example '/videos/name.jpg' (a file in public/videos/). Without one the frame is plain dark. */
+  /** Optional cover picture, for example '/videos/name.jpg' (a file in public/videos/). A YouTube video uses its own YouTube cover without one. */
   poster?: string
   /** The title under the video, in each language. */
   title: Record<Locale, string>
+  /** `'review'` puts the video in the "Reviews" row under the others (customers talking about Londry). */
+  group?: 'review'
   /** Optional captions for a video file you host: a WebVTT file per language, e.g. { uz: '/videos/name.uz.vtt' }. */
   captions?: Partial<Record<Locale, string>>
 }
@@ -148,12 +150,56 @@ export const site: Site = {
   ],
 
   /**
-   * Videos for the "Videos" section. None yet: the section shows three empty frames. To add one:
-   *   { id: 'how-it-works', url: 'https://www.youtube.com/watch?v=XXXXXXXXXXX',
-   *     title: { uz: '...', ru: '...', en: 'How to wash at Londry' } },
-   * Long videos are best on YouTube (free, and nothing loads until a visitor taps play).
+   * The "Videos" section: the seven YouTube videos that are on the current londry.uz (channel "londry"), in the same order.
+   * A YouTube video shows its cover and plays in place after a tap. `group: 'review'` puts a video in the "Reviews" row.
+   * To add one, copy a line below and change the address and the titles; a small file you host in public/videos/ works too.
+   * The titles are translations of the YouTube titles ("Instruction for the self-service in LONDRY", "Instruction SPOTX",
+   * "Detergent", "training", "отзыв клиента").
    */
-  videos: [],
+  videos: [
+    {
+      id: 'londry-instruction',
+      url: 'https://www.youtube.com/watch?v=T6aH7jnUZFg',
+      title: {
+        uz: 'LONDRY self-service kirxonasi uchun yoʻriqnoma',
+        ru: 'Инструкция по прачечной самообслуживания LONDRY',
+        en: 'Instructions for the LONDRY self-service laundry',
+      },
+    },
+    {
+      id: 'spotx-instruction',
+      url: 'https://www.youtube.com/watch?v=UMhzhUCTRLQ',
+      title: { uz: 'SPOTX uchun yoʻriqnoma', ru: 'Инструкция по SPOTX', en: 'Instructions for SPOTX' },
+    },
+    {
+      id: 'detergents',
+      url: 'https://www.youtube.com/watch?v=JxV14a1zCvA',
+      title: { uz: 'Yuvish vositalari', ru: 'Моющие средства', en: 'Detergents' },
+    },
+    {
+      id: 'training',
+      url: 'https://www.youtube.com/watch?v=UNAKXZWf_aQ',
+      title: { uz: 'Trening', ru: 'Обучение', en: 'Training' },
+    },
+    {
+      id: 'review-1',
+      url: 'https://www.youtube.com/watch?v=TnLl69yJUHM',
+      group: 'review',
+      title: { uz: 'Mijoz sharhi', ru: 'Отзыв клиента', en: 'Customer review' },
+    },
+    {
+      id: 'review-2',
+      url: 'https://www.youtube.com/watch?v=1nFgTBHb83U',
+      group: 'review',
+      title: { uz: 'Mijoz sharhi', ru: 'Отзыв клиента', en: 'Customer review' },
+    },
+    {
+      id: 'review-3',
+      url: 'https://www.youtube.com/watch?v=SlDE81g_2T8',
+      group: 'review',
+      title: { uz: 'Mijoz sharhi', ru: 'Отзыв клиента', en: 'Customer review' },
+    },
+  ],
 }
 
 /** Same in every language: it is a brand line ("no stains"), not a translation. */

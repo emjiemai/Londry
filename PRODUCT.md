@@ -59,7 +59,7 @@ The approved comp is binding: Montserrat; red (measured `#E42A30`, shipped as `#
 1. Speed is a feature: the page must be usable within a couple of round trips on a weak network, and must not depend on JavaScript to be useful.
 2. One clear next step (get the app), with two quiet alternatives (find a branch, call).
 3. Three languages are equal citizens, each a real, shareable, indexable URL.
-4. Honest placeholders: unknown facts stay visibly unknown and land on the owner's to-provide list.
+4. No placeholders on the page: what is not known or not supplied yet (a photo, a video, a logo) is left out, not shown as a grey box with a note (the owner reads those as downloads that failed). It lands on the owner's to-provide list.
 5. The comp is the design; responsive layouts extend it in its own grammar and never restyle it.
 
 ## Accessibility & Inclusion

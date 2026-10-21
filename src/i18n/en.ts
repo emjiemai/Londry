@@ -65,13 +65,11 @@ export const en: Dict = {
     },
   },
   partners: {
-    eyebrow: 'Partners',
-    title: 'Working together with',
     captions: ['Self-service laundry', 'Aqua cleaning', 'Detergents', 'Training'],
   },
   videos: {
-    eyebrow: 'Videos',
-    title: 'See how it works',
+    label: 'Videos',
+    reviewsTitle: 'Reviews',
     play: 'Play video',
   },
   locations: {

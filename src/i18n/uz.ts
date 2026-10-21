@@ -68,13 +68,11 @@ export const uz: Dict = {
     },
   },
   partners: {
-    eyebrow: 'Hamkorlar',
-    title: 'Biz hamkorlik qilamiz',
     captions: ['Self-service kirxona', 'Akva tozalash', 'Yuvish vositalari', 'Trening'],
   },
   videos: {
-    eyebrow: 'Videolar',
-    title: 'Qanday ishlashini koʻring',
+    label: 'Videolar',
+    reviewsTitle: 'Mijozlar sharhlari',
     play: 'Videoni ijro etish',
   },
   locations: {

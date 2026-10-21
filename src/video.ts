@@ -16,6 +16,11 @@ export function youtubeId(url: string): string | null {
   return null
 }
 
+/** YouTube's own cover picture for a video: 480 x 360, with the video itself in the 16:9 middle part (the frame crops to it). */
+export function youtubeCover(id: string): string {
+  return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`
+}
+
 /** The file type a browser needs to know to play a video file. */
 export function videoMime(url: string): string {
   const extension = url.split(/[?#]/)[0].split('.').pop()?.toLowerCase()

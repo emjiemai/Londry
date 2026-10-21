@@ -3,7 +3,7 @@ import { dictionaries } from '../i18n'
 import { useI18n } from '../i18n/context'
 import type { Locale } from '../routes'
 import { site, type SiteVideo } from '../site'
-import { videoMime, youtubeId } from '../video'
+import { videoMime, youtubeCover, youtubeId } from '../video'
 
 /** The round play button: white disc, red triangle. Drawn, so it costs nothing to download. */
 function PlayButton() {
@@ -17,8 +17,9 @@ function PlayButton() {
 }
 
 /**
- * A YouTube video plays in place after a tap. Until then nothing from YouTube is loaded (no tracking, no weight); without
- * JavaScript the cover is simply a link to the video on YouTube.
+ * A YouTube video plays in place after a tap. Until then no YouTube player or script is loaded (no tracking, no weight): the
+ * frame shows YouTube's cover picture (one small image, loaded when the row comes near the screen), and without JavaScript the
+ * cover is simply a link to the video on YouTube.
  */
 function YouTubeVideo({ id, title, poster }: { id: string; title: string; poster?: string }) {
   const { t } = useI18n()
@@ -48,7 +49,7 @@ function YouTubeVideo({ id, title, poster }: { id: string; title: string; poster
         setPlaying(true)
       }}
     >
-      {poster && <img src={poster} alt="" loading="lazy" decoding="async" />}
+      <img src={poster ?? youtubeCover(id)} alt="" width={480} height={360} loading="lazy" decoding="async" referrerPolicy="no-referrer" />
       <PlayButton />
     </a>
   )
@@ -81,38 +82,35 @@ function Video({ video }: { video: SiteVideo }) {
   )
 }
 
-/** The Videos section. Until the owner supplies videos (site.videos) it shows three empty frames, like the other placeholders. */
+function VideoGrid({ videos }: { videos: SiteVideo[] }) {
+  return (
+    <div className="videos" data-count={videos.length}>
+      {videos.map((video) => (
+        <Video key={video.id} video={video} />
+      ))}
+    </div>
+  )
+}
+
+/**
+ * The Videos section: the owner's videos (site.videos), the how-to videos first, then a "Reviews" row with the customer videos.
+ * Nothing is written above the first row (the owner does not want words added). With no videos the section is left out.
+ */
 export function Videos() {
   const { t } = useI18n()
-  const videos = site.videos
+  const general = site.videos.filter((video) => video.group !== 'review')
+  const reviews = site.videos.filter((video) => video.group === 'review')
+  if (general.length + reviews.length === 0) return null
 
   return (
-    <section id="videos" className="section section--joined" aria-labelledby="videos-title">
+    <section id="videos" className="section section--joined" aria-label={t.videos.label}>
       <div className="container">
-        <header className="section__head section__head--center">
-          <p className="eyebrow">{t.videos.eyebrow}</p>
-          <h2 id="videos-title" className="h2">
-            {t.videos.title}
-          </h2>
-        </header>
-
-        {videos.length > 0 ? (
-          <div className="videos" data-count={videos.length}>
-            {videos.map((video) => (
-              <Video key={video.id} video={video} />
-            ))}
-          </div>
-        ) : (
-          <div className="videos" data-count="3" aria-hidden="true">
-            {[1, 2, 3].map((number) => (
-              <div key={number} className="video">
-                <div className="video__frame video__frame--empty">
-                  <PlayButton />
-                  <span>[VIDEO {number}]</span>
-                </div>
-              </div>
-            ))}
-          </div>
+        {general.length > 0 && <VideoGrid videos={general} />}
+        {reviews.length > 0 && (
+          <>
+            <h2 className="h2 videos__heading">{t.videos.reviewsTitle}</h2>
+            <VideoGrid videos={reviews} />
+          </>
         )}
       </div>
     </section>

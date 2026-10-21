@@ -175,17 +175,6 @@
   text-wrap: balance;
 }
 
-/* the grey stand-in used while a picture has not been supplied */
-.partner--empty {
-  display: grid;
-  min-height: 6.3125rem;
-  place-items: center;
-  padding: 1.25rem 0.75rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--muted);
-}
-
 /* ================= Videos ================= */
 .videos {
   display: grid;
@@ -263,26 +252,24 @@
   }
 }
 
-.video__frame--empty {
-  display: grid;
-  align-content: center;
-  justify-items: center;
-  gap: 0.875rem;
-  background: var(--ph-dark);
-  color: var(--ph-dark-ink);
-  font-size: 0.875rem;
-}
-
-.video__frame--empty .video__play {
-  opacity: 0.85;
-}
-
 .video__title {
   margin-top: 0.875rem;
   font-size: 1.0625rem;
   font-weight: 700;
   line-height: 1.35;
   text-wrap: balance;
+}
+
+/* the row of customer videos has its own heading, set well apart from the videos above it */
+.videos__heading.h2 {
+  margin-top: clamp(3.5rem, 2rem + 5vw, 5.5rem);
+  margin-bottom: clamp(1.5rem, 1rem + 1.6vw, 2rem);
+  text-align: center;
+}
+
+/* data saver and 2G: no cover pictures (a lazy picture that is not displayed is never downloaded) */
+.lite .video__cover img {
+  display: none;
 }
 
 /* ================= Locations ================= */

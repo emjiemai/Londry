@@ -2,8 +2,8 @@
  * Photos, screenshots and logos supplied by the owner.
  *
  * HOW TO ADD ONE: drop a file named after the slot into src/assets/images/ (jpg, png, webp or avif) and rebuild.
- * It is resized to several widths and converted to AVIF + WebP + JPEG automatically, and the page switches from the
- * grey placeholder to the real picture. Nothing else to change.
+ * It is resized to several widths and converted to AVIF + WebP + JPEG automatically, and the page shows it. Until the file
+ * exists nothing is shown in its place (no grey box). Nothing else to change.
  *
  *   hero-app         app home-screen screenshot, portrait, e.g. 1170 x 2532 px (shown inside the phone)
  *   service-londry   photo of the laundry interior, landscape, at least 1600 x 650 px

@@ -1,6 +1,6 @@
 # What I still need from you
 
-Tick things off as you send them. Anything marked **Blocks launch** shows as a placeholder or "Coming soon" on the site
+Tick things off as you send them. Anything marked **Blocks launch** is left out of the site (or shows "Coming soon")
 until it arrives. Send files in any common format; I will resize and convert them.
 
 > **Never paste passwords or keys into chat.** For hosting or domain access, add me as a user, or tell me and we will
@@ -11,8 +11,8 @@ until it arrives. Send files in any common format; I will resize and convert the
 - [x] ~~**App Store link** and **Google Play link**~~: received and added (`src/site.ts`). The app is already published.
 - [x] ~~**App screenshot** for the phone in the first screen~~: received and added (slot `hero-app`). I hid the phone's clock,
   notification icon and battery on the picture, nothing else was changed. A sharper original (at least 1170 × 2532 px) would be a bonus.
-- [ ] **Photo: laundry interior** (landscape, at least 1600 px wide, subject in the middle, no text on it). → slot `service-londry`
-- [ ] **Photo: SPOTX garment care** (same rules). → slot `service-spotx`
+- [ ] **Photo: laundry interior** (landscape, at least 1600 px wide, subject in the middle, no text on it). Until it arrives the card has no picture. → slot `service-londry`
+- [ ] **Photo: SPOTX garment care** (same rules; the card has no picture until it arrives). → slot `service-spotx`
 - [x] ~~**Maps for the two branches.**~~ Done from your Google screenshot: I found both positions and drew the two map pictures (see README, "The map pictures"). **Please check the two pins** (Talabalar is accurate to about 25 m): if one is off, send the Google Maps *Share* link of the exact place and I will move it. Details of the old request, kept for reference: Pick one:
   1. send the **coordinates** of both branches (right-click the pin in Google/Yandex Maps, copy the numbers), and I build
      the map picture and links; or
@@ -30,9 +30,9 @@ until it arrives. Send files in any common format; I will resize and convert the
 
 ## 2. Strongly recommended (visitors will look for these)
 
-- [ ] **Videos.** The Videos section is ready and shows three empty frames. Send YouTube links (best: free, and nothing loads until
-  a visitor taps play) or short video files (a few MB each), a title for each in Uzbek, Russian and English, and a cover picture if
-  you have one. A video with speech should have subtitles (a .vtt file per language). → `src/site.ts`, `videos`
+- [x] ~~**Videos**~~: the seven YouTube videos from your current londry.uz are in (four how-to videos and three customer reviews, same order). The covers come from YouTube;
+  a YouTube player loads only when someone taps play. The titles under them are my translations of your YouTube titles: tell me if you want other words.
+  When you add more videos on YouTube, send me the link. → `src/site.ts`, `videos`
 - [ ] **Your current website has things I can reuse. Tell me yes or no:** (a) its photos of the laundry and of SPOTX for the empty
   photo frames, (b) its Terms of Service and Privacy Policy texts for the two legal pages (a lawyer should check them anyway).
 - [ ] **Uzbek text check.** The two service cards now repeat your current website word for word. In the Uzbek text a few places look
@@ -56,8 +56,8 @@ until it arrives. Send files in any common format; I will resize and convert the
 
 - [ ] **Check the FAQ facts.** Please confirm: both branches are open 24 hours; the app steps (choose a machine and program, pay in the app, drying the same way, a washing-machine reservation holds for 10 minutes, taken from your app screenshot); and that the Talabalar branch is "in the student area, close to the dormitories". Anything wrong or missing (prices, payment methods, detergent), tell me and I fix the answers. The search words and launch steps are in `docs/SEO.md`.
 
-- [ ] **Partners heading.** The section now shows your own four projects, so "Working together with" does not fit exactly. Keep it, or
-  rename the label and heading to "Our projects" (as on your current site)? It is one line per language (`partners` in `src/i18n/*.ts`).
+- [ ] **Menu link "Hamkorlar" (Partners).** The row of four pictures has no heading now, but the menu still has the link "Partners" that jumps to it.
+  Keep it, rename it to "Our projects" (the words on your current site), or remove it?
 - [ ] **Default language** at `londry.uz/`. Now **Uzbek**; Russian is `/ru/`, English `/en/`.
 - [ ] **Small red labels above headings.** Your design has small uppercase red labels above each heading (OUR SERVICES, PARTNERS, LOCATIONS...) and numbered circles in the SPOTX card. I kept them exactly as designed; some design guidelines advise dropping such labels. Keep (default) or drop?
 - [ ] **Launch date.** On that day I switch the site from hidden to visible to Google/Yandex (one setting, `VITE_INDEXABLE`).

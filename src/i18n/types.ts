@@ -63,9 +63,10 @@ export interface Dict {
       photoAlt: string
     }
   }
-  /** `captions` are shown under the tiles, in the same order as `site.partners`. */
-  partners: { eyebrow: string; title: string; captions: readonly string[] }
-  videos: { eyebrow: string; title: string; play: string }
+  /** `captions` are shown under the tiles, in the same order as `site.partners`. The row has no heading (the owner asked for none). */
+  partners: { captions: readonly string[] }
+  /** `label` names the section for screen readers (nothing is shown above the videos); `reviewsTitle` heads the row of customer videos. */
+  videos: { label: string; reviewsTitle: string; play: string }
   locations: { eyebrow: string; title: string; directions: string; open24h: string; branches: readonly [Branch, Branch] }
   /** The questions people type into search engines, answered with facts only: open 24 hours, the app, the branches, SPOTX. */
   faq: { eyebrow: string; title: string; items: readonly [FaqItem, FaqItem, FaqItem, FaqItem] }

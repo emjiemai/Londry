@@ -204,6 +204,7 @@ test('Partners shows the four project pictures, with a caption in the visitor\'s
     await page.goto(url)
     const tiles = page.locator('#partners .partner')
     await expect(tiles, url).toHaveCount(4)
+    await expect(page.locator('#partners h2, #partners .eyebrow'), `${url}: nothing is written above the pictures`).toHaveCount(0)
     await expect(page.locator('#partners .partner__caption'), url).toHaveText(expected)
     for (let i = 0; i < 4; i++) {
       const picture = tiles.nth(i).locator('img')
@@ -213,15 +214,46 @@ test('Partners shows the four project pictures, with a caption in the visitor\'s
   }
 })
 
-test('the Videos section is there, with empty frames until videos are supplied, and loads no video', async ({ page }) => {
-  const requested: string[] = []
-  page.on('request', (request) => /\.(mp4|webm|mov|ogv)(\?|$)|youtube|ytimg|googlevideo/i.test(request.url()) && requested.push(request.url()))
+test('the Videos section shows the seven YouTube videos of londry.uz, and a YouTube player loads only after a tap', async ({ page }) => {
+  await page.route(/(youtube|ytimg|googlevideo)/, (route) => route.abort()) // nothing real is fetched while testing
+  const players: string[] = []
+  page.on('request', (request) => /youtube-nocookie\.com|googlevideo\.com/.test(request.url()) && players.push(request.url()))
+  const bundle = page.waitForResponse((response) => /\/assets\/index-.*\.js$/.test(response.url()), { timeout: 15_000 })
   await page.goto('/en/')
-  await expect(page.locator('#videos h2')).toHaveText('See how it works')
-  await expect(page.locator('#videos .video')).toHaveCount(3)
-  await expect(page.locator('#videos .videos')).toHaveAttribute('aria-hidden', 'true') // placeholders are hidden from screen readers
-  await page.locator('#videos').scrollIntoViewIfNeeded()
-  expect(requested, 'nothing from YouTube or any video file may load by itself').toEqual([])
+  await bundle
+  await page.waitForTimeout(500) // hydrated
+
+  await expect(page.locator('#videos .video')).toHaveCount(7)
+  await expect(page.locator('#videos .videos').nth(0).locator('.video')).toHaveCount(4)
+  await expect(page.locator('#videos .videos').nth(1).locator('.video')).toHaveCount(3)
+  await expect(page.locator('#videos h2')).toHaveText('Reviews') // the only words in the section besides the titles
+  await expect(page.locator('#videos .eyebrow')).toHaveCount(0)
+  await expect(page.locator('#videos .video__title').first()).toHaveText('Instructions for the LONDRY self-service laundry')
+
+  // a cover is a link to the video on YouTube; with JavaScript a tap turns it into the player
+  const cover = page.locator('#videos .video__cover').first()
+  await expect(cover).toHaveAttribute('href', 'https://www.youtube.com/watch?v=T6aH7jnUZFg')
+  await expect(page.locator('#videos iframe')).toHaveCount(0)
+  expect(players, 'no YouTube player may load before a tap').toEqual([])
+  await cover.click()
+  await expect(page.locator('#videos iframe')).toHaveCount(1)
+  await expect(page.locator('#videos iframe')).toHaveAttribute('src', /^https:\/\/www\.youtube-nocookie\.com\/embed\/T6aH7jnUZFg\?autoplay=1/)
+
+  // the titles follow the language
+  await page.goto('/ru/')
+  await expect(page.locator('#videos h2')).toHaveText('Отзывы')
+  await expect(page.locator('#videos .video__title').first()).toHaveText('Инструкция по прачечной самообслуживания LONDRY')
+  await page.goto('/')
+  await expect(page.locator('#videos h2')).toHaveText('Mijozlar sharhlari')
+})
+
+test('no grey stand-in boxes are shown: a picture or video that is not there yet is simply left out', async ({ page }) => {
+  for (const url of ['/', '/ru/', '/en/']) {
+    await page.goto(url)
+    await expect(page.locator('.slot, .partner--empty, .video__frame--empty'), url).toHaveCount(0)
+    await expect(page.locator('.service__media:not(:has(picture))'), `${url}: a picture frame without a picture`).toHaveCount(0)
+    await expect(page.locator('body'), url).not.toContainText(/\[(PHOTO|VIDEO|PARTNER|APP SCREENSHOT|MAP)/)
+  }
 })
 
 test('each branch card shows a real map picture, that it is open 24 hours, and a route link', async ({ page }) => {

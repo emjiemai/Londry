@@ -28,6 +28,14 @@ VITE_INDEXABLE=false                # BETA: hidden from Google/Yandex. Change to
 
 Whatever you choose: **HTTPS must be on**. The offline feature (service worker) only works over HTTPS.
 
+## 2b. Vercel (what `vercel.json` does)
+
+`vercel.json` gives Vercel what `public/_headers` gives Cloudflare/Netlify: the security headers, one-year caching for `/assets/*`,
+no caching for `sw.js`, addresses that end with `/`, and **permanent redirects from the old WordPress addresses** (home pages and the
+Terms and Privacy pages, which the App Store and Google Play may link to) to the new ones. Settings in the Vercel project:
+Framework "Other", build command `npm run build`, output directory `dist`. Under Settings → Environment Variables set
+`VITE_SITE_URL=https://londry.uz` and, on launch day, `VITE_INDEXABLE=true`, then redeploy (these override `.env.production`).
+
 ## 3. Point the domain
 
 At the domain registrar add the DNS records your host tells you to (Cloudflare Pages and Netlify show them).

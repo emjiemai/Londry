@@ -38,6 +38,9 @@ until it arrives. Send files in any common format; I will resize and convert the
 - [ ] **Uzbek text check.** The two service cards now repeat your current website word for word. In the Uzbek text a few places look
   like typing mistakes (for example "xollarda" for "hollarda", "Xattoki" for "Hatto", and the end of the third SPOTX point:
   "xizmat koʻrsatishni koʻrishingiz mumkin"). I did not change the words; please have a native speaker read them.
+- [ ] **Reviews around the phone.** The four cards show your real Google star ratings (Talabalar 4.5, Yunusabad 4.3) and two real
+  quotes, as of 2026-10-17. As you asked, how many people reviewed is not shown. Tell me when the ratings change, or send other real
+  reviews you want shown (and say whether the reviewer agrees to be named; no names are shown now). I never invent reviews. → `src/site.ts`
 - [x] ~~**Opening hours**~~: your Google listing says "Open 24 hours" for both, so the cards say so. Tell me if that is wrong.
 - [ ] **Prices**: what a wash and a dry cost, and how SPOTX is priced. Even "from X so'm" helps.
 - [ ] **How people pay** (in the app only? Payme, Click, Uzcard, cash?).

@@ -132,6 +132,28 @@ test('store buttons open the real stores, the closing band opens the routes, the
   await expect(page.getByRole('link', { name: /\+998 97 444 81 93/ }).first()).toHaveAttribute('href', 'tel:+998974448193')
 })
 
+test('customer review cards show the real Google ratings and quotes, but not how many people reviewed', async ({ page }) => {
+  await page.goto('/en/')
+  await expect(page.locator('.reviews .review')).toHaveCount(4)
+  const ratings = page.locator('.review--rating')
+  await expect(ratings.nth(0)).toContainText('4.5')
+  await expect(ratings.nth(0)).toContainText('Google rating')
+  await expect(ratings.nth(1)).toContainText('4.3')
+  await expect(page.locator('.review--quote').nth(0)).toContainText('easy instructions in English and Uzbek')
+  await expect(page.locator('.review--quote').nth(1)).toContainText('very kind technician manager')
+
+  // The owner does not want the number of reviewers shown (2026-10-21): no rating card may carry a number besides the score.
+  for (const url of ['/', '/ru/', '/en/']) {
+    await page.goto(url)
+    for (const card of await ratings.all()) await expect(card, url).not.toContainText(/\d{2}/)
+  }
+
+  // Russian uses the decimal comma
+  await page.goto('/ru/')
+  await expect(ratings.nth(0)).toContainText('4,5')
+  await expect(ratings.nth(1)).toContainText('4,3')
+})
+
 test('the main heading names what the page is and where, and the FAQ answers what people search for', async ({ page }) => {
   const cases = [
     { url: '/', kind: 'self-service kirxona', city: 'toshkent', first: 'Londry 24 soat ochiqmi?' },

@@ -39,7 +39,7 @@ Change the words in `src/seo.test.ts` first if you choose different keywords.
 - A sitemap and robots file that switch on at launch.
 - Fast on weak phones and slow internet (Lighthouse 100 for speed, accessibility and best practice), which Google rewards.
 - No cookies, no trackers, nothing that slows or blocks the page.
-- True content only: the 24 hours come from your own Google listings and the service texts from your current website; nothing is invented.
+- True content only: the 24 hours, the star ratings and the review quotes come from your own Google listings, and the service texts from your current website; nothing is invented.
 
 ## Launch (when you decide)
 

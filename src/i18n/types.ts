@@ -36,6 +36,12 @@ export interface Dict {
     checks: readonly [string, string, string]
     screenshotAlt: string
   }
+  /** The review cards around the phone: `rating` labels the stars on a rating card, `quoteSource` sits under a quote. No review counts. */
+  reviews: {
+    label: string
+    rating: string
+    quoteSource: string
+  }
   strip: { callLabel: string; branchLabel: string; branchValue: string; followLabel: string }
   services: {
     eyebrow: string

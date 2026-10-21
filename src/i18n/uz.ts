@@ -29,6 +29,11 @@ export const uz: Dict = {
     checks: ['Toshkentda 2 ta filial', 'Katta yuklar, tez quritish', 'Oʻzbek · Rus · Ingliz'],
     screenshotAlt: 'Londry ilovasining bosh ekrani: kir yuvish, quritish yoki mashinani band qilish',
   },
+  reviews: {
+    label: 'Mijozlarning Google’dagi sharhlari',
+    rating: 'Google reytingi',
+    quoteSource: 'Google sharhi',
+  },
   strip: {
     callLabel: 'Qoʻngʻiroq qiling',
     branchLabel: 'Filialni toping',

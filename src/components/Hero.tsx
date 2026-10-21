@@ -1,5 +1,6 @@
 import { useI18n } from '../i18n/context'
 import { HERO_APP_SIZES } from '../media'
+import { HeroReviews } from './HeroReviews'
 import { IconCheck } from './Icons'
 import { Slot } from './Slot'
 import { StoreButtons } from './StoreButtons'
@@ -46,7 +47,7 @@ export function Hero() {
             <defs>
               <linearGradient id="hero-door-glass" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0" stopColor="#e32a30" stopOpacity="0.02" />
-                <stop offset="1" stopColor="#e32a30" stopOpacity="0.34" />
+                <stop offset="1" stopColor="#e32a30" stopOpacity="0.42" />
               </linearGradient>
             </defs>
             <path className="hero__ring-tint" d="M50 5.7A44.3 44.3 0 0 1 50 94.3z" />
@@ -63,6 +64,7 @@ export function Hero() {
               />
             </div>
           </div>
+          <HeroReviews />
         </div>
       </div>
     </section>

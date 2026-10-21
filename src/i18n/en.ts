@@ -26,6 +26,11 @@ export const en: Dict = {
     checks: ['2 branches in Tashkent', 'Large loads, fast drying', 'Uzbek · Russian · English'],
     screenshotAlt: 'The Londry app home screen: wash, dry, or reserve a washing machine',
   },
+  reviews: {
+    label: 'Customer reviews on Google',
+    rating: 'Google rating',
+    quoteSource: 'Google review',
+  },
   strip: {
     callLabel: 'Call us',
     branchLabel: 'Find a branch',

@@ -30,6 +30,18 @@ export interface SitePartner {
   url: string
 }
 
+/** What Google shows for one branch's public listing: the star rating. (How many people reviewed is left out on purpose.) */
+export interface SiteRating {
+  branch: SiteBranch['id']
+  rating: number
+}
+
+/** One real customer review, word for word as written on Google (the reviewer's name is not shown). */
+export interface SiteQuote {
+  branch: SiteBranch['id']
+  text: string
+}
+
 /** A video of the "Videos" section. */
 export interface SiteVideo {
   id: string
@@ -55,6 +67,7 @@ export interface Site {
   stores: { appStore: string; googlePlay: string }
   branches: [SiteBranch, SiteBranch]
   partners: SitePartner[]
+  reviews: { ratings: readonly [SiteRating, SiteRating]; quotes: readonly [SiteQuote, SiteQuote] }
   videos: SiteVideo[]
 }
 
@@ -101,6 +114,23 @@ export const site: Site = {
       open24h: true,
     },
   ],
+
+  /**
+   * Customer reviews floating around the phone in the first screen. Real ratings and real words, copied from the owner's
+   * public Google listings on 2026-10-17: Talabalar 4.5 stars, Yunusabad 4.3 stars. How many people reviewed is not shown
+   * (the owner's wish, 2026-10-21). Nothing here is invented. When Google's ratings change, change them here; to show other
+   * quotes, swap the text.
+   */
+  reviews: {
+    ratings: [
+      { branch: 'talabalar', rating: 4.5 },
+      { branch: 'yunusabad', rating: 4.3 },
+    ],
+    quotes: [
+      { branch: 'talabalar', text: 'Clean self-service facility with easy instructions in English and Uzbek.' },
+      { branch: 'yunusabad', text: 'Good laundry with very kind technician manager who helped us a lot.' },
+    ],
+  },
 
   /**
    * The tiles of the "Partners" section, in order. The first four are the owner's own projects as shown on the current

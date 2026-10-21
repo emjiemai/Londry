@@ -30,6 +30,11 @@ export const ru: Dict = {
     checks: ['2 филиала в Ташкенте', 'Большие загрузки, быстрая сушка', 'Узбекский · Русский · Английский'],
     screenshotAlt: 'Главный экран приложения Londry: стирка, сушка или бронь стиральной машины',
   },
+  reviews: {
+    label: 'Отзывы клиентов в Google',
+    rating: 'Рейтинг в Google',
+    quoteSource: 'Отзыв в Google',
+  },
   strip: {
     callLabel: 'Позвоните нам',
     branchLabel: 'Найти филиал',

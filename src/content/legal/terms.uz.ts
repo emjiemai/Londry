@@ -8,6 +8,7 @@ export default {
       blocks: [
         'Londry kir yuvish xizmatlaridan foydalanib, siz quyidagi foydalanish shartlariga rozilik bildirasiz. Iltimos, xizmatlarimizdan foydalanishdan avval ushbu shartlarni diqqat bilan oʻqing va koʻrib chiqing.',
         {
+          numbered: true,
           list: [
             'Koʻrsatmalar: barcha mijozlar har qanday mashinani ishlatishdan oldin berilgan koʻrsatmalarni diqqat bilan oʻqib chiqishlari va ularga rioya qilishlari kerak. Bunda kir yuvish mashinasi va quritgichni toʻgʻri yuklash, toʻgʻri sozlamalarni tanlash, xavfsiz va samarali yuvish jarayonini ta’minlash kiradi.',
             'Kiyim yorliqlari: Kiyimingizdagi yorliqlarni diqqat bilan oʻqing. Turli xil matolar turli xil usulda yuvishni talab qiladi va mijoz oʻz buyumlari uchun tegishli yuvish va quritish rejimlarini tanlash uchun javobgardir.',

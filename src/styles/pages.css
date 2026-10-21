@@ -59,7 +59,8 @@
 }
 
 .legal__section p,
-.legal__section ul {
+.legal__section ul,
+.legal__section ol {
   max-width: 65ch;
   margin-top: 0.875rem;
   color: var(--ink-3);
@@ -68,6 +69,21 @@
 .legal__section ul {
   padding-left: 1.25rem;
   list-style: disc;
+}
+
+/* numbered terms: the number sits in the margin, items are long, so they get some air */
+.legal__section ol {
+  padding-left: 1.5rem;
+  list-style: decimal;
+}
+
+.legal__section ol li + li {
+  margin-top: 0.75rem;
+}
+
+.legal__section ol li::marker {
+  font-weight: 700;
+  color: var(--ink);
 }
 
 .legal__contact {

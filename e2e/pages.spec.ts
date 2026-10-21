@@ -113,6 +113,12 @@ test("the Terms and Privacy pages show the owner's own texts from londry.uz in e
     await expect(page.locator('.legal'), url).toContainText(text)
     await expect(page.locator('.legal__notice'), `${url}: no "coming soon" notice`).toHaveCount(0)
   }
+  // the terms are a numbered list (nine points), as the owner asked
+  for (const url of ['/terms/', '/ru/terms/', '/en/terms/']) {
+    await page.goto(url)
+    await expect(page.locator('.legal ol > li'), url).toHaveCount(9)
+    await expect(page.locator('.legal ol > li').first().evaluate((li) => getComputedStyle(li).listStyleType), url).resolves.toBe('decimal')
+  }
 })
 
 test('the mobile menu opens, lists the sections, and closes after choosing one', async ({ page }) => {

@@ -34,6 +34,12 @@ export function LegalPage({ page, doc }: { page: 'terms' | 'privacy'; doc: Legal
                   {section.blocks.map((block, index) =>
                     typeof block === 'string' ? (
                       <p key={index}>{block}</p>
+                    ) : block.numbered ? (
+                      <ol key={index}>
+                        {block.list.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ol>
                     ) : (
                       <ul key={index}>
                         {block.list.map((item) => (

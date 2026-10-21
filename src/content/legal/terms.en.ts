@@ -8,6 +8,7 @@ export default {
       blocks: [
         'By using the services of Londry, you agree to the following terms. Please carefully read and familiarize yourself with these terms before using our services.',
         {
+          numbered: true,
           list: [
             'Instructions: All customers must carefully read and follow the provided instructions before using any machines. This includes correctly loading the washing and drying machines, selecting the appropriate settings, and ensuring a safe and effective washing process.',
             'Clothing Labels: Please carefully review the care labels on your clothing. Different fabrics require different care, and the customer is responsible for selecting the appropriate wash and dry cycles for their items.',

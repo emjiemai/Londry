@@ -1,7 +1,7 @@
 import type { Locale } from '../../routes'
 
-/** A paragraph, or a bullet list. */
-export type LegalBlock = string | { list: string[] }
+/** A paragraph, or a list (bullets, or numbers when `numbered` is set). */
+export type LegalBlock = string | { list: string[]; numbered?: boolean }
 
 export interface LegalDoc {
   title: string

@@ -2,7 +2,7 @@ import type { LegalDoc } from './types'
 
 /** Terms of use of the self-service laundry: the text of https://londry.uz/uz/londry-oz-oziga-xizmat-korsatish-kir-yuvish-xonasidan-foydalanish-shartlari/ (Uzbek only), typography normalised. */
 export default {
-  title: '﻿[h1] Londry oʻz-oʻziga xizmat koʻrsatish kir yuvish xonasidan foydalanish shartlari',
+  title: 'Londry oʻz-oʻziga xizmat koʻrsatish kir yuvish xonasidan foydalanish shartlari',
   sections: [
     {
       blocks: [

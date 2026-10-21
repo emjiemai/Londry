@@ -29,7 +29,7 @@ Needs Node 20.19 or newer. Browser tests use the Google Chrome that is already i
 | Change or add Partners tiles                    | Pictures in `src/assets/partners/` (jpg, png, webp, avif or svg), the list in `src/site.ts`, captions in `src/i18n/*.ts` (`partners.captions`) |
 | **Add or change videos** (the Videos section)   | `src/site.ts` → `videos`: a YouTube link (the 7 videos of londry.uz are in), or a small file in `public/videos/`; `group: 'review'` puts it in the Reviews row |
 | Change the page title, the description, or the questions and answers (FAQ) | `src/i18n/uz.ts`, `ru.ts`, `en.ts` (`meta`, `faq`). Search words and launch steps: `docs/SEO.md` |
-| Change the Terms / Privacy text                 | `src/content/legal/` (the Uzbek texts of londry.uz are in; other languages show them marked as Uzbek) |
+| Change the Terms / Privacy text                 | `src/content/legal/` (the three-language texts of londry.uz are in) |
 | Colours, spacing, corner radii                  | `src/styles/tokens.css`                                                                |
 | Replace the logo with the official file         | `src/components/Logo.tsx`                                                              |
 | Share-preview picture (Telegram, Instagram…)    | `public/og-image.png` (1200 × 630)                                                     |

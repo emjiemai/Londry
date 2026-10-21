@@ -21,8 +21,10 @@ until it arrives. Send files in any common format; I will resize and convert the
   *Note: map images from Google/Yandex have attribution rules, so coordinates are the safer route.* → slots `map-talabalar`, `map-yunusabad`
 - [x] ~~**Partner pictures**~~: the four pictures from your current site (LONDRY, SPOTX, detergents, training) are in the Partners
   section, as you asked. Real partners: send their logos any time (SVG, or PNG with a transparent background) and I add them as extra tiles. → `src/assets/partners/`, `src/site.ts`
-- [x] ~~**Terms of Service and Privacy Policy**~~: the two texts from your current londry.uz are in (Uzbek only). The Russian and English pages show the
-  Uzbek text, marked as Uzbek. Do you have Russian or English versions? The App Store and Google Play need a privacy-policy address: it is `/privacy/`. → `src/content/legal/`
+- [x] ~~**Terms of Service and Privacy Policy**~~: your texts from londry.uz are in, in Uzbek, Russian and English, word for word. The App Store and
+  Google Play need a privacy-policy address: it is `https://londry.uz/privacy/` once the site is live. → `src/content/legal/`
+- [ ] **Check the Privacy Policy.** On your current site the Uzbek version is shorter than the Russian and English ones: it has no points 6 (cookies), 8, 9, 10 and 12.
+  I copied each language as it is. Please have the Uzbek one completed. Also point 6 says the site stores cookies; this new site stores none, so a lawyer should check that text.
 - [ ] **Native-speaker review of the Uzbek and Russian text**, including the new page titles, descriptions and the four questions and answers (FAQ). I drafted both from your English design, and they must be
   read by someone fluent before launch. I can send you the full text as one document.
 - [ ] **Where the site will live:** who hosts `londry.uz` today (or which host you choose) and who can change its DNS

@@ -98,11 +98,14 @@ test('the menu has Services, Locations and Contact only, and the phone screen is
   expect(downloaded, 'the app screen must not be a downloaded picture').toEqual([])
 })
 
-test("the Terms and Privacy pages show the owner's texts from londry.uz (Uzbek, marked as Uzbek in other languages)", async ({ page }) => {
+test("the Terms and Privacy pages show the owner's own texts from londry.uz in each language", async ({ page }) => {
   const cases = [
-    { url: '/en/terms/', h1: /foydalanish shartlari/, text: /8 kg dan kam kirni/ },
-    { url: '/ru/privacy/', h1: /Maxfiylik siyosati/, text: /Octo Payment Service/ },
-    { url: '/privacy/', h1: /Maxfiylik siyosati/, text: /ZRU-547-son/ },
+    { url: '/terms/', h1: 'Londry oʻz-oʻziga xizmat koʻrsatish kir yuvish xonasidan foydalanish shartlari', text: /8 kg dan kam kirni/ },
+    { url: '/ru/terms/', h1: 'Условия использования прачечной самообслуживания Londry', text: /менее 8 кг белья/ },
+    { url: '/en/terms/', h1: 'Terms of Service for Londry Self-Service Laundry', text: /less than 8 kg of laundry/ },
+    { url: '/privacy/', h1: 'Maxfiylik siyosati', text: /ZRU-547-son/ },
+    { url: '/ru/privacy/', h1: 'Политика конфиденциальности', text: /Octo Payment Service/ },
+    { url: '/en/privacy/', h1: 'Privacy Policy', text: /No\. ZRU-547/ },
   ]
   for (const { url, h1, text } of cases) {
     await page.goto(url)
@@ -110,8 +113,6 @@ test("the Terms and Privacy pages show the owner's texts from londry.uz (Uzbek, 
     await expect(page.locator('.legal'), url).toContainText(text)
     await expect(page.locator('.legal__notice'), `${url}: no "coming soon" notice`).toHaveCount(0)
   }
-  await page.goto('/en/terms/')
-  await expect(page.locator('.legal [lang="uz"] h1')).toHaveCount(1)
 })
 
 test('the mobile menu opens, lists the sections, and closes after choosing one', async ({ page }) => {

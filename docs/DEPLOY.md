@@ -92,3 +92,10 @@ server {
 - **Old version still showing**: hard-refresh once (Ctrl+F5). The service worker replaces itself on the next visit.
 - **`/ru/` gives 404**: the host is not serving folder index files; use one of the hosts above or the nginx example.
 - **Page unstyled / fonts missing**: the `assets/` folder did not upload; upload the whole `dist/` folder.
+
+## Measuring the old website (before the old hosting is cancelled)
+
+`node scripts/lighthouse-old-site.mjs` (or `... desktop`) runs Lighthouse from the terminal on the old WordPress site, which still
+lives on the old server, and writes a report next to where you run it. Only the test browser is told the old server's address; DNS is
+not touched. Result on 2026-10-22: phone speed about 56-61, desktop 71, main content after about 17 s, 6.7 MB; the new site: 99 / 100,
+1.4 s, 0.14 MB. It stops working when the old hosting is cancelled.
